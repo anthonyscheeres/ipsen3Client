@@ -4,16 +4,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    AdminComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +22,10 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
     RouterModule.forRoot(
       [
         {
+          path: 'register',
+          component:RegisterComponent
+        },
+        {
           path: '',
           component:HomeComponent
         },
@@ -29,10 +33,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
           path: "login",
           component: LoginComponent
         },
-        {
-          path: "admin",
-          component: AdminComponent
-        },
+
         // otherwise redirect to home
         { path: '**', redirectTo: '' }
       ]

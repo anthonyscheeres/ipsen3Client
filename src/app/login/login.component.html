@@ -1,29 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Login V2</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!--===============================================================================================-->
-</head>
-<body>
   <form (submit)="loginUser($event)">
-    <input type="text" placeholder="Username"
+    <input type="text" placeholder="Username">
+<br>
+      <input type="text" placeholder="Password">
+			<br>
+		<input type = "submit" value = "Submit">
 
-      <input type="text" placeholder="Password"
       </form>
-							<button class="login100-form-btn">
-								Login
-							</button>
+
 
 						<span class="txt1">
 							Don’t have an account?
 						</span>
 
-						<a class="txt2" href="#">
+						<a routerLink= "/register">
 							Sign Up
 						</a>
-
-</body>
-</html>
