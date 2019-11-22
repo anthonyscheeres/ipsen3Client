@@ -11,6 +11,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
+
+ 
+
+
+
   loginUser(event){
     const target = event.target
 
@@ -35,14 +40,21 @@ export class LoginComponent implements OnInit {
   xhr.send(data);
 
 
-  response = xhr.responseText
+  var response = xhr.responseText
   console.log(response)
-    if (!response.equals("fail")){
-      token = response
+    if (checkResponse(response)){
+      var token = response
       console.log(token)
         //verander van pagina
     }
 
     }
   }
+}
+function checkResponse(response) {
+  var result = true
+  if (response == "fail") {
+    return result
+  }
+  return result;
 }

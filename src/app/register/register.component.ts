@@ -37,10 +37,10 @@ xhr.onreadystatechange = function () {
   xhr.send(data);
 
 
-response = xhr.responseText
+var response = xhr.responseText
 console.log(response)
-    if (!response.equals("fail")){
-      //verander van pagina
+    if (response = "success"){
+      //verander hieronder van pagina
 
     }
     }
