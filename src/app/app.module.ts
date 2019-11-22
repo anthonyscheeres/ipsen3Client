@@ -7,7 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
-import { APP_BASE_HREF } from '@angular/common';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,13 +32,15 @@ import { APP_BASE_HREF } from '@angular/common';
         {
           path: "admin",
           component: AdminComponent
-        }
+        },
+        // otherwise redirect to home
+        { path: '**', redirectTo: '' }
       ]
     )
   ],
-  providers: [
-     { provide: APP_BASE_HREF, useValue : '/' }
-  ],
+  providers: [   {
+          provide: LocationStrategy, useClass: HashLocationStrategy
+      }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
