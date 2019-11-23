@@ -5,6 +5,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+
+/**
+*
+* @author Anthony Scheeres
+*
+*/
 export class LoginComponent implements OnInit {
 
   constructor() { }
@@ -17,44 +24,33 @@ export class LoginComponent implements OnInit {
 
 
   loginUser(event){
+    event.preventDefault()
     const target = event.target
 
-  const username = target.querySelector('#username').value
-  const password = target.querySelector('#password').value
+    const username = target.querySelector('#username').value
+    const password = target.querySelector('#password').value
 
-      var xhr = new XMLHttpRequest();
-      var host = "localhost"
-      var port = "8080"
-  var url = "http://" + host + ":" + port +"/user/login";
-  xhr.open("POST", url, true);
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.onreadystatechange = function () {
+    var xhr = new XMLHttpRequest();
+    var host = "localhost"
+    var port = "8080"
+    var url = "http://" + host + ":" + port + "/user/login";
 
-  var data = JSON.stringify({
-  "username" : username,
-  "password" : password,
-  "id" : null,
-  "permission" : null,
-  "email" : null
-  });
-  xhr.send(data);
+    var data = JSON.stringify({
+      "username": username,
+      "password": password,
+      "id": null,
+      "permission": null,
+      "email": null
+    });
+    console.log(data)
 
+    xhr.onreadystatechange = function () { /* .. */ };
+    xhr.open("POST", url);
+    xhr.withCredentials = true;
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(data.toString());
 
-  var response = xhr.responseText
-  console.log(response)
-    if (checkResponse(response)){
-      var token = response
-      console.log(token)
-        //verander van pagina
-    }
-
-    }
   }
 }
-function checkResponse(response) {
-  var result = true
-  if (response == "fail") {
-    return result
-  }
-  return result;
-}
+
+
