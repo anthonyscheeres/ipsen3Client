@@ -13,8 +13,18 @@ import { Component, OnInit } from '@angular/core';
 *
 */
 export class LoginComponent implements OnInit {
+  static  token: String;
+  constructor() {
 
-  constructor() { }
+  }
+
+  get token(): String {
+    return this.token;
+  }
+  set token(value: String) {
+    this.token = value;
+  }
+
 
   ngOnInit() {
   }
@@ -22,7 +32,11 @@ export class LoginComponent implements OnInit {
  
 
 
-
+/**
+*
+* @author Anthony Scheeres
+*
+*/
   loginUser(event){
     event.preventDefault()
     const target = event.target
@@ -42,14 +56,15 @@ export class LoginComponent implements OnInit {
       "permission": null,
       "email": null
     });
-    console.log(data)
+ 
 
     xhr.onreadystatechange = function () { /* .. */ };
     xhr.open("POST", url);
     xhr.withCredentials = true;
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(data.toString());
-
+    this.token = xhr.responseText;
+    console.log(this.token);
   }
 }
 
