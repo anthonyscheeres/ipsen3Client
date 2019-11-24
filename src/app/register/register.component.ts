@@ -41,11 +41,18 @@ export class RegisterComponent implements OnInit {
       "email": email
     });
  
-    xhr.onreadystatechange = function () { /* .. */ };
     xhr.open("POST", url);
     xhr.withCredentials = true;
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(data.toString());
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && xhr.status == 200) {\
+        var response = xhr.responseText;
+
+      }
+
+    }
 
   }
 }
