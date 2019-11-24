@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
     xhr.send(data.toString());
 
     xhr.onreadystatechange = function () {
-      if (xhr.readyState == 4 && xhr.status == 200) {\
+      if (xhr.readyState == 4 && xhr.status == 200) {
         var response = xhr.responseText;
 
       }
