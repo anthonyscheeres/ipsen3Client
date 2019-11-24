@@ -19,10 +19,10 @@ export class LoginComponent implements OnInit {
   }
 
   get token(): String {
-    return this.token;
+    return LoginComponent.token;
   }
   set token(value: String) {
-    this.token = value;
+    LoginComponent.token = value;
   }
 
 
@@ -57,15 +57,32 @@ export class LoginComponent implements OnInit {
       "email": null
     });
  
+    var response;
+  
 
-    xhr.onreadystatechange = function () { /* .. */ };
+
     xhr.open("POST", url);
     xhr.withCredentials = true;
     xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+    
+
     xhr.send(data.toString());
-    this.token = xhr.responseText;
-    console.log(this.token);
+
+
+
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+          response = xhr.responseText;
+        LoginComponent.token = response;
+        }
+
+      }
+    };
+
+  
   }
-}
+
 
 
