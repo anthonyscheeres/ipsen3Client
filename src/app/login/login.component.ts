@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { sendHttpRequest } from '../services/http.component';
 import { ServerModel } from '../models/ServerModel';
-import { ResponseRequest } from '../models/ResponseRequest';
 import { Router } from "@angular/router";
+import { responseR } from '../models/ResponseRequest';
 
 @Component({
   selector: 'app-login',
@@ -17,10 +17,11 @@ import { Router } from "@angular/router";
 *
 */
 export class LoginComponent implements OnInit {
-  static  token: String;
-  constructor() {
+  static token: String;
 
-  }
+  constructor(private router: Router) { }
+
+ 
 
   get token(): String {
     return LoginComponent.token;
@@ -65,18 +66,12 @@ export class LoginComponent implements OnInit {
   
     sendHttpRequest(url, data.toString()).then(response => {
       console.log("response : " + response);
-      if (response!=ResponseRequest.fail) {
+      if (response!=responseR.fail) {
         LoginComponent.token = response
         
       }
 
     });
-
-
-
-
-
-
 
     };
 
@@ -84,4 +79,6 @@ export class LoginComponent implements OnInit {
   }
 
 
-
+ export function navigateToLogin() {
+  this.router.navigateByUrl('/login');
+}

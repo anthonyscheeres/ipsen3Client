@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { sendHttpRequest } from '../services/http.component';
 import { ServerModel } from '../models/ServerModel';
+import { Router } from '@angular/router';
+import { LoginComponent, navigateToLogin } from '../login/login.component';
+import { responseR } from '../models/ResponseRequest';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +21,8 @@ import { ServerModel } from '../models/ServerModel';
 */
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+
 
   ngOnInit() {
   }
@@ -46,13 +50,15 @@ export class RegisterComponent implements OnInit {
 
     sendHttpRequest(url, data.toString()).then(response => {
       console.log("response : " + response);
-      if (response != ResponseRequest.fail) {
-       
-
+      if (response != responseR.fail) {
+        navigateToLogin();
       }
 
     });
   }
+}
+export function navigateToRegister() {
+  this.router.navigateByUrl('/register');
 }
 
 
