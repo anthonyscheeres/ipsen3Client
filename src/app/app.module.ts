@@ -15,7 +15,8 @@ import { UsersComponent } from './users/users.component';
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    UsersComponent
+    UsersComponent,
+   
   ],
   imports: [
     BrowserModule,

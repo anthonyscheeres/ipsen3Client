@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { sendHttpRequest } from '../http/http.component';
+
 
 @Component({
   selector: 'app-login',
@@ -57,28 +59,19 @@ export class LoginComponent implements OnInit {
       "email": null
     });
  
-    var response;
+ 
   
-
-
-    xhr.open("POST", url);
-    xhr.withCredentials = true;
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-    
-
-    xhr.send(data.toString());
+    sendHttpRequest(url, data.toString()).then(response => {
+      console.log("response : " + response);
+      LoginComponent.token = response
+    });
 
 
 
 
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-          response = xhr.responseText;
-        LoginComponent.token = response;
-        }
 
-      }
+
+
     };
 
   

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { sendHttpRequest } from '../http/http.component';
 
 @Component({
   selector: 'app-register',
@@ -40,19 +41,12 @@ export class RegisterComponent implements OnInit {
       "permission": null,
       "email": email
     });
- 
-    xhr.open("POST", url);
-    xhr.withCredentials = true;
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(data.toString());
 
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-        var response = xhr.responseText;
 
-      }
+    var response = sendHttpRequest(url, data.toString())
+    console.log(response)
 
-    }
+
 
   }
 }
