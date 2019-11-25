@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { sendHttpRequest } from '../services/http.component';
+import { ServerModel } from '../models/ServerModel';
 
 @Component({
   selector: 'app-register',
@@ -30,7 +31,7 @@ export class RegisterComponent implements OnInit {
     const email = target.querySelector('#email').value
 
     var xhr = new XMLHttpRequest();
-    var host = "localhost"
+    var host = ServerModel.host
     var port = "8080"
     var url = "http://" + host + ":" + port + "/user/create";
     

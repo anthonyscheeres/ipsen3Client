@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { sendHttpRequest } from '../services/http.component';
+import { ServerModel } from '../models/ServerModel';
 
 
 @Component({
@@ -47,8 +48,8 @@ export class LoginComponent implements OnInit {
     const password = target.querySelector('#password').value
 
     var xhr = new XMLHttpRequest();
-    var host = "localhost"
-    var port = "8080"
+    var host = ServerModel.host
+    var port = ServerModel.port
     var url = "http://" + host + ":" + port + "/user/login";
 
     var data = JSON.stringify({
