@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { sendHttpRequest } from '../http/http.component';
+import { sendHttpRequest } from '../services/http.component';
 
 @Component({
   selector: 'app-register',
