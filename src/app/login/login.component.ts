@@ -78,7 +78,3 @@ export class LoginComponent implements OnInit {
   
   }
 
-
- export function navigateToLogin() {
-  this.router.navigateByUrl('/login');
-}

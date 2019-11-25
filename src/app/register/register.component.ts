@@ -51,14 +51,11 @@ export class RegisterComponent implements OnInit {
     sendHttpRequest(url, data.toString()).then(response => {
       console.log("response : " + response);
       if (response != responseR.fail) {
-        navigateToLogin();
+     
       }
 
     });
   }
-}
-export function navigateToRegister() {
-  this.router.navigateByUrl('/register');
 }
 
 
