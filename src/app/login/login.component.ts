@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { sendHttpRequest } from '../services/http.component';
 import { ServerModel } from '../models/ServerModel';
-
+import { ResponseRequest } from '../models/ResponseRequest';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -64,7 +65,11 @@ export class LoginComponent implements OnInit {
   
     sendHttpRequest(url, data.toString()).then(response => {
       console.log("response : " + response);
-      LoginComponent.token = response
+      if (response!=ResponseRequest.fail) {
+        LoginComponent.token = response
+        
+      }
+
     });
 
 

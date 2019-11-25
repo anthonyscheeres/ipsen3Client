@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
 
     var xhr = new XMLHttpRequest();
     var host = ServerModel.host
-    var port = "8080"
+    var port = ServerModel.port
     var url = "http://" + host + ":" + port + "/user/create";
     
     var data = JSON.stringify({
@@ -44,11 +44,14 @@ export class RegisterComponent implements OnInit {
     });
 
 
-    var response = sendHttpRequest(url, data.toString())
-    console.log(response)
+    sendHttpRequest(url, data.toString()).then(response => {
+      console.log("response : " + response);
+      if (response != ResponseRequest.fail) {
+       
 
+      }
 
-
+    });
   }
 }
 
