@@ -3,6 +3,7 @@ import { sendHttpRequest } from '../services/http.component';
 import { ServerModel } from '../models/ServerModel';
 import { Router } from "@angular/router";
 import { responseR } from '../models/ResponseRequest';
+import { AccountModel } from '../models/AccountModel';
 
 @Component({
   selector: 'app-login',
@@ -49,7 +50,6 @@ export class LoginComponent implements OnInit {
     const username = target.querySelector('#username').value
     const password = target.querySelector('#password').value
 
-    var xhr = new XMLHttpRequest();
     var host = ServerModel.host
     var port = ServerModel.port
     var url = "http://" + host + ":" + port + "/user/login";
@@ -67,7 +67,7 @@ export class LoginComponent implements OnInit {
     sendHttpRequest(url, data.toString()).then(response => {
       console.log("response : " + response);
       if (response!=responseR.fail) {
-        LoginComponent.token = response
+        AccountModel.token = response
         
       }
 

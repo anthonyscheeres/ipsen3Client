@@ -20,7 +20,7 @@ import { responseR } from '../models/ResponseRequest';
 */
 export class RegisterComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor() { }
 
 
   ngOnInit() {
@@ -33,7 +33,6 @@ export class RegisterComponent implements OnInit {
     const password = target.querySelector('#password').value
     const email = target.querySelector('#email').value
 
-    var xhr = new XMLHttpRequest();
     var host = ServerModel.host
     var port = ServerModel.port
     var url = "http://" + host + ":" + port + "/user/create";

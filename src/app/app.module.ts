@@ -36,6 +36,10 @@ import { UsersComponent } from './users/users.component';
           path: "login",
           component: LoginComponent
         },
+        {
+          path: "users",
+          component: UsersComponent
+        },
 
         // otherwise redirect to home
         { path: '**', redirectTo: '' }
