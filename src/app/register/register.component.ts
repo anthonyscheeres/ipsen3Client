@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { sendHttpRequest } from '../services/http.component';
 import { ServerModel } from '../models/ServerModel';
 import { Router } from '@angular/router';
-import { LoginComponent, navigateToLogin } from '../login/login.component';
 import { responseR } from '../models/ResponseRequest';
 
 @Component({
