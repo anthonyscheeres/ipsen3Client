@@ -12,20 +12,5 @@ export class ServerModel {
 
   }
 
-  get host(): String {
-    return ServerModel.host;
-  }
-  set host(value: String) {
-    ServerModel.host = value;
-  }
-
-  get port(): String {
-    return ServerModel.port;
-  }
-  set port(value: String) {
-    ServerModel.port = value;
-  }
-
-
 
 }

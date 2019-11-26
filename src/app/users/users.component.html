@@ -1,1 +1,12 @@
-<app-users *ngFor = "let user of users"></app-users>
+<ul>
+  <li ng-repeat="item in itemsDetails; let i = index" (click)="clickedItemIndex(i)"> {{item.username}} </li>
+  <li> {{item.permission}} </li>
+</ul>
+
+<button (click)="removeUser">Verwijder gebruiker</button>
+
+<button (click)="giveRead">Geef leesrechten</button>
+
+<button (click)="giveWrite">Geef schrijfrechten</button>
+
+<button (click)="giveDelete">Geef verwijderrechten</button>

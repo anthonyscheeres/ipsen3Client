@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { sendHttpRequest } from '../services/http.component';
+import { sendHttpGetRequest } from '../services/http.component';
 import { LoginComponent } from '../login/login.component';
 import { ServerModel } from '../models/ServerModel';
 
@@ -9,8 +9,8 @@ import { ServerModel } from '../models/ServerModel';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  static users: Array<string>;
-
+  static itemsDetails
+    static currentSelected: Number = null;
 
 
  
@@ -19,29 +19,26 @@ export class UsersComponent implements OnInit {
 
     var host = ServerModel.host
     var port = ServerModel.port
-    var url = "http://" + host + ":" + port + "/user/login";
+    var url = "http://" + host + ":" + port + "/user/show";
 
-    var data =null
+  
 
 
 
-    sendHttpRequest(url, data.toString()).then(response => {
+
+    sendHttpGetRequest(url).then(response => {
       console.log("response : " + response);
-   
-      UsersComponent.users = JSON.parse(response)
-
-      
-
+      UsersComponent.itemsDetails = JSON.parse(response)
+ 
     });
 
   }
 
-  get users(): Array<string> {
-    return UsersComponent.users;
+  clickedItemIndex(i) {
+    UsersComponent.currentSelected = i 
   }
-  set host(value) {
-    UsersComponent.users = value;
-  }
+
+  
 
  
 

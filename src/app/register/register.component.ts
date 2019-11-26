@@ -25,6 +25,13 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
   }
+
+
+/**
+*
+* @author Anthony Scheeres
+*
+*/
   registerUser(event) {
     event.preventDefault()
     const target = event.target

@@ -7,8 +7,8 @@
     "\\src\\app\\login",
     "\\src\\app\\models",
     "\\src\\app\\register",
-    "\\src\\app\\services"
+    "\\src\\app\\users"
   ],
-  "SelectedNode": "\\src\\app\\models\\ResponseRequest.ts",
+  "SelectedNode": "\\src\\app\\users\\users.component.ts",
   "PreviewInSolutionExplorer": false
 }

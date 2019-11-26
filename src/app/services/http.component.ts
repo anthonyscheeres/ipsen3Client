@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProtocolR } from '../models/Protocol';
 
 
 
@@ -12,6 +13,43 @@ export function sendHttpRequest(url: string, data: string) {
 }
 
 
+
+/**
+*
+* @author Anthony Scheeres
+*
+*/
+export function sendHttpGetRequest(url: string) {
+  return waitForResponseGet(url)
+}
+
+
+/**
+*
+* @author Anthony Scheeres
+*
+*/
+async function waitForResponseGet(url: string) {
+  var response = await fetchJsonGet(url)
+  return response
+}
+
+
+
+/**
+*
+* @author Anthony Scheeres
+*
+*/
+async function fetchJsonGet(url) {
+  var content: string = null;
+  const rawResponse = await fetch(url, {
+    method: ProtocolR.GET,
+  });
+  content = await rawResponse.text();
+  console.log(content)
+  return content;
+}
 
 /**
 *
@@ -33,7 +71,7 @@ async function waitForResponse(url : string, data : string){
 async function fetchJson(url : string, data: string) {
   var content: string = null;
   const rawResponse = await fetch(url, {
-    method: 'POST',
+    method: ProtocolR.POST,
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
