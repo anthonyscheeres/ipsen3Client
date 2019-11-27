@@ -20,7 +20,7 @@ import { AccountModel } from '../models/AccountModel';
 export class LoginComponent implements OnInit {
   static token: String;
 
-  constructor(private router: Router) { }
+  constructor(private _router: Router) { }
 
  
 
