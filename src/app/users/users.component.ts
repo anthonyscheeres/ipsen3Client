@@ -10,18 +10,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  static itemsDetails
+  dataFromServer: any = loadUsers();
     static currentSelected: Number = null;
-
+  customHeaders: any = {
+    thead: ['CUSTOM NAME 1', 'SOME COOL NAME', 'ANOTHER NAME'], // the Column Name in table head.
+    displayed: ['someFeild1', 'someFeild2', 'someFeild3'] // the data it should populate in table.
+  };
 
  
 
   constructor(private _router: Router) { }
 
-  clickedItemIndex(i) {
-    UsersComponent.currentSelected = i 
+  deleteByIdS(ids) {
+    console.log(ids); // this function gives the ID of deleted rows.. as an array
   }
 
+  updateChanges(row) {
+    console.log(row); // This return the row which is updated with the id.
+  }
 
 
  
@@ -45,7 +51,7 @@ function loadUsers() {
 
   sendHttpGetRequest(url).then(response => {
     console.log("response : " + response);
-    UsersComponent.itemsDetails = JSON.parse(response)
+    return response;
 
   });
 } 

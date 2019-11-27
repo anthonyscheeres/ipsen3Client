@@ -1,7 +1,8 @@
-<ul>
-  <li ng-repeat="item in itemsDetails; let i = index" (click)="clickedItemIndex(i)"> {{item.username}} </li>
-  <li> {{item.permission}} </li>
-</ul>
+<json-table [dataSource]="dataFromServer"
+            [headers]="customHeaders"
+            [update]="true/false"
+            (deleteRow)="deleteByIdS($event)"
+            (updateRow)="updateChanges($event)"></json-table>
 
 <button (click)="removeUser">Verwijder gebruiker</button>
 

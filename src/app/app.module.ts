@@ -9,6 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { RegisterComponent } from './register/register.component';
 import { UsersComponent } from './users/users.component';
+import { JSONTableModule } from 'angular-json-table';  // import the Module.
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +23,7 @@ import { UsersComponent } from './users/users.component';
   ],
   imports: [
     BrowserModule,
+    JSONTableModule, // Add the JSONTableModule
     HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot(
