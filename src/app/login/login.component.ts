@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { sendHttpRequest } from '../services/http.component';
+import { sendHttpPostRequest } from '../services/http.component';
 import { ServerModel } from '../models/ServerModel';
 import { Router } from "@angular/router";
 import { responseR } from '../models/ResponseRequest';
@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
  
  
   
-    sendHttpRequest(url, data.toString()).then(response => {
+    sendHttpPostRequest(url, data.toString()).then(response => {
       console.log("response : " + response);
       if (response!=responseR.fail) {
         AccountModel.token = response

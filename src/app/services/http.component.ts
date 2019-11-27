@@ -8,7 +8,7 @@ import { ProtocolR } from '../models/Protocol';
 * @author Anthony Scheeres
 *
 */
-export function sendHttpRequest(url: string, data: string) {
+export function sendHttpPostRequest(url: string, data: string) {
   return waitForResponse(url, data)
 }
 

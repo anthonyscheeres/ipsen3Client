@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { sendHttpRequest } from '../services/http.component';
+import { sendHttpPostRequest } from '../services/http.component';
 import { ServerModel } from '../models/ServerModel';
 import { Router } from '@angular/router';
 import { responseR } from '../models/ResponseRequest';
@@ -20,8 +20,7 @@ import { responseR } from '../models/ResponseRequest';
 */
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private _router: Router) { }
 
   ngOnInit() {
   }
@@ -42,7 +41,7 @@ export class RegisterComponent implements OnInit {
 
     var host = ServerModel.host
     var port = ServerModel.port
-    var url = "http://" + host + ":" + port + "/user/create";
+    var urlToServer = "http://" + host + ":" + port + "/user/create";
     
     var data = JSON.stringify({
       "username": username,
@@ -53,10 +52,10 @@ export class RegisterComponent implements OnInit {
     });
 
 
-    sendHttpRequest(url, data.toString()).then(response => {
+    sendHttpPostRequest(urlToServer, data.toString()).then(response => {
       console.log("response : " + response);
       if (response != responseR.fail) {
-     
+        this._router.navigate(['/login']);
       }
 
     });
