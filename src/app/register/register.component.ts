@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { sendHttpPostRequest } from '../services/http.component';
-import { ServerModel } from '../models/ServerModel';
-import { Router } from '@angular/router';
-import { responseR } from '../models/ResponseRequest';
+import { sendHttpRequest } from '../services/http.component';
 
 @Component({
   selector: 'app-register',
@@ -20,17 +17,10 @@ import { responseR } from '../models/ResponseRequest';
 */
 export class RegisterComponent implements OnInit {
 
-  constructor(private _router: Router) { }
+  constructor() { }
 
   ngOnInit() {
   }
-
-
-/**
-*
-* @author Anthony Scheeres
-*
-*/
   registerUser(event) {
     event.preventDefault()
     const target = event.target
@@ -39,9 +29,10 @@ export class RegisterComponent implements OnInit {
     const password = target.querySelector('#password').value
     const email = target.querySelector('#email').value
 
-    var host = ServerModel.host
-    var port = ServerModel.port
-    var urlToServer = "http://" + host + ":" + port + "/user/create";
+    var xhr = new XMLHttpRequest();
+    var host = "localhost"
+    var port = "8080"
+    var url = "http://" + host + ":" + port + "/user/create";
     
     var data = JSON.stringify({
       "username": username,
@@ -52,13 +43,11 @@ export class RegisterComponent implements OnInit {
     });
 
 
-    sendHttpPostRequest(urlToServer, data.toString()).then(response => {
-      console.log("response : " + response);
-      if (response != responseR.fail) {
-        this._router.navigate(['/login']);
-      }
+    var response = sendHttpRequest(url, data.toString())
+    console.log(response)
 
-    });
+
+
   }
 }
 

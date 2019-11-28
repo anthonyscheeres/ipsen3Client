@@ -1,18 +1,41 @@
 
-  <form (submit)="loginUser($event)">
-    <input type="text" placeholder="Username" id = "username">
-<br>
-      <input type="text" placeholder="Password" id = "password">
-			<br>
-		<input type = "submit" value = "Submit">
 
-      </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login V2</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
 
 
-						<span class="txt1">
-							Don’t have an account?
-						</span>
+  <div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100">
+        <h1>Login</h1>
+        <img  src="../favicon.ico">
 
-						<a routerLink= "/register">
-							Sign Up
-						</a>
+        <form class="login100-form validate-form" (submit)="loginUser($event)">
+          <input type="text" placeholder="Username" id="username">
+          <br>
+          <input type="text" placeholder="Password" id="password">
+          <br>
+          <input class ="button" type="submit" value="Login">
+
+        </form>
+        <span class="txt1">
+          Don’t have an account?
+        </span>
+
+        <a routerLink="/register">
+          Sign Up
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  </body>
+</html>
