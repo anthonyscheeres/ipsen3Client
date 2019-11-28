@@ -42,7 +42,7 @@ export class UsersComponent implements OnInit {
 function loadUsers() {
   var host = ServerModel.host
   var port = ServerModel.port
-  var url = "http://" + host + ":" + port + "/user/show";
+  var url = "http://" + host + ":" + port + "/user/showAllUsers";
 
 
 
