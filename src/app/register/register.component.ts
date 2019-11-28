@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { sendHttpRequest } from '../services/http.component';
+import { sendHttpPostRequest } from '../services/http.component';
 
 @Component({
   selector: 'app-register',
@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
     });
 
 
-    var response = sendHttpRequest(url, data.toString())
+    var response = sendHttpPostRequest(url, data.toString())
     console.log(response)
 
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { sendHttpRequest } from '../services/http.component';
+import { sendHttpPostRequest } from '../services/http.component';
 
 
 @Component({
@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
  
  
   
-    sendHttpRequest(url, data.toString()).then(response => {
+    sendHttpPostRequest(url, data.toString()).then(response => {
       console.log("response : " + response);
       LoginComponent.token = response
     });
