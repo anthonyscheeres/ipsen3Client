@@ -1,0 +1,13 @@
+<json-table [dataSource]="dataFromServer"
+            [headers]="customHeaders"
+            [update]="true/false"
+            (deleteRow)="deleteByIdS($event)"
+            (updateRow)="updateChanges($event)"></json-table>
+
+<button (click)="removeUser">Verwijder gebruiker</button>
+
+<button (click)="giveRead">Geef leesrechten</button>
+
+<button (click)="giveWrite">Geef schrijfrechten</button>
+
+<button (click)="giveDelete">Geef verwijderrechten</button>
