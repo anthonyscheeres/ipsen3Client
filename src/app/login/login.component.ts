@@ -15,17 +15,10 @@ import { sendHttpPostRequest } from '../services/http.component';
 *
 */
 export class LoginComponent implements OnInit {
-  static  token: String;
   constructor() {
 
   }
 
-  get token(): String {
-    return LoginComponent.token;
-  }
-  set token(value: String) {
-    LoginComponent.token = value;
-  }
 
 
   ngOnInit() {

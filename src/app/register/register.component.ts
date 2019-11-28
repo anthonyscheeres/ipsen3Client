@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
     var xhr = new XMLHttpRequest();
     var host = "localhost"
     var port = "8080"
-    var url = "http://" + host + ":" + port + "/user/create";
+    var url = "http://" + host + ":" + port + "/user/createUser";
     
     var data = JSON.stringify({
       "username": username,
