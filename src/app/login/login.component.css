@@ -21,6 +21,7 @@ label {
 
 h1{
   text-align:center;
+  margin-bottom:2ex;
 }
 
 
@@ -62,10 +63,7 @@ form {
 }
 
 
-img{
-  margin-bottom: 5ex;
-  align-content:center;
-}
+
 
 .wrap-login100 {
   border-radius: 3px;
