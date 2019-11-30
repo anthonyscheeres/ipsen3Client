@@ -11,17 +11,20 @@ import { loadUsers } from '../services/user';
 })
 export class UsersComponent implements OnInit {
   dataFromServer: any = loadUsers();
-    static currentSelected: Number = null;
+  static currentSelected: Number = null;
 
   constructor(private _router: Router) { }
 
- 
 
-  ngOnInit() {
-    loadUsers()
+
+  async ngOnInit() {
+    await loadUsers().then(r => {
+      this.dataFromServer = r
+    });
+
+
+
   }
 
 
 }
-
-  

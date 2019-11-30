@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AccountModel } from '../models/AccountModel';
 import { login } from '../services/user';
 import { responseR } from '../models/ResponseRequest';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,9 +18,7 @@ import { responseR } from '../models/ResponseRequest';
 *
 */
 export class LoginComponent implements OnInit {
-  constructor() {
-
-  }
+  constructor(private _router: Router) { }
 
 
 
@@ -41,20 +40,7 @@ export class LoginComponent implements OnInit {
     const username = target.querySelector('#username').value
     const password = target.querySelector('#password').value
 
-    var xhr = new XMLHttpRequest();
-    var host = "localhost"
-    var port = "8080"
-    var url = "http://" + host + ":" + port + "/user/login";
 
-    var data = JSON.stringify({
-      "username": username,
-      "password": password,
-      "id": null,
-      "permission": null,
-      "email": null
-    });
- 
- 
   
     await login(username, password).then(response => {
      
