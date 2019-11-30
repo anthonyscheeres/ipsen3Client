@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { sendHttpPostRequest } from '../services/http.component';
+import { register } from '../services/user';
 
 @Component({
   selector: 'app-register',
@@ -21,33 +21,16 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
   }
-  registerUser(event) {
+  async registerUser(event) {
     event.preventDefault()
     const target = event.target
 
     const username = target.querySelector('#username').value
     const password = target.querySelector('#password').value
     const email = target.querySelector('#email').value
+    await register(username, password, email)
 
-    var xhr = new XMLHttpRequest();
-    var host = "localhost"
-    var port = "8080"
-    var url = "http://" + host + ":" + port + "/user/createUser";
-    
-    var data = JSON.stringify({
-      "username": username,
-      "password": password,
-      "id": null,
-      "permission": null,
-      "email": email
-    });
-
-
-    var response = sendHttpPostRequest(url, data.toString())
-    console.log(response)
-
-
-
+   
   }
 }
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { sendHttpPostRequest } from '../services/http.component';
+import { AccountModel } from '../models/AccountModel';
+import { login } from '../services/user';
+import { responseR } from '../models/ResponseRequest';
 
 
 @Component({
@@ -32,7 +34,7 @@ export class LoginComponent implements OnInit {
 * @author Anthony Scheeres
 *
 */
-  loginUser(event){
+  async loginUser(event){
     event.preventDefault()
     const target = event.target
 
@@ -54,9 +56,12 @@ export class LoginComponent implements OnInit {
  
  
   
-    sendHttpPostRequest(url, data.toString()).then(response => {
-      console.log("response : " + response);
-      LoginComponent.token = response
+    await login(username, password).then(response => {
+     
+      if (response != responseR.fail) {
+        AccountModel.token = response
+
+      }
     });
 
 
