@@ -1,0 +1,16 @@
+
+
+
+<tr *ngFor='let value of dataFromServer; trackBy: index;' ng-click="setSelected(vote.id)" ng-class="{selected: vote.id === idSelectedVote}">
+  <td>{{ value.username }}</td>
+  <td>{{ value.permission }}</td>
+</tr>
+
+<br>
+<button (click)="removeUser">Verwijder gebruiker</button>
+
+<button (click)="giveRead">Geef leesrechten</button>
+
+<button (click)="giveWrite">Geef schrijfrechten</button>
+
+<button (click)="giveDelete">Geef verwijderrechten</button>
