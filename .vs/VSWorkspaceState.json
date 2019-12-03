@@ -3,11 +3,8 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\login",
-    "\\src\\app\\register",
-    "\\src\\app\\services",
-    "\\src\\app\\users"
+    "\\src\\app\\login-form"
   ],
-  "SelectedNode": "\\src\\app\\services\\user.ts",
+  "SelectedNode": "\\src\\app\\login-form\\login-form.component.css",
   "PreviewInSolutionExplorer": false
 }

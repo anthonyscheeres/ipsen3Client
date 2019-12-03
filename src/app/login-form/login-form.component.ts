@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AccountModel } from '../models/AccountModel';
 import { login } from '../services/user';
 import { responseR } from '../models/ResponseRequest';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -10,8 +11,7 @@ import { responseR } from '../models/ResponseRequest';
   encapsulation: ViewEncapsulation.None
 })
 export class LoginFormComponent implements OnInit {
-
-  constructor() { }
+  constructor(private _router: Router) { }
 
   ngOnInit() {
   }
