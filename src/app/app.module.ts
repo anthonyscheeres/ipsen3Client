@@ -9,7 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { RegisterComponent } from './register/register.component';
 import { UsersComponent } from './users/users.component';
-import { JSONTableModule } from 'angular-json-table';  // import the Module.
+import { JSONTableModule } from 'angular-json-table';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { LoginFormComponent } from './login-form/login-form.component';  // import the Module.
 
 
 @NgModule({
@@ -19,6 +21,8 @@ import { JSONTableModule } from 'angular-json-table';  // import the Module.
     HomeComponent,
     RegisterComponent,
     UsersComponent,
+    NavigationBarComponent,
+    LoginFormComponent,
    
   ],
   imports: [
