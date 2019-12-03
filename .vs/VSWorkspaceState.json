@@ -3,8 +3,8 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\login-form"
+    "\\src\\app\\navigation-bar"
   ],
-  "SelectedNode": "\\src\\app\\login-form\\login-form.component.css",
+  "SelectedNode": "\\src\\app\\navigation-bar\\navigation-bar.component.html",
   "PreviewInSolutionExplorer": false
 }

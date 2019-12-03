@@ -11,7 +11,8 @@ import { RegisterComponent } from './register/register.component';
 import { UsersComponent } from './users/users.component';
 import { JSONTableModule } from 'angular-json-table';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
-import { LoginFormComponent } from './login-form/login-form.component';  // import the Module.
+import { LoginFormComponent } from './login-form/login-form.component';
+import { RegisterFormComponent } from './register-form/register-form.component';  // import the Module.
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { LoginFormComponent } from './login-form/login-form.component';  // impo
     UsersComponent,
     NavigationBarComponent,
     LoginFormComponent,
+    RegisterFormComponent,
    
   ],
   imports: [
