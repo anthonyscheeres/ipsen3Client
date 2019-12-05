@@ -23,7 +23,7 @@ export class ExperimentListComponent implements OnInit {
       getExperiments())
       .subscribe(
       responseData => {
-        this.dataFromServer = responseData
+        this.dataFromServer = responseData;
         console.log(responseData);
       }
     )

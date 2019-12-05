@@ -3,6 +3,8 @@ import { LoginComponent } from '../login/login.component';
 import { ServerModel } from '../models/ServerModel';
 import { Router } from '@angular/router';
 import { loadUsers } from '../services/user';
+import { HttpClient } from "@angular/common/http";
+import {UserModel} from "../models/UserModel";
 
 @Component({
   selector: 'app-users',
@@ -13,7 +15,7 @@ export class UsersComponent implements OnInit {
   dataFromServer: any = loadUsers();
   static currentSelected: Number = null;
 
-  constructor(private _router: Router) { }
+  constructor(private _router: Router, private http: HttpClient) { }
 
   onDeleteUser() {
 
@@ -32,9 +34,14 @@ export class UsersComponent implements OnInit {
   }
 
   async ngOnInit() {
-    await loadUsers().then(r => {
-      this.dataFromServer = r
-    });
+    this.http.get<UserModel[]>(loadUsers())
+      .subscribe(
+        responseData => {
+          this.dataFromServer = responseData;
+          console.log(responseData);
+        }
+      )
+
 
   }
 

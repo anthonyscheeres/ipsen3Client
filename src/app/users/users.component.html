@@ -8,9 +8,9 @@
     </thead>
     <tbody>
 
-    <tr>
-      <td>Test</td>
-      <td>Test</td>
+    <tr *ngFor="let value of dataFromServer">
+      <td>{{ value.username }}</td>
+<!--      <td>{{ value.email }}</td>-->
     </tr>
 
     </tbody>
