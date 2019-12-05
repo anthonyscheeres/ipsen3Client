@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Experiment lijst</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+  <app-login-form></app-login-form>
+  <p>experiment-list works!</p>
+  <ul>
+    <li *ngFor="let value of dataFromServer" >
+      {{ value.business_owner }}
+      {{ value.experiment_description }}
+      {{ value.experiment_id }}
+      {{ value.experiment_leader }}
+      {{ value.experiment_name }}
+      {{ value.experiment_phase }}
+      {{ value.experiment_status }}
+      {{ value.inovation_cost }}
+      {{ value.money_source }}
+      {{ value.organisation }}
+    </li>
+  </ul>
+  </body>
+</html>

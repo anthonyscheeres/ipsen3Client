@@ -29,7 +29,7 @@ export function login(username, password) {
 
 
 
-  
+
   return fetchJsonPost(url, data.toString());
 
 
@@ -55,4 +55,4 @@ export function register(username, password, email) {
 
   return fetchJsonPost(urlToServer, data.toString())
 
-}  
+}
