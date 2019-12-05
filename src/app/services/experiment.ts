@@ -6,7 +6,7 @@ import { fetchJsonPost, fetchJsonGet } from './http.';
 export function getExperiments() {
   var host = ServerModel.host
   var port = ServerModel.port
-  var token = AccountModel.token;
-  var url = "http://" + host + ":" + port + "/experiment/"+ token +"/showAllExperiments";
-  return fetchJsonGet(url)
+  var url = "http://" + host + ":" + port + "/experiment/showAllExperiments";
+  
+  return url
 }

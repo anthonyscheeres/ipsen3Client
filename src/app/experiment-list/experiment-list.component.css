@@ -1,0 +1,10 @@
+ul {
+  margin: 0 auto;
+  text-align: center;
+}
+li {
+  display: grid;
+  vertical-align: top;
+  grid-template-rows: 25% 20px auto;
+  cursor: pointer;
+}
