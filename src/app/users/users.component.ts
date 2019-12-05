@@ -15,14 +15,26 @@ export class UsersComponent implements OnInit {
 
   constructor(private _router: Router) { }
 
+  onDeleteUser() {
 
+  }
+
+  onGiveRead() {
+
+  }
+
+  onGiveWrite() {
+
+  }
+
+  onGiveDelete() {
+
+  }
 
   async ngOnInit() {
     await loadUsers().then(r => {
       this.dataFromServer = r
     });
-
-
 
   }
 
