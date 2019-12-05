@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-
-<p>experiment-list works!</p>
+  <body>
+  <app-login-form></app-login-form>
+  <p>experiment-list works!</p>
   <ul>
     <li *ngFor="let value of dataFromServer" >
       {{ value.business_owner }}
@@ -21,4 +22,5 @@
       {{ value.organisation }}
     </li>
   </ul>
+  </body>
 </html>
