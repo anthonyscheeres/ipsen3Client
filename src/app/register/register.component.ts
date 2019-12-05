@@ -24,21 +24,5 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
   }
-  async registerUser(event) {
-    event.preventDefault()
-    const target = event.target
-
-    const username = target.querySelector('#username').value
-    const password = target.querySelector('#password').value
-    const email = target.querySelector('#email').value
-    await register(username, password, email).then(response => {
-
-      if (response != responseR.fail) {
-        this._router.navigate(['/login']);
-
-      }
-    });
-
-
-  }
+  
 }
