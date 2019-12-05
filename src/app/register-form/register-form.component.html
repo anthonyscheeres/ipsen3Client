@@ -1,10 +1,16 @@
 <form (submit)="registerUser($event)">
-  <input type="text" placeholder="E-mail" id="email">
-  <br>
-  <input type="text" placeholder="Username" id="username">
-  <br>
-  <input type="text" placeholder="Password" id="password">
-  <br>
-  <input type="submit" value="Registreer">
+  <div class="form-group">
+    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+   
+  </div>
+ 
+  <div class="form-group">
+    <input class="form-control" type="text" placeholder="Username" id="username" >
+  </div>
+
+  <div class="form-group">
+    <input type="password" class="form-control" id="password" placeholder="Password">
+    </div>
+    <input type="submit" value="Registreer" class="btn btn-primary">
 
 </form>
