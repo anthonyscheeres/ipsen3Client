@@ -12,7 +12,8 @@ import { UsersComponent } from './users/users.component';
 import { JSONTableModule } from 'angular-json-table';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { LoginFormComponent } from './login-form/login-form.component';
-import { RegisterFormComponent } from './register-form/register-form.component';  // import the Module.
+import { RegisterFormComponent } from './register-form/register-form.component';
+import { ExperimentListComponent } from './experiment-list/experiment-list.component';  // import the Module.
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
     NavigationBarComponent,
     LoginFormComponent,
     RegisterFormComponent,
+    ExperimentListComponent,
    
   ],
   imports: [
