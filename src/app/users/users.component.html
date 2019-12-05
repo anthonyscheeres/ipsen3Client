@@ -1,9 +1,12 @@
-<json-table [dataSource]="dataFromServer"
-            [headers]="customHeaders"
-            [update]="true/false"
-            (deleteRow)="deleteByIdS($event)"
-            (updateRow)="updateChanges($event)"></json-table>
 
+
+
+<tr *ngFor='let value of dataFromServer; trackBy: index;' ng-click="setSelected(vote.id)" ng-class="{selected: vote.id === idSelectedVote}">
+  <td>{{ value.username }}</td>
+  <td>{{ value.permission }}</td>
+</tr>
+
+<br>
 <button (click)="removeUser">Verwijder gebruiker</button>
 
 <button (click)="giveRead">Geef leesrechten</button>

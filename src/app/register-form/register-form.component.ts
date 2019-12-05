@@ -1,29 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { register } from '../services/user';
-import { Router } from '@angular/router';
 import { responseR } from '../models/ResponseRequest';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-register-form',
+  templateUrl: './register-form.component.html',
+  styleUrls: ['./register-form.component.css']
 })
-
-
-
-
-/**
-*
-* @author Anthony Scheeres
-*
-*/
-export class RegisterComponent implements OnInit {
+export class RegisterFormComponent implements OnInit {
 
   constructor(private _router: Router) { }
 
-
   ngOnInit() {
   }
+
+
+
   async registerUser(event) {
     event.preventDefault()
     const target = event.target
@@ -41,4 +34,5 @@ export class RegisterComponent implements OnInit {
 
 
   }
+
 }
