@@ -18,7 +18,7 @@ export async function fetchJsonGet(url) {
     method: ProtocolR.GET,
   });
   content = await rawResponse.text();
-  console.log(content);
+  console.log(content)
   return content;
 }
 
@@ -39,7 +39,7 @@ export async function fetchJsonPost(url : string, data: string) {
     body: data
   });
   content = await rawResponse.text();
-  console.log(content);
+  console.log(content)
   return content;
 }
 
