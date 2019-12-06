@@ -8,10 +8,14 @@
     </thead>
     <tbody>
 
-    <tr *ngFor="let value of dataFromServer">
+    <tr *ngFor="let value of dataFromServer"
+        (click)="setSelected(value)"
+        [ngStyle]="{backgroundColor: selectedUser == value ? 'grey': 'transparent'}">
       <td>{{ value.username }}</td>
       <td>{{ value.email }}</td>
     </tr>
+
+    <!-- Fix hover over table items -->
 
     </tbody>
 

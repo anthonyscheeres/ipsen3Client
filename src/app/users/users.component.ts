@@ -5,8 +5,6 @@ import { Router } from '@angular/router';
 import {getUsers, loadUsers} from '../services/user';
 import { HttpClient } from "@angular/common/http";
 import {UserModel} from "../models/UserModel";
-import {ExperimentModel} from "../models/ExperimentModel";
-import {getExperiments} from "../services/experiment";
 
 @Component({
   selector: 'app-users',
@@ -15,9 +13,15 @@ import {getExperiments} from "../services/experiment";
 })
 export class UsersComponent implements OnInit {
   dataFromServer: any = loadUsers();
-  static currentSelected: Number = null;
+  static currentSelected: any = null;
+  private selectedUser: UserModel;
 
   constructor(private _router: Router, private http: HttpClient) { }
+
+  setSelected(user: UserModel) {
+    this.selectedUser = user;
+    console.log(user.username);
+  }
 
   onDeleteUser() {
 
@@ -52,7 +56,7 @@ export class UsersComponent implements OnInit {
           this.dataFromServer = responseData;
           console.log(responseData);
         }
-      )
+      );
   }
 
 }
