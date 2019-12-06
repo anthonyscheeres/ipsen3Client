@@ -56,3 +56,11 @@ export function register(username, password, email) {
   return fetchJsonPost(urlToServer, data.toString())
 
 }
+
+export function getUsers() {
+  var host = ServerModel.host;
+  var port = ServerModel.port;
+  var url = "http://" + host + ":" + port + "/user" + "/TOKEN" + "/showAllUsers";
+
+  return url;
+}

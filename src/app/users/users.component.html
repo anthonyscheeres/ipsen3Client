@@ -1,7 +1,7 @@
 <div class="container container-fluid" style="border: solid 1px black">
   <h2>Users</h2>
 <hr>
-  <table class="table table-bordered table-hover table-striped">
+  <table class="table table-bordered table-hover">
     <thead class="thead-dark">
     <th scope="col">Username</th>
     <th scope="col">Permissions</th>
@@ -10,7 +10,7 @@
 
     <tr *ngFor="let value of dataFromServer">
       <td>{{ value.username }}</td>
-<!--      <td>{{ value.email }}</td>-->
+      <td>{{ value.email }}</td>
     </tr>
 
     </tbody>

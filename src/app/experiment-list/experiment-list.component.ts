@@ -13,9 +13,6 @@ import {ExperimentModel} from "../models/ExperimentModel";
 export class ExperimentListComponent implements OnInit {
   dataFromServer: any;
 
-
-
-
   constructor(private http: HttpClient) { }
 
   async ngOnInit() {

@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
 import { ServerModel } from '../models/ServerModel';
 import { Router } from '@angular/router';
-import { loadUsers } from '../services/user';
+import {getUsers, loadUsers} from '../services/user';
 import { HttpClient } from "@angular/common/http";
 import {UserModel} from "../models/UserModel";
+import {ExperimentModel} from "../models/ExperimentModel";
+import {getExperiments} from "../services/experiment";
 
 @Component({
   selector: 'app-users',
@@ -34,16 +36,23 @@ export class UsersComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.http.get<UserModel[]>(loadUsers())
+
+    // this.http.get<UserModel[]>(loadUsers())
+    //   .subscribe(
+    //     responseData => {
+    //       this.dataFromServer = responseData;
+    //       console.log(responseData);
+    //     }
+    //   )
+
+    this.http.get<UserModel[]>(
+      getUsers())
       .subscribe(
         responseData => {
           this.dataFromServer = responseData;
           console.log(responseData);
         }
       )
-
-
   }
-
 
 }
