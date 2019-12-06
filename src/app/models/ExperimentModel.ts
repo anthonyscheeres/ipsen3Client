@@ -6,7 +6,7 @@ export class ExperimentModel {
   experiment_name: string;
   experiment_phase: string;
   experiment_status: string;
-  inovation_cost: string
+  inovation_cost: string;
   money_source: string;
   organisation: string;
 }

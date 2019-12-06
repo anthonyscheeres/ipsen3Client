@@ -1,16 +1,28 @@
+<div class="container container-fluid" style="border: solid 1px black">
+  <h2>Users</h2>
+<hr>
+  <table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+    <th scope="col">Username</th>
+    <th scope="col">Permissions</th>
+    </thead>
+    <tbody>
 
+    <tr *ngFor="let value of dataFromServer">
+      <td>{{ value.username }}</td>
+      <td>{{ value.email }}</td>
+    </tr>
 
+    </tbody>
 
-<tr *ngFor='let value of dataFromServer; trackBy: index;' ng-click="setSelected(vote.id)" ng-class="{selected: vote.id === idSelectedVote}">
-  <td>{{ value.username }}</td>
-  <td>{{ value.permission }}</td>
-</tr>
+  </table>
 
-<br>
-<button (click)="removeUser">Verwijder gebruiker</button>
+  <br>
+  <div class="btn-group" role="group">
+    <button (click)="onDeleteUser()" class=" btn btn-dark">Verwijder gebruiker</button>
+    <button (click)="onGiveRead()" class="btn btn-dark">Geef leesrechten</button>
+    <button (click)="onGiveWrite()" class="btn btn-dark">Geef schrijfrechten</button>
+    <button (click)="onGiveDelete()" class="btn btn-dark">Geef verwijderrechten</button>
+  </div>
 
-<button (click)="giveRead">Geef leesrechten</button>
-
-<button (click)="giveWrite">Geef schrijfrechten</button>
-
-<button (click)="giveDelete">Geef verwijderrechten</button>
+</div>
