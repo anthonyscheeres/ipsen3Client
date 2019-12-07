@@ -60,9 +60,7 @@ export function register(username, password, email) {
 export function getUsers() {
   var host = ServerModel.host;
   var port = ServerModel.port;
-  var url = "http://" + host + ":" + port + "/user" + "/TOKEN" + "/showAllUsers";
-
-  //ToDo: make it so that the token is loaded from the user itself
-
+  var token = AccountModel.token;
+  var url = "http://" + host + ":" + port + "/user/"+token + "/showAllUsers";
   return url;
 }

@@ -16,6 +16,7 @@ export class ExperimentListComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   async ngOnInit() {
+   // console.log("he de token bestaat nog: "+AccountModel.token)
     this.http.get<ExperimentModel[]>(
       getExperiments())
       .subscribe(
