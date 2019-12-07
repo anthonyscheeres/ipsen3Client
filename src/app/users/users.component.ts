@@ -12,31 +12,36 @@ import {UserModel} from "../models/UserModel";
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  dataFromServer: any = loadUsers();
+  dataFromServer: any;
   static currentSelected: any = null;
-  private selectedUser: UserModel;
+  private selectedUser: UserModel = null;
 
   constructor(private _router: Router, private http: HttpClient) { }
 
   setSelected(user: UserModel) {
-    this.selectedUser = user;
-    console.log(user.username);
+    if (this.selectedUser == null) {
+      this.selectedUser = user;
+    } else if (this.selectedUser == user) {
+      this.selectedUser = null;
+    } else {
+      this.selectedUser = user;
+    }
   }
 
   onDeleteUser() {
-
+    console.log("Delete user clicked!");
   }
 
   onGiveRead() {
-
+    console.log("Give read clicked!");
   }
 
   onGiveWrite() {
-
+    console.log("Give write clicked!");
   }
 
   onGiveDelete() {
-
+    console.log("Give delete clicked!");
   }
 
   async ngOnInit() {

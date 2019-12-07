@@ -14,7 +14,10 @@ import { JSONTableModule } from 'angular-json-table';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
-import { ExperimentListComponent } from './experiment-list/experiment-list.component';  // import the Module.
+import { ExperimentListComponent } from './experiment-list/experiment-list.component';
+import { ReadpermissionsPipe } from './readpermissions.pipe';
+import { WritepermissionsPipe } from './writepermissions.pipe';
+import { DeletepermissionsPipe } from './deletepermissions.pipe';  // import the Module.
 
 
 @NgModule({
@@ -28,6 +31,9 @@ import { ExperimentListComponent } from './experiment-list/experiment-list.compo
     LoginFormComponent,
     RegisterFormComponent,
     ExperimentListComponent,
+    ReadpermissionsPipe,
+    WritepermissionsPipe,
+    DeletepermissionsPipe,
 
   ],
   imports: [
