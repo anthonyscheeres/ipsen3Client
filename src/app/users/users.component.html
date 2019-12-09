@@ -2,33 +2,33 @@
   <h2>Users</h2>
   <hr>
 
-    <table class="table table-striped table-fixed">
-      <thead>
-      <th class="col-6" scope="col">Gebruikersnaam</th>
-      <th class="col-6" scope="col">Rechten</th>
-      </thead>
-      <tbody>
-      <tr class="row-12"
-        *ngFor="let value of dataFromServer"
-          (click)="setSelected(value)"
-          [ngStyle]="{color: selectedUser == value ? 'blue': 'black'}">
-        <td class="col-6">{{ value.username }}</td>
-        <td class="col-6">
-          {{ value.has_read | readpermissions }} <br>
-          {{ value.has_write | writepermissions }} <br>
-          {{ value.has_delete | deletepermissions }}
-        </td>
-      </tr>
-      <!-- Fix hover over table items -->
-      </tbody>
-    </table>
+  <table class="table table-fixed">
+    <thead>
+    <th class="col-4" scope="col">Gebruikersnaam</th>
+    <th class="col-4" scope="col">Rol</th>
+    <th class="col-4" scope="col">Verwijderen</th>
+    </thead>
+    <tbody>
+    <tr class="row-12" *ngFor="let user of dataFromServer">
+      <td class="col-4">{{ user.username }}</td>
+      <td class="col-4">
+        <select id="role" class="form-control">
+          <option [selected]="getRole(user) == 'user'">Gebruiker</option>
+          <option [selected]="getRole(user) == 'admin'">Admin</option>
+          <option [selected]="getRole(user) == 'super'">Superuser</option>
+        </select>
+      </td>
+      <td class="col-4">
+        <button class="btn btn-block">Verwijder</button>
+      </td>
+    </tr>
+    <!-- Fix hover over table items -->
+    </tbody>
+  </table>
 
-  <br>
-  <div class="btn-group" role="group" style="align-content: center">
-    <button (click)="onDeleteUser()" class=" btn">Verwijder gebruiker</button>
-    <button (click)="onGiveRead()" class="btn">Geef leesrechten</button>
-    <button (click)="onGiveWrite()" class="btn">Geef schrijfrechten</button>
-    <button (click)="onGiveDelete()" class="btn">Geef verwijderrechten</button>
+  <div class="btn-group btn-toolbar">
+    <button class="btn" (click)="onSave()">Wijzigingen opslaan</button>
   </div>
+
 
 </div>

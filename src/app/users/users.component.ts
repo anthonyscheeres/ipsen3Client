@@ -28,20 +28,18 @@ export class UsersComponent implements OnInit {
     }
   }
 
-  onDeleteUser() {
-    console.log("Delete user clicked!");
+  getRole(user: UserModel) {
+    if(user.has_delete && user.has_write && user.has_delete) {
+      return "super";
+    } else if(user.has_write && user.has_read) {
+      return "admin";
+    } else {
+      return "user";
+    }
   }
 
-  onGiveRead() {
-    console.log("Give read clicked!");
-  }
-
-  onGiveWrite() {
-    console.log("Give write clicked!");
-  }
-
-  onGiveDelete() {
-    console.log("Give delete clicked!");
+  onSave() {
+    console.log("save pressed");
   }
 
   async ngOnInit() {
