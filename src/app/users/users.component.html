@@ -1,28 +1,34 @@
-<div class="container container-fluid" style="border: solid 1px black">
+<div class="container">
   <h2>Users</h2>
-<hr>
-  <table class="table table-bordered table-hover table-striped">
-    <thead class="thead-dark">
-    <th scope="col">Username</th>
-    <th scope="col">Permissions</th>
+  <hr>
+
+  <table class="table table-fixed">
+    <thead>
+    <th class="col-4" scope="col">Gebruikersnaam</th>
+    <th class="col-4" scope="col">Rol</th>
+    <th class="col-4" scope="col">Verwijderen</th>
     </thead>
     <tbody>
-
-    <tr>
-      <td>Test</td>
-      <td>Test</td>
+    <tr class="row-12" *ngFor="let user of dataFromServer">
+      <td class="col-4">{{ user.username }}</td>
+      <td class="col-4">
+        <select id="role" class="form-control">
+          <option [selected]="getRole(user) == 'user'">Gebruiker</option>
+          <option [selected]="getRole(user) == 'admin'">Admin</option>
+          <option [selected]="getRole(user) == 'super'">Superuser</option>
+        </select>
+      </td>
+      <td class="col-4">
+        <button class="btn btn-block">Verwijder</button>
+      </td>
     </tr>
-
+    <!-- Fix hover over table items -->
     </tbody>
-
   </table>
 
-  <br>
-  <div class="btn-group" role="group">
-    <button (click)="onDeleteUser()" class=" btn btn-dark">Verwijder gebruiker</button>
-    <button (click)="onGiveRead()" class="btn btn-dark">Geef leesrechten</button>
-    <button (click)="onGiveWrite()" class="btn btn-dark">Geef schrijfrechten</button>
-    <button (click)="onGiveDelete()" class="btn btn-dark">Geef verwijderrechten</button>
+  <div class="btn-group btn-toolbar">
+    <button class="btn" (click)="onSave()">Wijzigingen opslaan</button>
   </div>
+
 
 </div>

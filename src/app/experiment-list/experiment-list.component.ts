@@ -13,9 +13,6 @@ import {ExperimentModel} from "../models/ExperimentModel";
 export class ExperimentListComponent implements OnInit {
   dataFromServer: any;
 
-
-
-
   constructor(private http: HttpClient) { }
 
   async ngOnInit() {
@@ -23,7 +20,7 @@ export class ExperimentListComponent implements OnInit {
       getExperiments())
       .subscribe(
       responseData => {
-        this.dataFromServer = responseData
+        this.dataFromServer = responseData;
         console.log(responseData);
       }
     )
