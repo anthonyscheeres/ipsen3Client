@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {getExperiments} from "../services/experiment";
-import { ServerModel } from '../models/ServerModel';
-import { AccountModel } from '../models/AccountModel';
 import {ExperimentModel} from "../models/ExperimentModel";
 
 @Component({
