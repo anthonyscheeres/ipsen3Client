@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginComponent } from '../login/login.component';
-import { ServerModel } from '../models/ServerModel';
 import { Router } from '@angular/router';
-import {getUsers, loadUsers} from '../services/user';
+import {getUsers} from '../services/user';
 import { HttpClient } from "@angular/common/http";
 import {UserModel} from "../models/UserModel";
 
@@ -12,21 +10,10 @@ import {UserModel} from "../models/UserModel";
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  dataFromServer: any;
-  static currentSelected: any = null;
-  private selectedUser: UserModel = null;
+  users: UserModel[];
+  changes: UserModel[] = [];
 
   constructor(private _router: Router, private http: HttpClient) { }
-
-  setSelected(user: UserModel) {
-    if (this.selectedUser == null) {
-      this.selectedUser = user;
-    } else if (this.selectedUser == user) {
-      this.selectedUser = null;
-    } else {
-      this.selectedUser = user;
-    }
-  }
 
   getRole(user: UserModel) {
     if(user.has_delete && user.has_write && user.has_delete) {
@@ -38,25 +25,21 @@ export class UsersComponent implements OnInit {
     }
   }
 
+  onRoleChanged(user: UserModel, event) {
+    let role = event.target.value;
+    this.changes[user.user_id] = role;
+  }
+
   onSave() {
     console.log("save pressed");
   }
 
   async ngOnInit() {
-
-    // this.http.get<UserModel[]>(loadUsers())
-    //   .subscribe(
-    //     responseData => {
-    //       this.dataFromServer = responseData;
-    //       console.log(responseData);
-    //     }
-    //   )
-
     this.http.get<UserModel[]>(
       getUsers())
       .subscribe(
         responseData => {
-          this.dataFromServer = responseData;
+          this.users = responseData;
           console.log(responseData);
         }
       );
