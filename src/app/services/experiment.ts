@@ -8,6 +8,5 @@ export function getExperiments() {
   var port = ServerModel.port;
   var token = AccountModel.token;
   var url = "http://" + host + ":" + port + "/experiment/" +token+"/showAllExperiments";
-
   return url
 }
