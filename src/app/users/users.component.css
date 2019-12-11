@@ -1,13 +1,14 @@
 .table-fixed thead {
   width: 100%;
 }
-.table-fixed tbody {
+.table-fixed table {
   height: 240px;
-  overflow-y: auto;
+  overflow: auto;
   width: 100%;
 }
 .table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
   display: block;
+  overflow: auto;
 }
 .table-fixed th {
   display: inline-block;
