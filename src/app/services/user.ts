@@ -3,6 +3,7 @@ import { ServerModel } from '../models/ServerModel';
 import { responseR } from '../models/ResponseRequest';
 import { AccountModel } from '../models/AccountModel';
 import { fetchJsonPost, fetchJsonGet } from './http.';
+import {UserModel} from "../models/UserModel";
 
 export function loadUsers() {
   var host = ServerModel.host;

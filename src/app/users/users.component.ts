@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginComponent } from '../login/login.component';
-import { ServerModel } from '../models/ServerModel';
 import { Router } from '@angular/router';
-import {getUsers, loadUsers} from '../services/user';
+import {getUsers} from '../services/user';
 import { HttpClient } from "@angular/common/http";
 import {UserModel} from "../models/UserModel";
 
@@ -12,48 +10,36 @@ import {UserModel} from "../models/UserModel";
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  dataFromServer: any = loadUsers();
-  static currentSelected: any = null;
-  private selectedUser: UserModel;
+  users: UserModel[];
+  changes: UserModel[] = [];
 
   constructor(private _router: Router, private http: HttpClient) { }
 
-  setSelected(user: UserModel) {
-    this.selectedUser = user;
-    console.log(user.username);
+  getRole(user: UserModel) {
+    if(user.has_delete && user.has_write && user.has_delete) {
+      return "super";
+    } else if(user.has_write && user.has_read) {
+      return "admin";
+    } else {
+      return "user";
+    }
   }
 
-  onDeleteUser() {
-
+  onRoleChanged(user: UserModel, event) {
+    let role = event.target.value;
+    this.changes[user.user_id] = role;
   }
 
-  onGiveRead() {
-
-  }
-
-  onGiveWrite() {
-
-  }
-
-  onGiveDelete() {
-
+  onSave() {
+    console.log("save pressed");
   }
 
   async ngOnInit() {
-
-    // this.http.get<UserModel[]>(loadUsers())
-    //   .subscribe(
-    //     responseData => {
-    //       this.dataFromServer = responseData;
-    //       console.log(responseData);
-    //     }
-    //   )
-
     this.http.get<UserModel[]>(
       getUsers())
       .subscribe(
         responseData => {
-          this.dataFromServer = responseData;
+          this.users = responseData;
           console.log(responseData);
         }
       );
