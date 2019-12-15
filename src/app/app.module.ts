@@ -14,7 +14,8 @@ import { JSONTableModule } from 'angular-json-table';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
-import { ExperimentListComponent } from './experiment-list/experiment-list.component';  // import the Module.
+import { ExperimentListComponent } from './experiment-list/experiment-list.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -27,42 +28,44 @@ import { ExperimentListComponent } from './experiment-list/experiment-list.compo
     NavigationBarComponent,
     LoginFormComponent,
     RegisterFormComponent,
-    ExperimentListComponent,
+    ExperimentListComponent
 
   ],
-  imports: [
-    BrowserModule,
-    JSONTableModule, // Add the JSONTableModule
-    HttpClientModule,
-    AppRoutingModule,
-    RouterModule.forRoot(
-      [
-        {
-          path: 'register',
-          component:RegisterComponent
-        },
-        {
-          path: '',
-          component:HomeComponent
-        },
-        {
-          path: "login",
-          component: LoginComponent
-        },
-        {
-          path: "users",
-          component: UsersComponent
-        },
-        {
-          path: "experiment",
-          component: ExperimentListComponent
-        },
+    imports: [
+        BrowserModule,
+        JSONTableModule, // Add the JSONTableModule
+        HttpClientModule,
+        AppRoutingModule,
+        RouterModule.forRoot(
+            [
+                {
+                    path: 'register',
+                    component: RegisterComponent
+                },
+                {
+                    path: '',
+                    component: HomeComponent
+                },
+                {
+                    path: "login",
+                    component: LoginComponent
+                },
+                {
+                    path: "users",
+                    component: UsersComponent
+                },
+                {
+                    path: "experiment",
+                    component: ExperimentListComponent
+                },
 
-        // otherwise redirect to home
-        { path: '**', redirectTo: '' }
-      ]
-    )
-  ],
+                // otherwise redirect to home
+                {path: '**', redirectTo: ''}
+            ]
+        ),
+        FormsModule,
+        ReactiveFormsModule
+    ],
   providers: [   {
           provide: LocationStrategy, useClass: HashLocationStrategy
       }],
