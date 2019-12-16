@@ -15,7 +15,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { ExperimentListComponent } from './experiment-list/experiment-list.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -63,7 +63,8 @@ import {FormsModule} from "@angular/forms";
                 {path: '**', redirectTo: ''}
             ]
         ),
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
     ],
   providers: [   {
           provide: LocationStrategy, useClass: HashLocationStrategy

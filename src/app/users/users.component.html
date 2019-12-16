@@ -9,13 +9,13 @@
     <th class="col-4" scope="col">Verwijderen</th>
     </thead>
     <tbody>
-    <tr class="row-12" *ngFor="let user of dataFromServer">
+    <tr class="row-12" *ngFor="let user of users">
       <td class="col-4">{{ user.username }}</td>
       <td class="col-4">
-        <select id="role" class="form-control">
-          <option [selected]="getRole(user) == 'user'">Gebruiker</option>
-          <option [selected]="getRole(user) == 'admin'">Admin</option>
-          <option [selected]="getRole(user) == 'super'">Superuser</option>
+        <select name="role" class="form-control" (change)="onRoleChanged(user, $event)">
+          <option [selected]="getRole(user) == 'user'" value="user">Gebruiker</option>
+          <option [selected]="getRole(user) == 'admin'" value="admin">Admin</option>
+          <option [selected]="getRole(user) == 'super'" value="super">Superuser</option>
         </select>
       </td>
       <td class="col-4">
