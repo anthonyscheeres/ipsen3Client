@@ -15,6 +15,7 @@ export class DashboardListComponent implements OnInit {
 
   async ngOnInit() {
     this.fetchPosts();
+
   }
 
   onFetchPosts(){
