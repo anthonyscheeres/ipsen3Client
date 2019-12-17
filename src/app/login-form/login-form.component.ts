@@ -34,9 +34,9 @@ export class LoginFormComponent implements OnInit {
     await login(username, password).then(response => {
 
       if (response != responseR.fail) {
-        AccountModel.token = response
-        var token = "token"
-        localStorage.setItem(token, response)
+        AccountModel.token = response;
+        var token = "token";
+        localStorage.setItem(token, response);
         this._router.navigate(['/experiment']);
       }
     });
