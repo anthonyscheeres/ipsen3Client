@@ -29,6 +29,7 @@ export class DashboardListComponent implements OnInit {
         this.serverExperiments = posts;
         console.log(posts);
       })
+
   }
 
 }
