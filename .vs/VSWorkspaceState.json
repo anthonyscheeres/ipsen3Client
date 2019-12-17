@@ -3,9 +3,9 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\create-experiment",
-    "\\src\\app\\experiment-list"
+    "\\src\\app\\experiment-list",
+    "\\src\\app\\users"
   ],
-  "SelectedNode": "\\src\\app\\create-experiment\\create-experiment.component.ts",
+  "SelectedNode": "\\src\\app\\users\\users.component.html",
   "PreviewInSolutionExplorer": false
 }
