@@ -16,6 +16,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { ExperimentListComponent } from './experiment-list/experiment-list.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { CreateExperimentComponent } from './create-experiment/create-experiment.component';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     NavigationBarComponent,
     LoginFormComponent,
     RegisterFormComponent,
-    ExperimentListComponent
+    ExperimentListComponent,
+    CreateExperimentComponent
 
   ],
     imports: [
@@ -36,6 +39,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
         JSONTableModule, // Add the JSONTableModule
         HttpClientModule,
         AppRoutingModule,
+        NgbModule,
         RouterModule.forRoot(
             [
                 {
@@ -66,6 +70,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
         FormsModule,
         ReactiveFormsModule
     ],
+  entryComponents: [
+    CreateExperimentComponent
+  ],
   providers: [   {
           provide: LocationStrategy, useClass: HashLocationStrategy
       }],
