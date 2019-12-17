@@ -62,7 +62,6 @@ export function getUsers() {
   var host = ServerModel.host;
   var port = ServerModel.port;
   var token = AccountModel.token;
-  var url = "http://" + host + ":" + port + "/user" + "/" + token + "/showAllUsers";
-
+  var url = "http://" + host + ":" + port + "/user/"+token + "/showAllUsers";
   return url;
 }
