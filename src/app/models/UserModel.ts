@@ -1,3 +1,5 @@
+import {UserRole} from "./UserRole";
+
 export class UserModel {
   user_id: number;
   username: string;
@@ -6,6 +8,6 @@ export class UserModel {
   has_read: boolean;
   has_write: boolean;
   has_delete: boolean;
-  is_super_user: boolean;
+  user_role: UserRole;
   token: string;
 }
