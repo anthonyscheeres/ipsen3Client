@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Dashboard</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col headerTable">
+                    <p>Idee fase</p>
+                </div>
+            </div>
+            <div class="row" *ngFor= 'let experiment of serverExperiments'>
+                <div class="col my-col" *ngIf= "experiment.experiment_phase === 'Idee'">
+                    <p>{{experiment.experiment_name}}</p>
+                    <p>Status: {{experiment.experiment_status}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col headerTable">
+                    <p>Lab-in fase</p>
+                </div>
+            </div>
+            <div class="row" *ngFor= 'let experiment of serverExperiments'>
+                <div class="col my-col" *ngIf= "experiment.experiment_phase === 'Het lab in'" id="columnCheck">
+                    <p>{{experiment.experiment_name}}</p>
+                    <p>Status: {{experiment.experiment_status}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col headerTable">
+                    <p>Lab-uit fase</p>
+                </div>
+            </div>
+            <div class="row" *ngFor= 'let experiment of serverExperiments'>
+                <div class="col my-col" *ngIf= "experiment.experiment_phase === 'Het lab uit'">
+                    <p>{{experiment.experiment_name}}</p>
+                    <p>Status: {{experiment.experiment_status}}</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

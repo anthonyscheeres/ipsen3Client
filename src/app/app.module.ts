@@ -16,6 +16,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { ExperimentListComponent } from './experiment-list/experiment-list.component';
 import {FormsModule} from "@angular/forms";
+import { DashboardListComponent } from './dashboard-list/dashboard-list.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {FormsModule} from "@angular/forms";
     NavigationBarComponent,
     LoginFormComponent,
     RegisterFormComponent,
-    ExperimentListComponent
+    ExperimentListComponent,
+    DashboardListComponent
 
   ],
     imports: [
@@ -57,6 +59,11 @@ import {FormsModule} from "@angular/forms";
                 {
                     path: "experiment",
                     component: ExperimentListComponent
+                },
+
+                {
+                    path: "dashboard",
+                    component: DashboardListComponent
                 },
 
                 // otherwise redirect to home

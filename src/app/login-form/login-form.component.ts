@@ -35,7 +35,7 @@ export class LoginFormComponent implements OnInit {
 
       if (response != responseR.fail) {
         AccountModel.token = response
-        this._router.navigate(['/experiment']);
+        this._router.navigate(['/dashboard']);
       }
     });
 
