@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app\\register-form"
+    "\\src\\app",
+    "\\src\\app\\create-experiment",
+    "\\src\\app\\experiment-list"
   ],
-  "SelectedNode": "\\src\\app",
+  "SelectedNode": "\\src\\app\\create-experiment\\create-experiment.component.ts",
   "PreviewInSolutionExplorer": false
 }
