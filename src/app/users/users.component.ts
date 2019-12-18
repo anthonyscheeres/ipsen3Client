@@ -1,6 +1,6 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
-import {getUsers, updateUserRole} from '../services/user';
+import {getUsers} from '../services/user';
 import { HttpClient } from "@angular/common/http";
 import {UserModel} from "../models/UserModel";
 import { UserRole } from '../models/UserRole';
@@ -15,7 +15,6 @@ import {UserUpdate} from "../services/user-update.service";
   providers: [UserUpdate]
 })
 export class UsersComponent implements OnInit {
-  response: string;
   users: UserModel[];
 
   constructor(
@@ -37,7 +36,7 @@ export class UsersComponent implements OnInit {
   }
 
   onRoleChanged(user: UserModel, event) {
-    user.user_role = event.target.value;;
+    user.user_role = event.target.value;
     this.updateService.changes.push(user);
   }
 
