@@ -22,7 +22,7 @@
       <th>Organisation</th>
     </thead>
       <tbody>
-      <tr *ngFor="let value of dataFromServer" >
+      <tr *ngFor="let value of dataFromServer" (click)="openExistingExperiment(value)">
         <td>{{ value.experiment_name }}</td>
         <td>{{ value.experiment_description }}</td>
         <td>{{ value.experiment_id }}</td>

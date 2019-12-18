@@ -18,6 +18,7 @@ import { ExperimentListComponent } from './experiment-list/experiment-list.compo
 import { CreateExperimentComponent } from './create-experiment/create-experiment.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule , ReactiveFormsModule} from "@angular/forms";
+import { ExistingExperimentComponent } from './experiment-list/existing-experiment/existing-experiment.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { FormsModule , ReactiveFormsModule} from "@angular/forms";
     LoginFormComponent,
     RegisterFormComponent,
     ExperimentListComponent,
-    CreateExperimentComponent
+    CreateExperimentComponent,
+    ExistingExperimentComponent
 
   ],
     imports: [
@@ -71,7 +73,8 @@ import { FormsModule , ReactiveFormsModule} from "@angular/forms";
         ReactiveFormsModule
     ],
   entryComponents: [
-    CreateExperimentComponent
+    CreateExperimentComponent,
+    ExistingExperimentComponent
   ],
   providers: [   {
           provide: LocationStrategy, useClass: HashLocationStrategy
