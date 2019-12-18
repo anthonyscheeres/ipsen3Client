@@ -42,8 +42,13 @@ export class UsersComponent implements OnInit {
   }
 
   onSaveChanges() {
-    this.updateService.makeMessage();
-    this.modalService.open(UpdateUsersComponent);
+    if(this.updateService.changes.length == 0) {
+      alert("There are no changes to commit!");
+      //TODO: use global popup
+    } else {
+      this.updateService.makeMessage();
+      this.modalService.open(UpdateUsersComponent);
+    }
   }
 
   onDelete(user: UserModel) {
