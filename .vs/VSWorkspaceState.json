@@ -2,8 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app\\register-form"
+    "\\src\\app",
+    "\\src\\app\\experiment-list",
+    "\\src\\app\\login-form",
+    "\\src\\app\\users"
   ],
-  "SelectedNode": "\\src\\app",
+  "SelectedNode": "\\src\\app\\app.module.ts",
   "PreviewInSolutionExplorer": false
 }
