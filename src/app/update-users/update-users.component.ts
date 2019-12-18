@@ -9,7 +9,7 @@ import {UserUpdate} from "../services/user-update.service";
 })
 
 export class UpdateUsersComponent implements OnInit {
-  changesAlert: string;
+  changesAlert: string[];
 
   constructor(
     private activeModal: NgbActiveModal,

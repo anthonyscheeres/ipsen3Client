@@ -3,20 +3,19 @@ import {updateUserRole} from "./user";
 import {HttpClient} from "@angular/common/http";
 import {Injectable} from "@angular/core";
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class UserUpdate{
+
+  users: UserModel[] = [];
+  changes: UserModel[] = [];
+  changesAlert: string[] = [];
   private response: string;
 
-  constructor(private http: HttpClient) {
-  }
-
-  users: UserModel[];
-  changes: UserModel[] = [];
-  changesAlert: string = '';
+  constructor(private http: HttpClient) { }
 
   cleanChanges() {
     this.changes.forEach((user, index) => {
-      let originalUser = this.getOriginalUser(index);
+      let originalUser = this.getOriginalUser(user.user_id);
       if(originalUser.user_role == user.user_role) {
         this.changes.splice(index);
       }
@@ -25,15 +24,16 @@ export class UserUpdate{
 
   makeMessage() {
     this.cleanChanges();
-    this.changes.forEach((user, index) => {
-      let originalUser = this.getOriginalUser(index);
-      this.changesAlert += "Change " + user.username + " from " + originalUser.user_role + " to " + user.user_role +  "\n";
-    });
+    for(let user of this.changes) {
+      let originalUser = this.getOriginalUser(user.user_id);
+      this.changesAlert.push(user.username + " van " + originalUser.user_role + " naar " + user.user_role);
+    }
   }
 
   emptyChanges() {
-    this.changesAlert = '';
+    this.changesAlert = [];
     this.changes = [];
+    location.reload();
   }
 
   getOriginalUser(id: number) {
@@ -52,6 +52,10 @@ export class UserUpdate{
           );
       }
       this.emptyChanges();
+  }
+
+  addChange(user: UserModel) {
+    this.changes.push(user);
   }
 
 }

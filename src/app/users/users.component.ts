@@ -1,19 +1,18 @@
 import {Component, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 import {getUsers} from '../services/user';
-import { HttpClient } from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {UserModel} from "../models/UserModel";
-import { UserRole } from '../models/UserRole';
+import {UserRole} from '../models/UserRole';
 import {UpdateUsersComponent} from "../update-users/update-users.component";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {UserUpdate} from "../services/user-update.service";
-import { AccountModel } from '../models/AccountModel';
+import {AccountModel} from '../models/AccountModel';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css'],
-  providers: [UserUpdate]
+  styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
   users: UserModel[];
@@ -37,8 +36,9 @@ export class UsersComponent implements OnInit {
   }
 
   onRoleChanged(user: UserModel, event) {
-    user.user_role = event.target.value;
-    this.updateService.changes.push(user);
+    let changedUser: UserModel = {...user};
+    changedUser.user_role = event.target.value;
+    this.updateService.addChange(changedUser);
   }
 
   onSaveChanges() {
@@ -51,7 +51,7 @@ export class UsersComponent implements OnInit {
   }
 
   async ngOnInit() {
-    AccountModel.token = localStorage.getItem("token")
+    AccountModel.token = localStorage.getItem("token");
 
     this.http.get<UserModel[]>(
       getUsers())
@@ -59,7 +59,6 @@ export class UsersComponent implements OnInit {
         responseData => {
           this.updateService.users = responseData.slice();
           this.users = responseData.slice();
-          console.log(responseData);
         }
       );
   }
