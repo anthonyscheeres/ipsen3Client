@@ -15,9 +15,10 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { ExperimentListComponent } from './experiment-list/experiment-list.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { UpdateUsersComponent } from './update-users/update-users.component';
+import { FormsModule } from "@angular/forms";
+import { CreateExperimentComponent } from './create-experiment/create-experiment.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
     LoginFormComponent,
     RegisterFormComponent,
     ExperimentListComponent,
-    UpdateUsersComponent
+    CreateExperimentComponent
 
   ],
     imports: [
@@ -66,11 +67,10 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
                 {path: '**', redirectTo: ''}
             ]
         ),
-        FormsModule,
-        ReactiveFormsModule
+        FormsModule
     ],
   entryComponents: [
-    UpdateUsersComponent
+    CreateExperimentComponent
   ],
   providers: [   {
           provide: LocationStrategy, useClass: HashLocationStrategy

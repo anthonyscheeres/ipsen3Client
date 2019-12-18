@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {getExperiments} from "../services/experiment";
 import {ExperimentModel} from "../models/ExperimentModel";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {CreateExperimentComponent} from "../create-experiment/create-experiment.component";
 
 @Component({
   selector: 'app-experiment-list',
@@ -11,7 +13,7 @@ import {ExperimentModel} from "../models/ExperimentModel";
 export class ExperimentListComponent implements OnInit {
   dataFromServer: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private modalService: NgbModal) { }
 
   async ngOnInit() {
    // console.log("he de token bestaat nog: "+AccountModel.token)
@@ -24,4 +26,8 @@ export class ExperimentListComponent implements OnInit {
       }
     )
     }
+  open() {
+    const modalRef = this.modalService.open(CreateExperimentComponent);
+    modalRef.componentInstance.name = 'World'
+  }
 }
