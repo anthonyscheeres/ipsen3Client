@@ -11,8 +11,8 @@
         <p>{{ changesAlert }}</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" (click)="discardChanges()">Close</button>
+        <button type="button" class="btn btn-primary" (click)="saveChanges()">Save changes</button>
       </div>
     </div>
   </div>
