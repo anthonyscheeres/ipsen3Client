@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {getUsers, register, updateUserRole} from '../services/user';
+import {getUsers, updateUserRole} from '../services/user';
 import { HttpClient } from "@angular/common/http";
 import {UserModel} from "../models/UserModel";
 import { UserRole } from '../models/UserRole';
-import {responseR} from "../models/ResponseRequest";
 
 @Component({
   selector: 'app-users',
