@@ -19,6 +19,8 @@ import { CreateExperimentComponent } from './create-experiment/create-experiment
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {UpdateUsersComponent} from "./update-users/update-users.component";
 import { FormsModule , ReactiveFormsModule} from "@angular/forms";
+import { DashboardListComponent } from './dashboard-list/dashboard-list.component';
+import { DashboardListContainerComponent } from './dashboard-list/dashboard-list-container/dashboard-list-container.component';
 
 
 @NgModule({
@@ -33,7 +35,10 @@ import { FormsModule , ReactiveFormsModule} from "@angular/forms";
     RegisterFormComponent,
     ExperimentListComponent,
     CreateExperimentComponent,
-    UpdateUsersComponent
+    UpdateUsersComponent,
+    ExperimentListComponent,
+    DashboardListComponent,
+    DashboardListContainerComponent,
 
   ],
     imports: [
@@ -63,6 +68,11 @@ import { FormsModule , ReactiveFormsModule} from "@angular/forms";
                 {
                     path: "experiment",
                     component: ExperimentListComponent
+                },
+
+                {
+                    path: "dashboard",
+                    component: DashboardListComponent
                 },
 
                 // otherwise redirect to home
