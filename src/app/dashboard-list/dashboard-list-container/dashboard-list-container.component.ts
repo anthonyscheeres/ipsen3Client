@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, HostListener} from '@angular/core';
 import { ExperimentModel } from 'src/app/models/ExperimentModel';
-import { getExperiments } from 'src/app/services/experiment';
+import { getExperimentUrl } from 'src/app/experiment-list/experimentUrl';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -17,20 +17,20 @@ export class DashboardListContainerComponent implements OnInit {
   @Input() fase: String;
   @Input() faseCheck: String;
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
 
   }
-  
+
   @HostListener('click')
-  sort(){     
+  sort(){
     this.directionAssignToHeader();
   }
 
   private directionAssignToHeader(){
     if(this.sortDirection === 'asc'){
-      
+
       return this.sortDirection = 'desc';
-    } 
+    }
     else{
       return this.sortDirection = 'asc';
     }
@@ -46,7 +46,7 @@ export class DashboardListContainerComponent implements OnInit {
     for (let key in colors) {
       if(key === status){
         let values = colors[key];
-       
+
         return values;
       }
     }
@@ -63,7 +63,7 @@ export class DashboardListContainerComponent implements OnInit {
 
   private fetchPosts(){
     this.http
-      .get<ExperimentModel>(getExperiments())
+      .get<ExperimentModel>(getExperimentUrl())
       .subscribe(posts => {
         this.serverExperiments = posts;
       });
