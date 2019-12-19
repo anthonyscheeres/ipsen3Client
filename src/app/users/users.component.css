@@ -1,7 +1,6 @@
 .table-fixed thead {
   width: 100%;
 }
-
 .table-fixed tbody {
   height: 50vh;
   overflow-y: auto;
