@@ -8,46 +8,9 @@
     </head>
 
     <body>
-        <div class="container">
-            <div class="row">
-                <div class="col headerTable">
-                    <p>Idee fase</p>
-                </div>
-            </div>
-            <div class="row" *ngFor= 'let experiment of serverExperiments'>
-                <div class="col my-col" *ngIf= "experiment.experiment_phase === 'Idee'">
-                    <p>{{experiment.experiment_name}}</p>
-                    <p>Status: {{experiment.experiment_status}}</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col headerTable">
-                    <p>Lab-in fase</p>
-                </div>
-            </div>
-            <div class="row" *ngFor= 'let experiment of serverExperiments'>
-                <div class="col my-col" *ngIf= "experiment.experiment_phase === 'Het lab in'" id="columnCheck">
-                    <p>{{experiment.experiment_name}}</p>
-                    <p>Status: {{experiment.experiment_status}}</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col headerTable">
-                    <p>Lab-uit fase</p>
-                </div>
-            </div>
-            <div class="row" *ngFor= 'let experiment of serverExperiments'>
-                <div class="col my-col" *ngIf= "experiment.experiment_phase === 'Het lab uit'">
-                    <p>{{experiment.experiment_name}}</p>
-                    <p>Status: {{experiment.experiment_status}}</p>
-                </div>
-            </div>
-        </div>
+        <app-dashboard-list-container [fase]="'Idee fase'" [faseCheck]="'Idee'"></app-dashboard-list-container>
+        <app-dashboard-list-container [fase]="'Lab-in fase'" [faseCheck]="'Het lab in'"></app-dashboard-list-container>
+        <app-dashboard-list-container [fase]="'Lab-uit fase'" [faseCheck]="'Het lab uit'"></app-dashboard-list-container>
     </body>
+    
 </html>

@@ -1,8 +1,4 @@
-.headerTable{
-    background-color: darkblue;
-    color: white;
-}
-
-.my-col{
-    border: 3px solid blue;
+html, body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
 }

@@ -17,6 +17,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { ExperimentListComponent } from './experiment-list/experiment-list.component';
 import {FormsModule} from "@angular/forms";
 import { DashboardListComponent } from './dashboard-list/dashboard-list.component';
+import { DashboardListContainerComponent } from './dashboard-list/dashboard-list-container/dashboard-list-container.component';
 
 
 @NgModule({
@@ -30,8 +31,9 @@ import { DashboardListComponent } from './dashboard-list/dashboard-list.componen
     LoginFormComponent,
     RegisterFormComponent,
     ExperimentListComponent,
-    DashboardListComponent
-
+    DashboardListComponent,
+    DashboardListContainerComponent,
+    
   ],
     imports: [
         BrowserModule,
