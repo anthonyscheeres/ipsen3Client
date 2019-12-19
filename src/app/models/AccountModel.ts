@@ -1,7 +1,7 @@
 export class AccountModel {
 
 
-  static token: String;
+  static token: String =  localStorage.getItem("token");
 
   constructor() { }
 

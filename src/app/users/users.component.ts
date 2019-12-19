@@ -56,7 +56,7 @@ export class UsersComponent implements OnInit {
   }
 
   async ngOnInit() {
-    AccountModel.token = localStorage.getItem("token");
+   
 
     this.http.get<UserModel[]>(
       getUsers())

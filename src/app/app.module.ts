@@ -21,6 +21,7 @@ import {UpdateUsersComponent} from "./update-users/update-users.component";
 import { FormsModule , ReactiveFormsModule} from "@angular/forms";
 import { DashboardListComponent } from './dashboard-list/dashboard-list.component';
 import { DashboardListContainerComponent } from './dashboard-list/dashboard-list-container/dashboard-list-container.component';
+import { ExistingExperimentComponent } from './experiment-list/existing-experiment/existing-experiment.component';
 
 
 
