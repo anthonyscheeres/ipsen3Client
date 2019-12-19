@@ -1,11 +1,14 @@
 <form class="login100-form validate-form" (submit)="loginUser($event)">
   <div class="form-group">
-    <input class="form-control" type="text" placeholder="Username" id="username">
+    <input class="form-control" type="text" placeholder="Username" id="username"  formControlName="name" required>
   </div>
 
   <div class="form-group">
-    <input type="password" class="form-control" id="password" placeholder="Password">
+    <input type="password" class="form-control" id="password" placeholder="Password"  formControlName="name" required>
   </div>
- 
-  <input class="button" type="submit" value="Login">
+
+  <input class="btn btn-primary" type="submit" value="Login">
 </form>
+
+
+
