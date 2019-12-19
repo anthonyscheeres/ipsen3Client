@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {getExperiments} from "../services/experiment";
+import {getExperimentToken} from "./ExperimentToken";
 import {ExperimentModel} from "../models/ExperimentModel";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {CreateExperimentComponent} from "../create-experiment/create-experiment.component";
@@ -19,7 +19,7 @@ export class ExperimentListComponent implements OnInit {
   async ngOnInit() {
     // console.log("he de token bestaat nog: "+AccountModel.token)
     this.http.get<ExperimentModel[]>(
-      getExperiments())
+      getExperimentToken())
       .subscribe(
         responseData => {
           this.dataFromServer = responseData;
