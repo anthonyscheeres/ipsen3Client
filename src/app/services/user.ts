@@ -4,6 +4,7 @@ import { responseR } from '../models/ResponseRequest';
 import { AccountModel } from '../models/AccountModel';
 import { fetchJsonPost, fetchJsonGet } from './http.';
 import {UserModel} from "../models/UserModel";
+import {UserRole} from "../models/UserRole";
 
 export function loadUsers() {
   var host = ServerModel.host;
@@ -62,6 +63,22 @@ export function getUsers() {
   var host = ServerModel.host;
   var port = ServerModel.port;
   var token = AccountModel.token;
-  var url = "http://" + host + ":" + port + "/user/"+token + "/showAllUsers";
+  var url = "http://" + host + ":" + port + "/user/"+ token + "/showAllUsers";
+  return url;
+}
+
+export function deleteUser(id: number) {
+  var host = ServerModel.host;
+  var port = ServerModel.port;
+  var token = AccountModel.token;
+  var url = "http://" + host + ":" + port + "/user/" + token + "/deleteUser";
+  return url;
+}
+
+export function updateUserRole(id: number, role: UserRole) {
+  var host = ServerModel.host;
+  var port = ServerModel.port;
+  var token = AccountModel.token;
+  var url = "http://" + host + ":" + port + "/user/" + token + "/" +  id + "/" + role + "/updateUserRole";
   return url;
 }

@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {getUsers} from '../services/user';
-import { HttpClient } from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {UserModel} from "../models/UserModel";
-import { AccountModel } from '../models/AccountModel';
+import {UserRole} from '../models/UserRole';
+import {UpdateUsersComponent} from "../update-users/update-users.component";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {UserUpdate} from "../services/user-update.service";
+import {AccountModel} from '../models/AccountModel';
 
 @Component({
   selector: 'app-users',
@@ -12,38 +16,54 @@ import { AccountModel } from '../models/AccountModel';
 })
 export class UsersComponent implements OnInit {
   users: UserModel[];
-  changes: UserModel[] = [];
 
-  constructor(private _router: Router, private http: HttpClient) { }
+  constructor(
+    private _router: Router,
+    private http: HttpClient,
+    private modalService: NgbModal,
+    private updateService: UserUpdate
+  ) { }
 
   getRole(user: UserModel) {
-    if(user.has_delete && user.has_write && user.has_delete) {
-      return "super";
-    } else if(user.has_write && user.has_read) {
-      return "admin";
-    } else {
-      return "user";
+    switch (user.user_role) {
+      case UserRole.USER:
+        return "USER";
+      case UserRole.EMPLOYEE:
+        return "EMPLOYEE";
+      case UserRole.SUPERUSER:
+        return "SUPERUSER";
     }
   }
 
   onRoleChanged(user: UserModel, event) {
-    let role = event.target.value;
-    this.changes[user.user_id] = role;
+    let changedUser: UserModel = {...user};
+    changedUser.user_role = event.target.value;
+    this.updateService.addChange(changedUser);
   }
 
-  onSave() {
-    console.log("save pressed");
+  onSaveChanges() {
+    if(this.updateService.changes.length == 0) {
+      alert("There are no changes to commit!");
+      //TODO: use global popup
+    } else {
+      this.updateService.makeMessage();
+      this.modalService.open(UpdateUsersComponent);
+    }
+  }
+
+  onDelete(user: UserModel) {
+    console.log("Delete user ", user.username)
   }
 
   async ngOnInit() {
-    AccountModel.token = localStorage.getItem("token")
+    AccountModel.token = localStorage.getItem("token");
 
     this.http.get<UserModel[]>(
       getUsers())
       .subscribe(
         responseData => {
-          this.users = responseData;
-          console.log(responseData);
+          this.updateService.users = responseData.slice();
+          this.users = responseData.slice();
         }
       );
   }
