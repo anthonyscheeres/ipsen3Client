@@ -5,6 +5,8 @@ import {ExperimentModel} from "../models/ExperimentModel";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {CreateExperimentComponent} from "../create-experiment/create-experiment.component";
 import {ExistingExperimentComponent} from './existing-experiment/existing-experiment.component';
+import { AccountModel } from '../models/AccountModel';
+
 
 @Component({
   selector: 'app-experiment-list',
@@ -19,7 +21,7 @@ export class ExperimentListComponent implements OnInit {
   }
 
   async ngOnInit() {
-    // console.log("he de token bestaat nog: "+AccountModel.token)
+    AccountModel.token = localStorage.getItem("token")
     this.http.get<ExperimentModel[]>(
       getExperiments())
       .subscribe(

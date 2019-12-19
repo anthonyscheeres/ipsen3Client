@@ -3,9 +3,10 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\navigation-bar",
-    "\\src\\app\\register"
+    "\\src\\app\\experiment-list",
+    "\\src\\app\\login-form",
+    "\\src\\app\\users"
   ],
-  "SelectedNode": "\\src\\app\\register\\register.component.html",
+  "SelectedNode": "\\src\\app\\app.module.ts",
   "PreviewInSolutionExplorer": false
 }

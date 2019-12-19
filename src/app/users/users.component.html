@@ -13,13 +13,13 @@
       <td class="col-4">{{ user.username }}</td>
       <td class="col-4">
         <select name="role" class="form-control" (change)="onRoleChanged(user, $event)">
-          <option [selected]="getRole(user) == 'user'" value="user">Gebruiker</option>
-          <option [selected]="getRole(user) == 'admin'" value="admin">Admin</option>
-          <option [selected]="getRole(user) == 'super'" value="super">Superuser</option>
+          <option [selected]="getRole(user) == 'USER'" value="USER">Gebruiker</option>
+          <option [selected]="getRole(user) == 'EMPLOYEE'" value="EMPLOYEE">Medewerker</option>
+          <option [selected]="getRole(user) == 'SUPERUSER'" value="SUPERUSER">Superuser</option>
         </select>
       </td>
       <td class="col-4">
-        <button class="btn btn-block">Verwijder</button>
+        <button class="btn btn-block" (click)="onDelete(user)">Verwijder</button>
       </td>
     </tr>
     <!-- Fix hover over table items -->
@@ -27,8 +27,7 @@
   </table>
 
   <div class="btn-group btn-toolbar">
-    <button class="btn" (click)="onSave()">Wijzigingen opslaan</button>
+    <button class="btn" (click)="onSaveChanges()">Wijzigingen opslaan</button>
   </div>
-
 
 </div>
