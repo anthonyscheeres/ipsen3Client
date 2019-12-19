@@ -4,7 +4,9 @@ import {getExperiments} from "../services/experiment";
 import {ExperimentModel} from "../models/ExperimentModel";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {CreateExperimentComponent} from "../create-experiment/create-experiment.component";
+import {ExistingExperimentComponent} from './existing-experiment/existing-experiment.component';
 import { AccountModel } from '../models/AccountModel';
+
 
 @Component({
   selector: 'app-experiment-list',
@@ -14,21 +16,29 @@ import { AccountModel } from '../models/AccountModel';
 export class ExperimentListComponent implements OnInit {
   dataFromServer: any;
 
-  constructor(private http: HttpClient, private modalService: NgbModal) { }
+
+  constructor(private http: HttpClient, private modalService: NgbModal) {
+  }
 
   async ngOnInit() {
     AccountModel.token = localStorage.getItem("token")
     this.http.get<ExperimentModel[]>(
       getExperiments())
       .subscribe(
-      responseData => {
-        this.dataFromServer = responseData;
-        console.log(responseData);
-      }
-    )
-    }
-  open() {
-    const modalRef = this.modalService.open(CreateExperimentComponent);
-    modalRef.componentInstance.name = 'World'
+        responseData => {
+          this.dataFromServer = responseData;
+          console.log(responseData);
+        }
+      )
   }
-}
+
+  openExistingExperiment(model: ExperimentModel){
+    const modal = this.modalService.open(ExistingExperimentComponent);
+    modal.componentInstance.model = model;
+
+  }
+
+  open() {
+    this.modalService.open(CreateExperimentComponent);
+  }
+};
