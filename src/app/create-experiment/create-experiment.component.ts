@@ -5,7 +5,6 @@ import {ExperimentModel} from "../models/ExperimentModel";
 import {getCreateExperimentUrl} from "../experiment-list/ExperimentUrl";
 
 
-
 @Component({
   selector: 'app-create-experiment',
   templateUrl: './create-experiment.component.html',

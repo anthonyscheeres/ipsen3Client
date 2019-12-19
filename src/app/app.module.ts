@@ -17,10 +17,14 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { ExperimentListComponent } from './experiment-list/experiment-list.component';
 import { CreateExperimentComponent } from './create-experiment/create-experiment.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import {UpdateUsersComponent} from "./update-users/update-users.component";
+import { CreateExperimentComponent } from './create-experiment/create-experiment.component';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule , ReactiveFormsModule} from "@angular/forms";
+import { ExistingExperimentComponent } from './experiment-list/existing-experiment/existing-experiment.component';
+import {UpdateUsersComponent} from "./update-users/update-users.component";
 import { DashboardListComponent } from './dashboard-list/dashboard-list.component';
 import { DashboardListContainerComponent } from './dashboard-list/dashboard-list-container/dashboard-list-container.component';
+
 
 
 @NgModule({
@@ -35,6 +39,8 @@ import { DashboardListContainerComponent } from './dashboard-list/dashboard-list
     RegisterFormComponent,
     ExperimentListComponent,
     CreateExperimentComponent,
+    ExistingExperimentComponent,
+    UpdateUsersComponent
     UpdateUsersComponent,
     ExperimentListComponent,
     DashboardListComponent,
@@ -84,6 +90,7 @@ import { DashboardListContainerComponent } from './dashboard-list/dashboard-list
     ],
   entryComponents: [
     CreateExperimentComponent,
+    ExistingExperimentComponent,
     UpdateUsersComponent
   ],
   providers: [   {
