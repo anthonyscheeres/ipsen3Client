@@ -5,8 +5,6 @@ import { ProtocolR } from '../models/Protocol';
 
 
 
-
-
 /**
 *
 * @author Anthony Scheeres
@@ -22,16 +20,27 @@ export async function fetchJsonGet(url) {
   return content;
 }
 
+export async function fetchPost(url) {
+  var content: string = null;
+  const rawResponse = await fetch(url, {
+    method: ProtocolR.POST,
+  });
+  content = await rawResponse.text();
+  console.log(content)
+  return content;
+}
+
+
 
 /**
 *
 * @author Anthony Scheeres
 *
 */
-export async function fetchJsonPost(url : string, data: string) {
+export async function fetchJsonPost(url: string, data: string, methode: string) {
   var content: string = null;
   const rawResponse = await fetch(url, {
-    method: ProtocolR.POST,
+    method: methode,
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'

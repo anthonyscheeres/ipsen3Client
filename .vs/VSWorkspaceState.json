@@ -3,9 +3,9 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\experiment-list",
-    "\\src\\app\\experiment-list\\existing-experiment"
+    "\\src\\app\\experiment-list\\existing-experiment",
+    "\\src\\app\\horizontale-navigation-bar"
   ],
-  "SelectedNode": "\\src\\app\\experiment-list\\existing-experiment\\existing-experiment.component.ts",
+  "SelectedNode": "\\src\\app\\horizontale-navigation-bar\\horizontale-navigation-bar.component.html",
   "PreviewInSolutionExplorer": false
 }
