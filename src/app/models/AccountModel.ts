@@ -1,6 +1,10 @@
 import { getHasWriteFromCookie, getHasDeleteFromCookie, getHasReadFromCookie, getHasAdminFromCookie } from '../services/cookie';
 
-
+/**
+*
+* @author Anthony Scheeres
+*
+*/
 export class AccountModel {
 
 

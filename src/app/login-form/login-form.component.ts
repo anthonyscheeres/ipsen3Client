@@ -11,6 +11,12 @@ import { DataModel } from '../models/DataModel';
   styleUrls: ['./login-form.component.css'],
   encapsulation: ViewEncapsulation.None
 })
+
+/**
+*
+* @author Anthony Scheeres
+*
+*/
 export class LoginFormComponent implements OnInit {
 
 

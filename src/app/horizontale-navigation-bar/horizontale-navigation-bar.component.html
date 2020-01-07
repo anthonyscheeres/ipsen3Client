@@ -4,9 +4,17 @@
 
 
     <div class="header-firstnav sticky-top">
+      <div class="d-lg-none d-xl-none">
+        <div class="btn-space">
 
+          <button class="btn btn-lg btn-outline-primary" (click)="toggleCollapse()" type="button"><span class="glyphicon glyphicon-menu-hamburger"></span> </button>
+          <!-- other navbar code omitted -->
 
-      <ul class="nav navbar-nav navbar-right">
+        </div>
+
+      </div>
+
+      <ul class="nav navbar-nav navbar-right" *ngif="show">
 
         <li><a class="nav-link" routerLink="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li>     <a class="nav-link" routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

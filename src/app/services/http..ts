@@ -20,6 +20,13 @@ export async function fetchJsonGet(url) {
   return content;
 }
 
+
+
+/**
+*
+* @author Anthony Scheeres
+*
+*/
 export async function fetchPost(url) {
   var content: string = null;
   const rawResponse = await fetch(url, {

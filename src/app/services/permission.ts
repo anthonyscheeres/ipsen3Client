@@ -1,8 +1,15 @@
-import { fetchJsonPost, fetchPost } from './http';
+
 import { ServerModel } from '../models/ServerModel';
 import { DataModel } from '../models/DataModel';
 import { AccountModel } from '../models/AccountModel';
+import { fetchPost } from './http.';
 
+
+/**
+*
+* @author Anthony Scheeres
+*
+*/
 export function hasDelete() {
   var host = ServerModel.host;
   var port = ServerModel.port;
@@ -16,6 +23,11 @@ export function hasDelete() {
   return fetchPost(url);
 }
 
+/**
+*
+* @author Anthony Scheeres
+*
+*/
 export function hasWrite() {
   var host = ServerModel.host;
   var port = ServerModel.port;
@@ -30,6 +42,12 @@ export function hasWrite() {
   return fetchPost(url);
 }
 
+
+/**
+*
+* @author Anthony Scheeres
+*
+*/
 export function hasRead() {
   var host = ServerModel.host;
   var port = ServerModel.port;
@@ -42,6 +60,12 @@ export function hasRead() {
   return fetchPost(url);
 }
 
+
+/**
+*
+* @author Anthony Scheeres
+*
+*/
 export async function setHasRead() {
   var variable = "hasRead"
   await hasRead().then(response => {
@@ -57,6 +81,12 @@ export async function setHasRead() {
   })
 }
 
+
+/**
+*
+* @author Anthony Scheeres
+*
+*/
 export async function setHasWrite() {
   var variable = "hasWrite"
   await hasWrite().then(response => {
@@ -71,6 +101,12 @@ export async function setHasWrite() {
     DataModel.account.hasWrite = false
   })
 }
+
+/**
+*
+* @author Anthony Scheeres
+*
+*/
 export async function setHasDelete() {
   var variable = "hasDelete"
   await hasDelete().then(response => {
@@ -89,6 +125,12 @@ export async function setHasDelete() {
 
 }
 
+
+/**
+*
+* @author Anthony Scheeres
+*
+*/
 export function logOut() {
   DataModel.account = new AccountModel();
 /*  nullToken()
@@ -103,7 +145,11 @@ export async function nullHasSuperPermission() {
 
   localStorage.setItem("hasSuperPermission", null)
 }
-
+/**
+*
+* @author Anthony Scheeres
+*
+*/
 export async function nullToken() {
   DataModel.account.token = null
 
@@ -111,19 +157,31 @@ export async function nullToken() {
 }
 
 
-
+/**
+*
+* @author Anthony Scheeres
+*
+*/
 export async function nullHasWrite() {
   DataModel.account.hasWrite = null
 
   localStorage.setItem("hasWrite", null)
 }
-
+/**
+*
+* @author Anthony Scheeres
+*
+*/
 export async function nullHasDelete() {
   DataModel.account.hasDelete = false
 
   localStorage.setItem("hasDelete", null)
 }
-
+/**
+*
+* @author Anthony Scheeres
+*
+*/
 export async function nullHasRead() {
   DataModel.account.hasRead = false
 
@@ -132,13 +190,21 @@ export async function nullHasRead() {
 
 
 
-
+/**
+*
+* @author Anthony Scheeres
+*
+*/
 export async function setHasWhatPermission() {
   setHasWrite()
   setHasDelete()
   setHasRead()
 }
-
+/**
+*
+* @author Anthony Scheeres
+*
+*/
 export function hasSuperPermission() {
   var result = false;
   var delet = DataModel.account.hasDelete;
