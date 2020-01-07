@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { hasSuperPermission, logOut } from '../services/permission';
 import { Subscription, interval } from 'rxjs';
-import { DataModel } from '../models/DataModel';
+import DataModel from '../models/DataModel';
 
 @Component({
-  selector: 'app-navigation-bar',
-  templateUrl: './navigation-bar.component.html',
-  styleUrls: ['./navigation-bar.component.css']
+  selector: 'horizontale-navigation-bar',
+  templateUrl: './horizontale-navigation-bar.component.html',
+  styleUrls: ['./horizontale-navigation-bar.component.css']
 })
 
 
@@ -16,7 +16,7 @@ import { DataModel } from '../models/DataModel';
 * @author Anthony Scheeres
 *
 */
-export class NavigationBarComponent implements OnInit {
+export class HorizontaleNavigationBarComponent implements OnInit {
   condition1 = DataModel.account.hasSuperPermission;
   show: boolean = true;
 

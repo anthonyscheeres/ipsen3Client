@@ -1,8 +1,8 @@
 
 import { ServerModel } from '../models/ServerModel';
-import { DataModel } from '../models/DataModel';
-import { AccountModel } from '../models/AccountModel';
+import DataModel from '../models/DataModel';
 import { fetchPost } from './http.';
+import { AccountModel } from '../models/AccountModel';
 
 
 /**
@@ -206,15 +206,13 @@ export async function setHasWhatPermission() {
 *
 */
 export function hasSuperPermission() {
-  var result = false;
+
+  let result: boolean = false
   var delet = DataModel.account.hasDelete;
   var read = DataModel.account.hasRead;
   var write = DataModel.account.hasWrite;
 
-  console.log(delet)
-  console.log(read)
-  console.log(write)
-  var result = delet && read && write
+  result = delet && read && write;
   var val;
   console.log("hasSuperPermission" +result)
 

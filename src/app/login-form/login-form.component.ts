@@ -3,7 +3,7 @@ import { login } from '../services/user';
 import { responseR } from '../models/ResponseRequest';
 import { Router } from '@angular/router';
 import { setHasWhatPermission } from '../services/permission';
-import { DataModel } from '../models/DataModel';
+import DataModel from '../models/DataModel';
 
 @Component({
   selector: 'app-login-form',
