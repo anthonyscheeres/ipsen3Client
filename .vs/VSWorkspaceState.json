@@ -2,10 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app",
-    "\\src\\app\\experiment-list\\existing-experiment",
-    "\\src\\app\\horizontale-navigation-bar"
+    "\\src\\app"
   ],
-  "SelectedNode": "\\src\\app\\horizontale-navigation-bar\\horizontale-navigation-bar.component.html",
+  "SelectedNode": "\\src\\app\\app.component.css",
   "PreviewInSolutionExplorer": false
 }

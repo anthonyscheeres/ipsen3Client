@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { hasSuperPermission, logOut } from '../services/permission';
 import { Subscription, interval } from 'rxjs';
 import DataModel from '../models/DataModel';
+import { VerticalNavigationBarComponent } from '../vertical-navigation-bar/vertical-navigation-bar.component';
 
 @Component({
   selector: 'horizontale-navigation-bar',
@@ -18,7 +19,7 @@ import DataModel from '../models/DataModel';
 */
 export class HorizontaleNavigationBarComponent implements OnInit {
   condition1 = DataModel.account.hasSuperPermission;
-  show: boolean = true;
+
 
 
 
@@ -28,7 +29,9 @@ export class HorizontaleNavigationBarComponent implements OnInit {
 *
 */
   toggleCollapse() {
-    this.show = !this.show
+    var e = DataModel.hiddenHamburger.show
+
+    e = !e;
   }
 
   myStyles = {

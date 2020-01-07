@@ -1,4 +1,5 @@
 import { AccountModel } from './AccountModel';
+import { hiddenElement } from './hiddenElements';
 
 
 /**
@@ -8,4 +9,5 @@ import { AccountModel } from './AccountModel';
 */
 export default class DataModel {
   static account: AccountModel = new AccountModel()
+  static hiddenHamburger = new hiddenElement();
 }
