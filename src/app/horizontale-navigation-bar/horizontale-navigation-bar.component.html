@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <div class="btn-space">
+      <div class="d-lg-none d-xl-none">
 
         <button class="btn btn-lg btn-outline-primary" (click)="toggleCollapse()" type="button"><span class="glyphicon glyphicon-menu-hamburger"></span> </button>
         <!-- other navbar code omitted -->
@@ -10,7 +10,7 @@
 
     </div>
 
-    <ul class="nav navbar-nav navbar-right" *ngIf="show">
+    <ul class="nav navbar-nav navbar-right" >
 
       <li><a class="nav-link" routerLink="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li>     <a class="nav-link" routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
