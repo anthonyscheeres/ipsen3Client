@@ -9,10 +9,10 @@ export class AccountModel {
 
 
   token: String = localStorage.getItem("token");
-  hasWrite = getHasWriteFromCookie()
-  hasDelete = getHasDeleteFromCookie()
-  hasRead = getHasReadFromCookie()
-  hasSuperPermission: boolean = getHasAdminFromCookie()
+  hasWrite 
+  hasDelete 
+  hasRead 
+  hasSuperPermission: boolean 
   constructor() { }
 
 }

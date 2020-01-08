@@ -220,6 +220,12 @@ export async function setHasWhatPermission() {
   setHasDelete()
   setHasRead()
 }
+
+function checkInput(val){
+  return val == null || val === false
+}
+
+
 /**
 *
 * @author Anthony Scheeres
@@ -234,9 +240,9 @@ export function hasSuperPermission() {
 
   result = delet && read && write;
   var val;
-  console.log("hasSuperPermission" +result)
+  //console.log("hasSuperPermission" +result)
 
-  if (val == null || val === false) {
+  if (checkInput(val)) {
     localStorage.setItem("hasSuperPermission", "false")
     DataModel.account.hasSuperPermission = false;
   }

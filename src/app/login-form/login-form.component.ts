@@ -4,6 +4,7 @@ import { responseR } from '../models/ResponseRequest';
 import { Router } from '@angular/router';
 import { setHasWhatPermission } from '../services/permission';
 import DataModel from '../models/DataModel';
+import { AccountModel } from '../models/AccountModel';
 
 @Component({
   selector: 'app-login-form',
@@ -47,6 +48,7 @@ export class LoginFormComponent implements OnInit {
         localStorage.setItem("token", response)
         setHasWhatPermission();
         this._router.navigate(['/shop']);
+        console.log("hasRead"+DataModel.account.hasRead);
       }
     })
       ;

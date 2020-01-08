@@ -29,9 +29,9 @@ export class HorizontaleNavigationBarComponent implements OnInit {
 *
 */
   toggleCollapse() {
-    var e = DataModel.hiddenHamburger.show
+   
+    DataModel.hiddenHamburger.show = !DataModel.hiddenHamburger.show;
 
-    e = !e;
   }
 
   myStyles = {
