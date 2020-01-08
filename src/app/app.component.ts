@@ -10,7 +10,7 @@ import { Subscription, interval } from 'rxjs';
 })
 export class AppComponent {
   title = 'TestlabWeb';
-  show: boolean =false
+  showThis: boolean =false
   mySubscription: Subscription
   myStyles = {
     'visibility': 'hidden'
@@ -30,12 +30,12 @@ export class AppComponent {
   ngOnInit() {
   }
 
-
+  
 
   doStuff() {
     this.checkCurrentPermission();
 
-    this.show = DataModel.hiddenHamburger.show
+    this.showThis = DataModel.hiddenHamburger.show
 
     this.myStyles = {
       'visibility': 'visible'
@@ -43,7 +43,8 @@ export class AppComponent {
     }
   }
   checkCurrentPermission() {
-    this.show = !DataModel.account.hasRead;
+    this.showThis= DataModel.account.hasRead;
+    console.log("current show is " + this.showThis)
   }
 }
 
