@@ -48,7 +48,7 @@ export class HorizontaleNavigationBarComponent implements OnInit {
 * @author Anthony Scheeres
 *
 */
-  doStuff() {
+  initialize() {
     this.checkCurrentPermission();
     this.myStyles = {
       'visibility': 'visible'
@@ -57,10 +57,16 @@ export class HorizontaleNavigationBarComponent implements OnInit {
     
   }
 
+
+/**
+*
+* @author Anthony Scheeres
+*
+*/
   constructor(private _router: Router) {
     var time = 500
     this.mySubscription = interval(time).subscribe((x => {
-      this.doStuff();
+      this.initialize();
     }));
   }
 

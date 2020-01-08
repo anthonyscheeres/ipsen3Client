@@ -153,11 +153,11 @@ export async function setHasDelete() {
 */
 export function logOut() {
   DataModel.account = new AccountModel();
-/*  nullToken()
+ nullToken()
   nullHasWrite()
   nullHasDelete()
   nullHasRead()
-  nullHasSuperPermission() */
+  nullHasSuperPermission() 
 }
 
 export async function nullHasSuperPermission() {
@@ -240,8 +240,7 @@ export function hasSuperPermission() {
 
   result = delet && read && write;
   var val;
-  //console.log("hasSuperPermission" +result)
-
+  console.log("hasRead: " + DataModel.account.hasRead);
   if (checkInput(val)) {
     localStorage.setItem("hasSuperPermission", "false")
     DataModel.account.hasSuperPermission = false;

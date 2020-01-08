@@ -9,10 +9,10 @@ export class AccountModel {
 
 
   token: String = localStorage.getItem("token");
-  hasWrite 
-  hasDelete 
-  hasRead 
-  hasSuperPermission: boolean 
+  hasWrite = false
+  hasDelete = false
+  hasRead = false
+  hasSuperPermission: boolean = false
   constructor() { }
 
 }
