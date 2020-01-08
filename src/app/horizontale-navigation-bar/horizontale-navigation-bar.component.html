@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <div class="navbar-header">
+    <div *ngIf="condition1" [ngStyle]="myStyles" class="navbar-header">
       <div class="d-lg-none d-xl-none">
 
         <button class="btn btn-lg btn-outline-primary" (click)="toggleCollapse()" type="button"><span class="glyphicon glyphicon-menu-hamburger"></span> </button>

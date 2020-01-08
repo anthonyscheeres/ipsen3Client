@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app"
+    "\\src\\app",
+    "\\src\\app\\horizontale-navigation-bar",
+    "\\src\\app\\vertical-navigation-bar"
   ],
-  "SelectedNode": "\\src\\app\\app.component.css",
+  "SelectedNode": "\\src\\app\\app.component.ts",
   "PreviewInSolutionExplorer": false
 }

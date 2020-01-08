@@ -10,8 +10,16 @@ import { Subscription, interval } from 'rxjs';
 })
 export class AppComponent {
   title = 'TestlabWeb';
-  show: boolean = DataModel.hiddenHamburger.show;
+  showIt: boolean =false
   mySubscription: Subscription
+  myStyles = {
+    'visibility': 'hidden'
+
+  };
+ 
+
+
+
   constructor(private _router: Router) {
     var time = 500
     this.mySubscription = interval(time).subscribe((x => {
@@ -21,12 +29,21 @@ export class AppComponent {
 
   ngOnInit() {
   }
+
+
+
   doStuff() {
-    this.show = DataModel.hiddenHamburger.show
+    this.checkCurrentPermission();
+
+    this.showIt = DataModel.hiddenHamburger.show
+
+    this.myStyles = {
+      'visibility': 'visible'
+
+    }
   }
   checkCurrentPermission() {
-    this.show = !DataModel.account.hasSuperPermission;
-    //   console.log(DataModel.account.hasSuperPermission)
+    this.showIt = !DataModel.account.hasSuperPermission;
   }
 }
 

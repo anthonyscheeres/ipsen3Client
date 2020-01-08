@@ -90,6 +90,7 @@ nav.sidebar, .main {
   /*colors dropdown box text */
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
     color: #777;
+    height:100%;
   }
 
   /*gives sidebar width/height*/

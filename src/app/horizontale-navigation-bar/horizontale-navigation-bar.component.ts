@@ -18,7 +18,7 @@ import { VerticalNavigationBarComponent } from '../vertical-navigation-bar/verti
 *
 */
 export class HorizontaleNavigationBarComponent implements OnInit {
-  condition1 = DataModel.account.hasSuperPermission;
+  condition1 = DataModel.account.hasRead;
 
 
 
