@@ -28,6 +28,20 @@ export function hasDelete() {
 * @author Anthony Scheeres
 *
 */
+export function hasAdmin() {
+  var host = ServerModel.host;
+  var port = ServerModel.port;
+  var token = DataModel.account.token
+  var url = "http://" + host + ":" + port + "/user/" + token + "/hasAdmin";
+  return fetchPost(url);
+}
+
+
+/**
+*
+* @author Anthony Scheeres
+*
+*/
 export function hasWrite() {
   var host = ServerModel.host;
   var port = ServerModel.port;
@@ -117,6 +131,7 @@ export async function setHasDelete() {
   await hasDelete().then(response => {
 
     if (hasPermissionFromResponse(response)) {
+
 
       localStorage.setItem(variable, response)
       return DataModel.account.hasDelete = true
