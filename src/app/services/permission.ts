@@ -61,6 +61,11 @@ export function hasRead() {
 }
 
 
+function hasPermissionFromResponse(response: String) {
+  return response.toLocaleLowerCase() === "true"
+}
+
+
 /**
 *
 * @author Anthony Scheeres
@@ -70,7 +75,7 @@ export async function setHasRead() {
   var variable = "hasRead"
   await hasRead().then(response => {
 
-    if (response.toLocaleLowerCase() === "true") {
+    if (hasPermissionFromResponse(response)) {
 
       localStorage.setItem(variable, response);
       return DataModel.account.hasRead = true;
@@ -91,7 +96,7 @@ export async function setHasWrite() {
   var variable = "hasWrite"
   await hasWrite().then(response => {
 
-    if (response.toLocaleLowerCase() === "true") {
+    if (hasPermissionFromResponse(response)) {
 
       localStorage.setItem(variable, response)
       return DataModel.account.hasWrite = true
@@ -111,7 +116,7 @@ export async function setHasDelete() {
   var variable = "hasDelete"
   await hasDelete().then(response => {
 
-    if (response.toLocaleLowerCase() === "true") {
+    if (hasPermissionFromResponse(response)) {
 
       localStorage.setItem(variable, response)
       return DataModel.account.hasDelete = true
