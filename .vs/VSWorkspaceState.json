@@ -4,10 +4,8 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\horizontale-navigation-bar",
-    "\\src\\app\\models",
-    "\\src\\app\\services",
     "\\src\\app\\vertical-navigation-bar"
   ],
-  "SelectedNode": "\\src\\app\\services\\permission.ts",
+  "SelectedNode": "\\src\\app\\horizontale-navigation-bar\\horizontale-navigation-bar.component.ts",
   "PreviewInSolutionExplorer": false
 }

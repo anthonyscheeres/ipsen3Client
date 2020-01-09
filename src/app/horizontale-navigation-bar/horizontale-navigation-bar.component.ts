@@ -18,7 +18,7 @@ import { VerticalNavigationBarComponent } from '../vertical-navigation-bar/verti
 *
 */
 export class HorizontaleNavigationBarComponent implements OnInit {
-  condition1 = DataModel.account.hasRead;
+  condition1 = false
 
 
 
@@ -31,12 +31,11 @@ export class HorizontaleNavigationBarComponent implements OnInit {
   toggleCollapse() {
    
     DataModel.hiddenHamburger.show = !DataModel.hiddenHamburger.show;
-
+   
   }
 
   myStyles = {
     'visibility': 'hidden'
-
   };
 
   mySubscription: Subscription

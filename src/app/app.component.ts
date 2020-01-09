@@ -9,6 +9,8 @@ import { Subscription, interval } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  large: boolean = true;
   title = 'TestlabWeb';
   showThis: boolean =false
   mySubscription: Subscription
@@ -46,6 +48,13 @@ export class AppComponent {
     this.showThis= DataModel.account.hasRead;
     console.log("current show is " + this.showThis)
   }
+
+
+
+  public doResize(): void {
+    this.large = !this.large;
+  }
+
 }
 
 

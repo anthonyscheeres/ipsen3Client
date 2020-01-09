@@ -8,8 +8,9 @@
 
 
 </div>
+<div [class.large]="large" [class.small]="!large">
+  <div class="leftnav" *ngIf="showThis" [ngStyle]="myStyles">
 
-<div class="leftnav" *ngIf="showThis"  [ngStyle]="myStyles">
-
-  <app-vertical-navigation-bar></app-vertical-navigation-bar>
+    <app-vertical-navigation-bar></app-vertical-navigation-bar>
+  </div>
 </div>

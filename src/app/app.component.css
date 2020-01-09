@@ -12,3 +12,12 @@
   width: 80%;
   margin-right:2%;
 }
+
+
+.large {
+  width: 300px;
+}
+
+.small {
+  width: 100px;
+}
