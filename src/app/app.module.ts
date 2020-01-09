@@ -22,6 +22,8 @@ import { FormsModule , ReactiveFormsModule} from "@angular/forms";
 import { DashboardListComponent } from './dashboard-list/dashboard-list.component';
 import { DashboardListContainerComponent } from './dashboard-list/dashboard-list-container/dashboard-list-container.component';
 import { ExistingExperimentComponent } from './experiment-list/existing-experiment/existing-experiment.component';
+import { VerticalNavigationBarComponent } from './vertical-navigation-bar/vertical-navigation-bar.component';
+import { HorizontaleNavigationBarComponent } from './horizontale-navigation-bar/horizontale-navigation-bar.component';
 
 
 
@@ -37,15 +39,17 @@ import { ExistingExperimentComponent } from './experiment-list/existing-experime
     RegisterFormComponent,
     ExperimentListComponent,
     CreateExperimentComponent,
+    ExistingExperimentComponent,
     UpdateUsersComponent,
     ExperimentListComponent,
     DashboardListComponent,
     DashboardListContainerComponent,
+    VerticalNavigationBarComponent,
+    HorizontaleNavigationBarComponent,
 
   ],
     imports: [
         BrowserModule,
-        JSONTableModule, // Add the JSONTableModule
         HttpClientModule,
         AppRoutingModule,
         NgbModule,

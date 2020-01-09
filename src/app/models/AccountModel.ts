@@ -1,8 +1,18 @@
+import { getHasWriteFromCookie, getHasDeleteFromCookie, getHasReadFromCookie, getHasAdminFromCookie } from '../services/cookie';
+
+/**
+*
+* @author Anthony Scheeres
+*
+*/
 export class AccountModel {
 
 
-  static token: String =  localStorage.getItem("token");
-
+  token: String = localStorage.getItem("token");
+  hasWrite = false
+  hasDelete = false
+  hasRead = false
+  hasSuperPermission: boolean = false
   constructor() { }
 
 }
