@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -15,7 +15,10 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { ExperimentListComponent } from './experiment-list/experiment-list.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmPopupComponent } from './popup/confirm-popup/confirm-popup.component';
+import { AlertPopupComponent } from './popup/alert-popup/alert-popup.component';
 
 
 @NgModule({
@@ -28,14 +31,16 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     NavigationBarComponent,
     LoginFormComponent,
     RegisterFormComponent,
-    ExperimentListComponent
-
+    ExperimentListComponent,
+    ConfirmPopupComponent,
+    AlertPopupComponent,
   ],
     imports: [
         BrowserModule,
         JSONTableModule, // Add the JSONTableModule
         HttpClientModule,
         AppRoutingModule,
+        NgbModule,
         RouterModule.forRoot(
             [
                 {
@@ -64,11 +69,17 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
             ]
         ),
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
     ],
-  providers: [   {
-          provide: LocationStrategy, useClass: HashLocationStrategy
-      }],
+  entryComponents: [
+    ConfirmPopupComponent,
+    AlertPopupComponent
+  ],
+  providers: [
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

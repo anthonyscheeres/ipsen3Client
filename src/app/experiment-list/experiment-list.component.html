@@ -19,6 +19,7 @@
       <th>Innovation  kosten</th>
       <th>Money source</th>
       <th>Organisation</th>
+      <th>Optie</th>
     </thead>
       <tbody>
       <tr *ngFor="let value of dataFromServer" >
@@ -32,6 +33,16 @@
         <td>{{ value.inovation_cost }}</td>
         <td>{{ value.money_source }}</td>
         <td>{{ value.organisation }}</td>
+        <td>
+          <input
+            type="button"
+            name="deleteExperiment"
+            id="deleteExperiment"
+            value="Verwijder"
+            class="btn btn-danger"
+            (click)="deleteExperiment(value)"
+          >
+        </td>
       </tr>
       </tbody>
     </table>
