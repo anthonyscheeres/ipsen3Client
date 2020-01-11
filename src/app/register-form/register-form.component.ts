@@ -28,7 +28,7 @@ export class RegisterFormComponent implements OnInit {
       if (response != responseR.fail) {
         this._router.navigate(['/login']);
 
-      } else this.this1 = "Oops did you enter a valid email or try a different username"
+      } else this.this1 = "Oops heb je een juist email adress gegeven, anders probeer een andere gebruikersnaam"
     });
 
 

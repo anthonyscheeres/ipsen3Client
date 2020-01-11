@@ -50,7 +50,7 @@ export class LoginFormComponent implements OnInit {
         setHasWhatPermission();
         this._router.navigate(['/shop']);
         console.log("hasRead"+DataModel.account.hasRead);
-      }else this.this1 = "Oops think you entered invalid credentials, maybe you haven't verified your email yet?!"
+      }else this.this1 = "Oops je login informatie klopte niet. Heb je, je email al bevestigd?!"
 
     })
       ;
