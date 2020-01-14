@@ -67,7 +67,7 @@ export class HorizontaleNavigationBarComponent implements OnInit {
     this.mySubscription = interval(time).subscribe((x => {
       this.initialize();
 
-      console.log("current show on button is " + this.condition1)
+      //"current show on button is " + this.condition1)
     }));
   }
 

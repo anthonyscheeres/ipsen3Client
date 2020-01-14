@@ -16,7 +16,7 @@ export async function fetchJsonGet(url) {
     method: ProtocolR.GET,
   });
   content = await rawResponse.text();
-  console.log(content)
+  //content)
   return content;
 }
 
@@ -33,7 +33,7 @@ export async function fetchPost(url) {
     method: ProtocolR.POST,
   });
   content = await rawResponse.text();
-  console.log(content)
+  //content)
   return content;
 }
 
@@ -55,7 +55,7 @@ export async function fetchJsonPost(url: string, data: string, methode: string) 
     body: data
   });
   content = await rawResponse.text();
-  console.log(content)
+  //content)
   return content;
 }
 

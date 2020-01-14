@@ -3,9 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { ExperimentModel } from "../models/ExperimentModel";
 import { deleteExperiment, getExperiments } from "../services/experiment";
 import {PopupService} from "../popup.service";
-import { getExperimentUrl } from './ExperimentUrl';
-import { CreateExperimentComponent } from '../create-experiment/create-experiment.component';
 import { ExistingExperimentComponent } from './existing-experiment/existing-experiment.component';
+import { CreateExperimentComponent } from '../create-experiment/create-experiment.component';
+import { getExperimentUrl } from './ExperimentUrl';
 
 
 @Component({
@@ -53,6 +53,7 @@ export class ExperimentListComponent implements OnInit {
       }
     )
   }
+
 
   openExistingExperiment(model: ExperimentModel){
     const modal = this.modalService.open(ExistingExperimentComponent);

@@ -3,11 +3,10 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\login",
-    "\\src\\app\\login-form",
+    "\\src\\app\\horizontale-navigation-bar",
     "\\src\\app\\register-form",
     "\\src\\app\\vertical-navigation-bar"
   ],
-  "SelectedNode": "\\src\\app\\login\\login.component.html",
+  "SelectedNode": "\\src\\app\\horizontale-navigation-bar\\horizontale-navigation-bar.component.html",
   "PreviewInSolutionExplorer": false
 }
