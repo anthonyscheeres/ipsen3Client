@@ -5,13 +5,13 @@ export function getHasReadFromCookie() {
   if (boolean = "true") {
     return true
   }
-  console.log(boolean)
+  //boolean)
   return false
 }
 
 export function getHasAdminFromCookie() {
   var boolean = localStorage.getItem("hasSuperPermission")
-  console.log(boolean)
+  //boolean)
   if (boolean = "true") {
     return true
   }
@@ -22,11 +22,11 @@ export function getHasAdminFromCookie() {
 
 export function getHasWriteFromCookie() {
   var boolean = localStorage.getItem("hasWrite")
-  console.log(boolean)
+  //boolean)
   if (boolean="true") {
     return true
   }
-  console.log(boolean)
+  //boolean)
   return false
 }
 
@@ -36,6 +36,6 @@ export function getHasDeleteFromCookie() {
   if (boolean = "true") {
     return true
   }
-  console.log(boolean)
+  //boolean)
   return false
 }
