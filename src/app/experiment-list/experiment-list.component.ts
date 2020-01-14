@@ -39,9 +39,10 @@ export class ExperimentListComponent implements OnInit {
           { responseType: "text" }
         ).subscribe(responseData => {
           if (responseData.toLowerCase() == "succes") {
-            // show succes message
             this.showExperiments();
-            this.popupService.succesPopup(experiment.experiment_name + ' is succesvol verwijderd!');
+            this.popupService.succesPopup(
+              experiment.experiment_name + ' is succesvol verwijderd!'
+            );
           }
         });
       }
