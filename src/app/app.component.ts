@@ -46,7 +46,7 @@ export class AppComponent {
   }
   checkCurrentPermission() {
     this.showThis1= DataModel.account.hasRead;
-    console.log("current show is " + this.showThis)
+    //"current show is " + this.showThis)
   }
 
 }
