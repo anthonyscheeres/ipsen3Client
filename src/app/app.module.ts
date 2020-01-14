@@ -19,11 +19,17 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmPopupComponent } from './popup/confirm-popup/confirm-popup.component';
 import { AlertPopupComponent } from './popup/alert-popup/alert-popup.component';
+import { HorizontaleNavigationBarComponent } from './horizontale-navigation-bar/horizontale-navigation-bar.component';
+import { VerticalNavigationBarComponent } from './vertical-navigation-bar/vertical-navigation-bar.component';
+import { DashboardListComponent } from './dashboard-list/dashboard-list.component';
+import { DashboardListContainerComponent } from './dashboard-list/dashboard-list-container/dashboard-list-container.component';
 
 
 
 @NgModule({
   declarations: [
+    VerticalNavigationBarComponent,
+    HorizontaleNavigationBarComponent,
     AppComponent,
     LoginComponent,
     HomeComponent,
@@ -35,6 +41,8 @@ import { AlertPopupComponent } from './popup/alert-popup/alert-popup.component';
     ExperimentListComponent,
     ConfirmPopupComponent,
     AlertPopupComponent,
+    DashboardListComponent,
+    DashboardListContainerComponent
   ],
     imports: [
         BrowserModule,
