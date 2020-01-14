@@ -3,7 +3,8 @@
 }
 .table-fixed tbody {
   height: 50vh;
-  overflow-y: auto;
+  /*height: 240px;*/
+  overflow: auto;
   width: 100%;
 }
 
