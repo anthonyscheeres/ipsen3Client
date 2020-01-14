@@ -1,19 +1,17 @@
 .header-color{
-    background-color: darkblue;
+    background-color: #024D78;
     color: white;
-}
-
-.my-col{
-    padding: 0.7em;
-    border: 3px solid darkblue;
 }
 
 .ng-status{
     color: white;
-    padding: 0.7em;
-    margin: 0.5em;
-    width: 7.8em;
+    padding: 5px 10px;
     border-radius: 0.4em;
+}
+
+.my-col{
+    border: 2px dotted red;
+
 }
 
 a{

@@ -13,6 +13,7 @@ import { HttpClient } from '@angular/common/http';
 export class DashboardListContainerComponent implements OnInit {
   serverExperiments: any;
   sortDirection: String;
+  id: any;
 
   @Input() fase: String;
   @Input() faseCheck: String;
@@ -22,7 +23,7 @@ export class DashboardListContainerComponent implements OnInit {
   }
 
   @HostListener('click')
-  sort(){
+  public sort(){
     this.directionAssignToHeader();
   }
 
@@ -56,7 +57,7 @@ export class DashboardListContainerComponent implements OnInit {
     this.fetchPosts();
   }
 
-  onFetchPosts(){
+  public onFetchPosts(){
     this.fetchPosts();
     this.getColor(status);
   }
@@ -68,4 +69,5 @@ export class DashboardListContainerComponent implements OnInit {
         this.serverExperiments = posts;
       });
   }
+
 }
