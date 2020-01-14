@@ -19,7 +19,7 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
-    "@ng-bootstrap/ng-bootstrap": "^4.2.2",
+    "@ng-bootstrap/ng-bootstrap": "^5.1.4",
     "angular-json-table": "0.0.6",
     "bootstrap": "^3.4.1",
     "glyphicons-only-bootstrap": "^1.0.1",
