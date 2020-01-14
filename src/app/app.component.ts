@@ -10,9 +10,9 @@ import { Subscription, interval } from 'rxjs';
 })
 export class AppComponent {
 
-  large: boolean = true;
   title = 'TestlabWeb';
-  showThis: boolean =false
+  showThis1: boolean = false
+  showThis: boolean = false
   mySubscription: Subscription
   myStyles = {
     'visibility': 'hidden'
@@ -36,7 +36,7 @@ export class AppComponent {
 
   doStuff() {
     this.checkCurrentPermission();
-
+    
     this.showThis = DataModel.hiddenHamburger.show
 
     this.myStyles = {
@@ -45,14 +45,8 @@ export class AppComponent {
     }
   }
   checkCurrentPermission() {
-    this.showThis= DataModel.account.hasRead;
+    this.showThis1= DataModel.account.hasRead;
     console.log("current show is " + this.showThis)
-  }
-
-
-
-  public doResize(): void {
-    this.large = !this.large;
   }
 
 }
