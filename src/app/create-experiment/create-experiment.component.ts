@@ -1,8 +1,10 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {NgbActiveModal, NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {getCreateExperimentUrl, getExperimentUrl} from "../experiment-list/ExperimentUrl";
+import {NgForm} from "@angular/forms";
 import {ExperimentModel} from "../models/ExperimentModel";
-import {getCreateExperimentUrl} from "../experiment-list/ExperimentUrl";
+import {ProtocolR} from "../models/Protocol";
 
 
 @Component({
@@ -12,6 +14,18 @@ import {getCreateExperimentUrl} from "../experiment-list/ExperimentUrl";
 })
 export class CreateExperimentComponent implements OnInit {
   dataFromServer: any;
+  id: number;
+  name: string;
+  description: string;
+  fasen: string;
+  img: any;
+  status: string;
+  experimentleaders: string;
+  experimentTeam: string;
+  organisation: string;
+  businessOwners: string;
+  inovation_cost: number;
+  money_source: string;
 
   constructor(private http: HttpClient, public activeModal: NgbActiveModal) {
   }
@@ -19,28 +33,29 @@ export class CreateExperimentComponent implements OnInit {
   ngOnInit() {
   }
 
-  async createExperiment(event) {
-    event.preventDefault()
-    const target = event.target
-    let experimentModel = new ExperimentModel;
-    experimentModel.business_owner
+  async onSubmit(form: NgForm) {
+    var data = JSON.stringify(form.value);
+    console.log(data);
 
-
-    experimentModel.experiment_name = target.querySelector('#experiment_name').value;
-    experimentModel.experiment_description = target.querySelector('#experiment_description').value;
-    experimentModel.experiment_leader = target.querySelector('#experiment_leader').value;
-    experimentModel.experiment_phase = target.querySelector('#experiment_phase').value;
-    experimentModel.experiment_status = target.querySelector('#experiment_status').value;
-    experimentModel.inovation_cost = target.querySelector('#inovation_cost').value;
-    experimentModel.money_source = target.querySelector('#money_source').value;
-    experimentModel.organisation = target.querySelector('#organisation').value;
-
-    this.http.put<ExperimentModel>(getCreateExperimentUrl(), experimentModel)
-      .subscribe(
+    this.http.post<String>(getCreateExperimentUrl(), data,
+      {
+        headers: new HttpHeaders({
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'})
+      }).subscribe(
         responseData => {
           this.dataFromServer = responseData;
           console.log(responseData);
         }
       )
+
+
+/*    this.http.put<ExperimentModel>(getCreateExperimentUrl(), experimentModel)
+      .subscribe(
+        responseData => {
+          this.dataFromServer = responseData;
+          console.log(responseData);
+        }
+      ) */
   }
 }

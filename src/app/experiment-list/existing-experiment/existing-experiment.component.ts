@@ -17,7 +17,7 @@ export class ExistingExperimentComponent implements OnInit {
   experiment_name: string;
   experiment_phase: string;
   experiment_status: string;
-  inovation_cost: string;
+  inovation_cost: number;
   money_source: string;
   organisation: string;
 
