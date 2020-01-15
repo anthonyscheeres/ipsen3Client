@@ -7,13 +7,13 @@
 
 <form (ngSubmit)="onSubmit(f)" #f='ngForm'>
   <div class="form-group">
-    <label for="name">Experiment Naam</label>
-    <input [ngModel]="name" class="form-control" type="text" id="name" name="name">
+    <label for="id">id</label>
+    <input [ngModel]="id" class="form-control" type="text" id="id" name="id">
   </div>
 
   <div class="form-group">
-    <label for="img">Image</label>
-    <input [ngModel]="img" class="form-control" type="text" id="img" name="name">
+    <label for="name">Experiment Naam</label>
+    <input [ngModel]="name" class="form-control" type="text" id="name" name="name">
   </div>
 
   <div class="form-group">
@@ -27,31 +27,23 @@
   </div>
 
   <div class="form-group">
-    <label for="experimentTeam">Experiment Team</label>
-    <input [ngModel]="experimentTeam" class="form-control" type="text" id="experimentTeam" name="experimentleaders">
-  </div>
-
-  <div class="form-group">
-    <label for="fasen">Experiment Phase</label>
-    <select [ngModel]="fasen" class="form-control" id="fasen" name="fasen">
-      <option value="IDEE">Idee</option>
-      <option value="LABIN">LabIn</option>
-      <option value="LABUIT">LabUit</option>
-      <option value="VRIESKIST">Vrieskist
-      <option value="HALLOFFAME">HallOfFame</option>
-      <option value="KERKHOF">Kerkhof</option>
-      <option value="VASTEDIENSTEN">VasteDiensten</option>
+    <label for="fasens">Experiment Phase</label>
+    <select [ngModel]="fasens" class="form-control" id="fasens" name="fasens">
+      <option value="Idee">Idee</option>
+      <option value="Het lab in">LabIn</option>
+      <option value="Het lab uit">LabUit</option>
+      <option value="Gepauzeerd">Vrieskist
+      <option value="Succesvol afgerond">HallOfFame</option>
+      <option value="Niet succesvol afgerond">Kerkhof</option>
     </select>
   </div>
 
   <div class="form-group">
-    <label for="status">Experiment Status</label>
-    <select [ngModel]="status" class="form-control" type="text" id="status" name="status">
-      <option value="GREEN">Green</option>
-      <option value="RED">Red</option>
-      <option value="ORANGE">Orange</option>
-      <option value="PAUSED">Paused</option>
-      <option value="SAVED">Saved</option>
+    <label for="statussen">Experiment Status</label>
+    <select [ngModel]="statussen" class="form-control" id="statussen" name="statussen">
+      <option value="Groen">Groen</option>
+      <option value="Geel">Geel</option>
+      <option value="Rood">Rood</option>
     </select>
   </div>
 
@@ -69,12 +61,8 @@
     <input [ngModel]="money_source" class="form-control" type="text" id="money_source" name="money_source">
   </div>
   <div class="form-group">
-   <label for="organisation">Organisatie</label>
-    <input [ngModel]="organisation" class="form-control" type="text" id="organisation" name="organisation">
-  </div>
-  <div class="form-group">
-    <label for="id">id</label>
-    <input [ngModel]="id" class="form-control" type="text" id="id" name="organisation">
+   <label for="organisations">Organisatie</label>
+    <input [ngModel]="organisations" class="form-control" type="text" id="organisations" name="organisations">
   </div>
 
   <div class="modal-footer">

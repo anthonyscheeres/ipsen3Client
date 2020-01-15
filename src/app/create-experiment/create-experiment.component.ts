@@ -3,8 +3,6 @@ import {NgbActiveModal, NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {getCreateExperimentUrl, getExperimentUrl} from "../experiment-list/ExperimentUrl";
 import {NgForm} from "@angular/forms";
-import {ExperimentModel} from "../models/ExperimentModel";
-import {ProtocolR} from "../models/Protocol";
 
 
 @Component({
@@ -17,12 +15,10 @@ export class CreateExperimentComponent implements OnInit {
   id: number;
   name: string;
   description: string;
-  fasen: string;
-  img: any;
-  status: string;
+  fasens: string;
+  statussen: string;
   experimentleaders: string;
-  experimentTeam: string;
-  organisation: string;
+  organisations: string;
   businessOwners: string;
   inovation_cost: number;
   money_source: string;
@@ -34,7 +30,7 @@ export class CreateExperimentComponent implements OnInit {
   }
 
   async onSubmit(form: NgForm) {
-    var data = JSON.stringify(form.value);
+    var data = form.value;
     console.log(data);
 
     this.http.post<String>(getCreateExperimentUrl(), data,
