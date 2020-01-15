@@ -67,11 +67,11 @@ export function getUsers() {
   return url;
 }
 
-export function deleteUser(id: number) {
+export function deleteUser() {
   var host = ServerModel.host;
   var port = ServerModel.port;
   var token = AccountModel.token;
-  var url = "http://" + host + ":" + port + "/user/" + token + "/deleteUser";
+  var url = "http://" + host + ":" + port + "/user/" + token + "/removeUser";
   return url;
 }
 

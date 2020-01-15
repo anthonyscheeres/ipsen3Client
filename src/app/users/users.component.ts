@@ -52,7 +52,11 @@ export class UsersComponent implements OnInit {
   }
 
   onDelete(user: UserModel) {
-    console.log("Delete user ", user.username)
+    this.updateService.deleteUser(user).then( r => {
+      alert("Gebruiker " + user.username + " is succesvol verwijderd.");
+      console.log(r);
+    });
+    // location.reload();
   }
 
   async ngOnInit() {

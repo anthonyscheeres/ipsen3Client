@@ -1,5 +1,5 @@
 import {UserModel} from "../models/UserModel";
-import {updateUserRole} from "./user";
+import {deleteUser, updateUserRole} from './user';
 import {HttpClient} from "@angular/common/http";
 import {Injectable} from "@angular/core";
 
@@ -56,6 +56,15 @@ export class UserUpdate{
 
   addChange(user: UserModel) {
     this.changes.push(user);
+  }
+
+  async deleteUser(user: UserModel) {
+    this.http.post<string>(
+      await deleteUser(), user.username
+    ).subscribe(r => {
+    }, error =>{
+      console.log(error);
+    });
   }
 
 }
