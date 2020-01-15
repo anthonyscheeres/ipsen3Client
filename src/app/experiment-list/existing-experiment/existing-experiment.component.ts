@@ -1,6 +1,12 @@
 import { Component, OnInit, Input} from '@angular/core';
 import {NgbActiveModal, NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ExperimentModel} from '../../models/ExperimentModel';
+import {ServerModel} from '../../models/ServerModel';
+import {AccountModel} from '../../models/AccountModel';
+import * as url from 'url';
+import {HttpClient} from '@angular/common/http';
+import {getExperimentUrl} from '../ExperimentUrl';
+import {LogModel} from '../../models/LogModel';
 
 @Component({
   selector: 'app-existing-experiment-component',
@@ -21,7 +27,12 @@ export class ExistingExperimentComponent implements OnInit {
   money_source: string;
   organisation: string;
 
-  constructor(public activeModal: NgbActiveModal) { }
+  dataFromServer: LogModel[];
+
+  newLogTitle: string = "Log titel";
+  newLogDescription: string = "Log omschrijving";
+
+  constructor(public activeModal: NgbActiveModal, private http: HttpClient) { }
 
   ngOnInit() {
     this.business_owner = this.model.business_owner;
@@ -34,5 +45,30 @@ export class ExistingExperimentComponent implements OnInit {
     this.inovation_cost = this.model.inovation_cost;
     this.money_source = this.model.money_source;
     this.organisation = this.model.organisation;
+
+    this.fetchLogRows();
+  }
+
+  fetchLogRows(){
+    let url = this.configureUrl();
+
+    this.http.get<LogModel[]>(
+      url).subscribe(responseData => {
+          this.dataFromServer = responseData;
+          console.log(responseData);
+        }
+      )
+  }
+
+  configureUrl(){
+    let host = ServerModel.host;
+    let port = ServerModel.port;
+    let token = AccountModel.token;
+    let url = "http://" + host + ":" + port + "/log/" + token +" /download/" + this.experiment_id;
+    return url
+  }
+
+  uploadLog(title: string, description: string){
+    let logModel = new LogModel();
   }
 }
