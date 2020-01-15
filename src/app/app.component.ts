@@ -41,12 +41,11 @@ export class AppComponent {
 
     this.myStyles = {
       'visibility': 'visible'
-
     }
   }
   checkCurrentPermission() {
-    this.showThis1= DataModel.account.hasRead;
-    console.log("current show is " + this.showThis)
+    this.showThis1= !DataModel.account.token===null;
+    console.log(DataModel.account.token)
   }
 
 }
