@@ -8,7 +8,7 @@ import { getHasWriteFromCookie, getHasDeleteFromCookie, getHasReadFromCookie, ge
 export class AccountModel {
 
 
-  token: String = localStorage.getItem("token");
+  token: String = null;
   hasWrite = false
   hasDelete = false
   hasRead = false
