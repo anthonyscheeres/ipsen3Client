@@ -2,6 +2,8 @@ import {UserModel} from "../models/UserModel";
 import {deleteUser, updateUserRole} from './user';
 import {HttpClient} from "@angular/common/http";
 import {Injectable} from "@angular/core";
+import {PopupService} from "../popup.service";
+import {UserRole} from "../models/UserRole";
 
 @Injectable({providedIn: 'root'})
 export class UserUpdate{
@@ -9,9 +11,8 @@ export class UserUpdate{
   users: UserModel[] = [];
   changes: UserModel[] = [];
   changesAlert: string[] = [];
-  private response: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private popupService: PopupService) { }
 
   cleanChanges() {
     this.changes.forEach((user, index) => {
@@ -26,7 +27,7 @@ export class UserUpdate{
     this.cleanChanges();
     for(let user of this.changes) {
       let originalUser = this.getOriginalUser(user.user_id);
-      this.changesAlert.push(user.username + " van " + originalUser.user_role + " naar " + user.user_role);
+      this.changesAlert.push(user.username + " van " + this.toTextRole(originalUser.user_role) + " naar " + this.toTextRole(user.user_role) + ".");
     }
   }
 
@@ -47,9 +48,9 @@ export class UserUpdate{
   async saveChanges() {
     for(let user of this.changes) {
         this.http.put<string>(updateUserRole(user.user_id, user.user_role), "")
-          .subscribe( response =>
-            this.response = response
-          );
+          .subscribe( response => {
+            this.handleResponse(response);
+          });
       }
       this.emptyChanges();
   }
@@ -62,9 +63,28 @@ export class UserUpdate{
     this.http.post<string>(
       await deleteUser(), user.username
     ).subscribe(r => {
-    }, error =>{
-      console.log(error);
+      this.handleResponse(r);
     });
+  }
+
+  toTextRole(role: UserRole) {
+    switch (role) {
+      case UserRole.USER:
+        return "gebruiker";
+      case UserRole.EMPLOYEE:
+        return "werknemer";
+      case UserRole.SUPERUSER:
+        return "superuser";
+    }
+  }
+
+  handleResponse(response: string) {
+    if(response === 'fail') {
+      this.popupService.dangerPopup("Er ging iets mis, probeer het later opnieuw.");
+    } else {
+      this.popupService.infoPopup("Succesvol afgerond.");
+    }
+
   }
 
 }

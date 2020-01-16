@@ -26,6 +26,7 @@ import { ExistingExperimentComponent } from './experiment-list/existing-experime
 import {UpdateUsersComponent} from "./update-users/update-users.component";
 import { DashboardListComponent } from './dashboard-list/dashboard-list.component';
 import { DashboardListContainerComponent } from './dashboard-list/dashboard-list-container/dashboard-list-container.component';
+import {PopupService} from "./popup.service";
 
 
 
@@ -100,6 +101,7 @@ import { DashboardListContainerComponent } from './dashboard-list/dashboard-list
     UpdateUsersComponent
   ],
   providers: [
+    PopupService,
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy
