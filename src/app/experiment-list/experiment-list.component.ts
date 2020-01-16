@@ -43,7 +43,7 @@ export class ExperimentListComponent implements OnInit {
             this.popupService.succesPopup(
               experiment.experiment_name + ' is succesvol verwijderd!'
             );
-          }
+          } else {this.popupService.warningPopup(responseData);}
         });
       }
     )
