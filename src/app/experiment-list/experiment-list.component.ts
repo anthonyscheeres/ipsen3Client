@@ -1,34 +1,67 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {getExperiments} from "../services/experiment";
-import {ExperimentModel} from "../models/ExperimentModel";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {CreateExperimentComponent} from "../create-experiment/create-experiment.component";
-import { AccountModel } from '../models/AccountModel';
+import { ExperimentModel } from "../models/ExperimentModel";
+import { deleteExperiment, getExperiments } from "../services/experiment";
+import {PopupService} from "../popup.service";
+import { ExistingExperimentComponent } from './existing-experiment/existing-experiment.component';
+import { CreateExperimentComponent } from '../create-experiment/create-experiment.component';
+import { getExperimentUrl } from './ExperimentUrl';
+
 
 @Component({
   selector: 'app-experiment-list',
   templateUrl: './experiment-list.component.html',
-  styleUrls: ['./experiment-list.component.css']
+  styleUrls: ['./experiment-list.component.css'],
+  providers: [PopupService]
 })
+
 export class ExperimentListComponent implements OnInit {
   dataFromServer: any;
+    modalService: any;
 
-  constructor(private http: HttpClient, private modalService: NgbModal) { }
+  constructor(private http: HttpClient, private popupService: PopupService) { }
+
+  showExperiments() {
+    this.http.get<ExperimentModel[]>(
+      getExperimentUrl())
+      .subscribe(
+        responseData => {
+          this.dataFromServer = responseData;
+        }
+      )
+  }
 
   async ngOnInit() {
-    AccountModel.token = localStorage.getItem("token")
-    this.http.get<ExperimentModel[]>(
-      getExperiments())
-      .subscribe(
-      responseData => {
-        this.dataFromServer = responseData;
-        console.log(responseData);
+    this.showExperiments();
+  }
+
+
+  deleteExperiment(experiment : ExperimentModel) {
+    this.popupService.showConfirmPopup(experiment.experiment_name).then(
+      () => {
+        this.http.delete(
+          deleteExperiment(experiment.experiment_id),
+          { responseType: "text" }
+        ).subscribe(responseData => {
+          if (responseData.toLowerCase() == "succes") {
+            this.showExperiments();
+            this.popupService.succesPopup(
+              experiment.experiment_name + ' is succesvol verwijderd!'
+            );
+          }
+        });
       }
     )
-    }
-  open() {
-    const modalRef = this.modalService.open(CreateExperimentComponent);
-    modalRef.componentInstance.name = 'World'
   }
-}
+
+
+  openExistingExperiment(model: ExperimentModel){
+    const modal = this.modalService.open(ExistingExperimentComponent);
+    modal.componentInstance.model = model;
+
+  }
+
+  open() {
+    this.modalService.open(CreateExperimentComponent);
+  }
+};

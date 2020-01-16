@@ -9,9 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./register-form.component.css']
 })
 export class RegisterFormComponent implements OnInit {
-
+  this1:string = ""
   constructor(private _router: Router) { }
-s
   ngOnInit() {
   }
 
@@ -29,7 +28,7 @@ s
       if (response != responseR.fail) {
         this._router.navigate(['/login']);
 
-      }
+      } else this.this1 = "Oops heb je een juist email adress gegeven, anders probeer een andere gebruikersnaam"
     });
 
 

@@ -7,7 +7,6 @@ import {UserRole} from '../models/UserRole';
 import {UpdateUsersComponent} from "../update-users/update-users.component";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {UserUpdate} from "../services/user-update.service";
-import {AccountModel} from '../models/AccountModel';
 
 @Component({
   selector: 'app-users',
@@ -60,7 +59,7 @@ export class UsersComponent implements OnInit {
   }
 
   async ngOnInit() {
-    AccountModel.token = localStorage.getItem("token");
+   
 
     this.http.get<UserModel[]>(
       getUsers())

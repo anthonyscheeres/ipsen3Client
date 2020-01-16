@@ -1,12 +1,53 @@
 <div class="modal-header">
-  <h4 class="modal-title">Hi there!</h4>
+  <h4 class="modal-title">Maak Experiment</h4>
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-<div class="modal-body">
-  <p>Hello, {{name}}!</p>
+
+<div class="form-group">
+  <label for="experiment_name">Experiment Naam</label>
+  <input class="form-control" type="text" id="experiment_name">
+</div>
+
+<div class="form-group">
+  <label for="experiment_description">Experiment Description</label>
+  <input class="form-control" type="text" id="experiment_description">
+</div>
+
+<div class="form-group">
+  <label for="experiment_leader">Experiment Leader</label>
+  <input class="form-control" type="text" id="experiment_leader">
+</div>
+
+<div class="form-group">
+  <label for="experiment_phase">Experiment Phase</label>
+  <input class="form-control" type="text" id="experiment_phase">
+</div>
+
+<div class="form-group">
+  <label for="experiment_status">Experiment Status</label>
+  <input class="form-control" type="text" id="experiment_status">
+</div>
+
+<div class="form-group">
+  <label for="business_owner">Business owner</label>
+  <input class="form-control" type="text" id="business_owner">
+</div>
+
+<div class="form-group">
+  <label for="inovation_cost">Inovatie kosten</label>
+  <input class="form-control" type="text" id="inovation_cost">
+</div>
+<div class="form-group">
+  <label for="money_source">Geldbron</label>
+  <input class="form-control" type="text" id="money_source">
+</div>
+<div class="form-group">
+  <label for="organisation">Organisatie</label>
+  <input class="form-control" type="text" id="organisation">
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+  <button type="button" class="btn btn-outline-dark" (click)="createExperiment($event)">Creëer</button>
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Sluit</button>
 </div>
