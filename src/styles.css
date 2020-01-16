@@ -1,4 +1,5 @@
-/* You can add global styles to this file, and also import other style files
+
+
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~glyphicons-only-bootstrap/css/bootstrap.min.css';
 
@@ -8,6 +9,11 @@ body, html {
 }
 
 
+/* You can add global styles to this file, and also import other style files */
+
+.myCustomModalClass .modal-dialog {
+  max-width: 1000px;
+}
 
 h1 {
   text-align: center;
@@ -67,4 +73,4 @@ form {
 }
 
 
- */
+ 
