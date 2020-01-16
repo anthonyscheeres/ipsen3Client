@@ -6,32 +6,54 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {CreateExperimentComponent} from "../create-experiment/create-experiment.component";
 import {ExistingExperimentComponent} from './existing-experiment/existing-experiment.component';
 import { AccountModel } from '../models/AccountModel';
-
+import { deleteExperiment, getExperiments } from "../services/experiment";
+import {PopupService} from "../popup.service";
 
 @Component({
   selector: 'app-experiment-list',
   templateUrl: './experiment-list.component.html',
-  styleUrls: ['./experiment-list.component.css']
+  styleUrls: ['./experiment-list.component.css'],
+  providers: [PopupService]
 })
+
 export class ExperimentListComponent implements OnInit {
   dataFromServer: any;
 
+  constructor(private http: HttpClient, private popupService: PopupService, private modalService: NgbModal) { }
 
-  constructor(private http: HttpClient, private modalService: NgbModal) {
-  }
-
-  async ngOnInit() {
-    // console.log("he de token bestaat nog: "+AccountModel.token)
-    AccountModel.token = localStorage.getItem("token")
+  showExperiments() {
     this.http.get<ExperimentModel[]>(
       getExperimentUrl())
       .subscribe(
         responseData => {
           this.dataFromServer = responseData;
-          console.log(responseData);
         }
       )
   }
+
+  async ngOnInit() {
+    this.showExperiments();
+  }
+
+
+  deleteExperiment(experiment : ExperimentModel) {
+    this.popupService.showConfirmPopup(experiment.experiment_name).then(
+      () => {
+        this.http.delete(
+          deleteExperiment(experiment.experiment_id),
+          { responseType: "text" }
+        ).subscribe(responseData => {
+          if (responseData.toLowerCase() == "succes") {
+            this.showExperiments();
+            this.popupService.succesPopup(
+              experiment.experiment_name + ' is succesvol verwijderd!'
+            );
+          }
+        });
+      }
+    )
+  }
+
 
   openExistingExperiment(model: ExperimentModel){
     const modal = this.modalService.open(ExistingExperimentComponent, { windowClass : "myCustomModalClass"});

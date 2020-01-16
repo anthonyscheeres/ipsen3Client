@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Experiment lijst</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body>
-  <button class="btn btn-lg btn-outline-primary" (click)="open()">Maak experiment</button>
+<button class="btn btn-lg btn-outline-primary" (click)="open()">Maak experiment</button>
   <div class="table-responsive table-striped">
-    <table class="table">
+    <table class="table table-responsive table-striped">
       <thead>
         <th>Naam</th>
         <th>Description</th>
@@ -33,9 +25,17 @@
         <td>{{ value.inovation_cost }}</td>
         <td>{{ value.money_source }}</td>
         <td>{{ value.organisation }}</td>
+        <td>
+          <input
+            type="button"
+            name="deleteExperiment"
+            id="deleteExperiment"
+            value="Verwijder"
+            class="btn btn-danger"
+            (click)="deleteExperiment(value)"
+          >
+        </td>
       </tr>
       </tbody>
     </table>
   </div>
-  </body>
-</html>

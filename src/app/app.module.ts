@@ -15,6 +15,10 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { ExperimentListComponent } from './experiment-list/experiment-list.component';
+import { ConfirmPopupComponent } from './popup/confirm-popup/confirm-popup.component';
+import { AlertPopupComponent } from './popup/alert-popup/alert-popup.component';
+import { HorizontaleNavigationBarComponent } from './horizontale-navigation-bar/horizontale-navigation-bar.component';
+import { VerticalNavigationBarComponent } from './vertical-navigation-bar/vertical-navigation-bar.component';
 import { CreateExperimentComponent } from './create-experiment/create-experiment.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule , ReactiveFormsModule} from "@angular/forms";
@@ -24,8 +28,11 @@ import { DashboardListComponent } from './dashboard-list/dashboard-list.componen
 import { DashboardListContainerComponent } from './dashboard-list/dashboard-list-container/dashboard-list-container.component';
 
 
+
 @NgModule({
   declarations: [
+    VerticalNavigationBarComponent,
+    HorizontaleNavigationBarComponent,
     AppComponent,
     LoginComponent,
     HomeComponent,
@@ -39,13 +46,14 @@ import { DashboardListContainerComponent } from './dashboard-list/dashboard-list
     ExistingExperimentComponent,
     UpdateUsersComponent,
     ExperimentListComponent,
+    ConfirmPopupComponent,
+    AlertPopupComponent,
     DashboardListComponent,
     DashboardListContainerComponent,
 
   ],
     imports: [
         BrowserModule,
-        JSONTableModule, // Add the JSONTableModule
         HttpClientModule,
         AppRoutingModule,
         NgbModule,
@@ -82,16 +90,20 @@ import { DashboardListContainerComponent } from './dashboard-list/dashboard-list
             ]
         ),
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
     ],
   entryComponents: [
+    ConfirmPopupComponent,
+    AlertPopupComponent,
     CreateExperimentComponent,
     ExistingExperimentComponent,
     UpdateUsersComponent
   ],
-  providers: [   {
-          provide: LocationStrategy, useClass: HashLocationStrategy
-      }],
+  providers: [
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

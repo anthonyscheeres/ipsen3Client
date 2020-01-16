@@ -1,15 +1,16 @@
 
 import { ServerModel } from '../models/ServerModel';
 import { responseR } from '../models/ResponseRequest';
-import { AccountModel } from '../models/AccountModel';
 import { fetchJsonPost, fetchJsonGet } from './http.';
 import {UserModel} from "../models/UserModel";
 import {UserRole} from "../models/UserRole";
+import DataModel from '../models/DataModel';
+import { ProtocolR } from '../models/Protocol';
 
 export function loadUsers() {
   var host = ServerModel.host;
   var port = ServerModel.port;
-  var token = AccountModel.token;
+  var token = DataModel.account.token;
   var url = "http://" + host + ":" + port + "/user/"+ token + "/showAllUsers";
   return url
 }
@@ -32,7 +33,7 @@ export function login(username, password) {
 
 
 
-  return fetchJsonPost(url, data.toString());
+  return fetchJsonPost(url, data.toString(), ProtocolR.POST);
 
 
 
@@ -55,14 +56,14 @@ export function register(username, password, email) {
   });
 
 
-  return fetchJsonPost(urlToServer, data.toString())
+  return fetchJsonPost(urlToServer, data.toString(), ProtocolR.POST)
 
 }
 
 export function getUsers() {
   var host = ServerModel.host;
   var port = ServerModel.port;
-  var token = AccountModel.token;
+  var token = DataModel.account.token;
   var url = "http://" + host + ":" + port + "/user/"+ token + "/showAllUsers";
   return url;
 }
@@ -70,7 +71,7 @@ export function getUsers() {
 export function deleteUser(id: number) {
   var host = ServerModel.host;
   var port = ServerModel.port;
-  var token = AccountModel.token;
+  var token = DataModel.account.token;
   var url = "http://" + host + ":" + port + "/user/" + token + "/deleteUser";
   return url;
 }
@@ -78,7 +79,7 @@ export function deleteUser(id: number) {
 export function updateUserRole(id: number, role: UserRole) {
   var host = ServerModel.host;
   var port = ServerModel.port;
-  var token = AccountModel.token;
+  var token = DataModel.account.token;
   var url = "http://" + host + ":" + port + "/user/" + token + "/" +  id + "/" + role + "/updateUserRole";
   return url;
 }
