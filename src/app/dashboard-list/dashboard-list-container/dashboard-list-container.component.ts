@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, HostListener} from '@angular/core';
 import { ExperimentModel } from 'src/app/models/ExperimentModel';
-import { getExperimentUrl } from 'src/app/experiment-list/experimentUrl';
+import { getExperimentUrl } from 'src/app/experiment-list/ExperimentUrl';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -45,9 +45,7 @@ export class DashboardListContainerComponent implements OnInit {
 
     for (let key in colors) {
       if(key === status){
-        let values = colors[key];
-
-        return values;
+        return colors[key];
       }
     }
   }

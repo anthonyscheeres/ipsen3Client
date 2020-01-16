@@ -1,8 +1,46 @@
-<button class="btn btn-lg btn-outline-primary" (click)="open()">Maak experiment</button>
+<button class="btn btn-primary" type="button" (click)="open()">Maak experiment</button>
+
+
+
+<div class="input-group">
+  <input type="text" class="form-control" #searchValue>
+  <span class="input-group-btn">
+    <button class="btn btn-default" (click)="filterExperiments(searchValue.value)" type="button">Zoeken</button>
+    <button class="btn btn-default" (click)="showExperiments()" type="button">Reset</button>
+  </span>
+</div>
+
+
+<!--<div class="row">-->
+<!--  <div class="col">-->
+<!--    <div class="btn-group" role="button">-->
+<!--      <button type="button" class="btn btn-primary">Maak experiment</button>-->
+
+<!--      &lt;!&ndash;    <button class="btn btn-primary" type="button" (click)="open()">Maak experiment</button>&ndash;&gt;-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="col">-->
+<!--    <div class="form-inline" role="toolbar" aria-label="Toolbar with button groups">-->
+<!--      <div class="input-group">-->
+<!--        <input type="text" class="form-control" placeholder="Input group example">-->
+<!--      </div>-->
+
+<!--      <div class="btn-group" role="button" >-->
+<!--        <button type="button" class="btn btn-primary">Zoeken</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+
+
+
+
   <div class="table-responsive table-striped">
     <table class="table table-responsive table-striped">
       <thead>
-        <th>Naam</th>
+<!--        <th>Naam</th>-->
         <th>Description</th>
         <th>Id</th>
         <th>Leader</th>
@@ -12,10 +50,11 @@
         <th>Innovation  kosten</th>
         <th>Money source</th>
         <th>Organisation</th>
+        <th>Option</th>
       </thead>
       <tbody>
       <tr *ngFor="let value of dataFromServer" (click)="openExistingExperiment(value)">
-        <td>{{ value.experiment }}</td>
+<!--        <td>{{ value.experiment }}</td>-->
         <td>{{ value.experiment_description }}</td>
         <td>{{ value.experiment_id }}</td>
         <td>{{ value.experiment_leader }}</td>

@@ -5,8 +5,7 @@ import {ExperimentModel} from "../models/ExperimentModel";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {CreateExperimentComponent} from "../create-experiment/create-experiment.component";
 import {ExistingExperimentComponent} from './existing-experiment/existing-experiment.component';
-import { AccountModel } from '../models/AccountModel';
-import { deleteExperiment, getExperiments } from "../services/experiment";
+import { deleteExperiment } from "../services/experiment";
 import {PopupService} from "../popup.service";
 
 @Component({
@@ -17,9 +16,13 @@ import {PopupService} from "../popup.service";
 })
 
 export class ExperimentListComponent implements OnInit {
-  dataFromServer: any;
+  dataFromServer: ExperimentModel[] = [];
 
   constructor(private http: HttpClient, private popupService: PopupService, private modalService: NgbModal) { }
+
+  async ngOnInit() {
+    this.showExperiments();
+  }
 
   showExperiments() {
     this.http.get<ExperimentModel[]>(
@@ -30,11 +33,6 @@ export class ExperimentListComponent implements OnInit {
         }
       )
   }
-
-  async ngOnInit() {
-    this.showExperiments();
-  }
-
 
   deleteExperiment(experiment : ExperimentModel) {
     this.popupService.showConfirmPopup(experiment.experiment_name).then(
@@ -54,14 +52,39 @@ export class ExperimentListComponent implements OnInit {
     )
   }
 
+  filterExperiments(searchValue: string) {
+    if (searchValue === ""){
+      return
+    }
+    let filteredData: ExperimentModel[] = [];
+
+    for (let experiment of this.dataFromServer) {
+      for (let experimentValue of Object.values(experiment)) {
+        if (experimentValue.toString().toLowerCase().includes(searchValue.toLowerCase())) {
+          filteredData.push(experiment);
+          break;
+        }
+      }
+    }
+
+    if (filteredData.length == 0) {
+      this.popupService.infoPopup(
+        "Helaas waar up opzocht " + searchValue + " konden wij niet vinden."
+      );
+    } else {
+      this.dataFromServer = filteredData;
+    }
+  }
 
   openExistingExperiment(model: ExperimentModel){
-    const modal = this.modalService.open(ExistingExperimentComponent, { windowClass : "myCustomModalClass"});
+    const modal = this.modalService.open(
+      ExistingExperimentComponent,
+      { windowClass : "myCustomModalClass"}
+    );
     modal.componentInstance.model = model;
-
   }
 
   open() {
     this.modalService.open(CreateExperimentComponent);
   }
-};
+}
