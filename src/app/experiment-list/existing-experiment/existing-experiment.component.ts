@@ -4,9 +4,10 @@ import {ExperimentModel} from '../../models/ExperimentModel';
 import {ServerModel} from '../../models/ServerModel';
 import {AccountModel} from '../../models/AccountModel';
 import * as url from 'url';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {getExperimentUrl} from '../ExperimentUrl';
 import {LogModel} from '../../models/LogModel';
+import {log} from 'util';
 
 @Component({
   selector: 'app-existing-experiment-component',
@@ -28,6 +29,7 @@ export class ExistingExperimentComponent implements OnInit {
   organisation: string;
 
   dataFromServer: LogModel[];
+  dataFromServerOnUpload: any;
 
   newLogTitle: string = "Log titel";
   newLogDescription: string = "Log omschrijving";
@@ -50,17 +52,18 @@ export class ExistingExperimentComponent implements OnInit {
   }
 
   fetchLogRows(){
-    let url = this.configureUrl();
+    let url = this.configureDowloadUrl();
 
     this.http.get<LogModel[]>(
       url).subscribe(responseData => {
+        console.log(responseData
+        );
           this.dataFromServer = responseData;
-          console.log(responseData);
         }
       )
   }
 
-  configureUrl(){
+  configureDowloadUrl(){
     let host = ServerModel.host;
     let port = ServerModel.port;
     let token = AccountModel.token;
@@ -68,7 +71,34 @@ export class ExistingExperimentComponent implements OnInit {
     return url
   }
 
+  configureUploadUrl(){
+    let host = ServerModel.host;
+    let port = ServerModel.port;
+    let token = AccountModel.token;
+
+    let url = "http://" + host + ":" + port + "/log/" + token +"/upload/";
+    return url;
+  }
+
   uploadLog(title: string, description: string){
     let logModel = new LogModel();
+
+    logModel.title = title;
+    logModel.description = description;
+    logModel.experiment_id = this.experiment_id;
+
+
+    this.http.post(this.configureUploadUrl(), logModel,
+      {
+        headers: new HttpHeaders({
+          "Accept": "application/json",
+          "Content-Type": "application/json"})
+
+      }).subscribe(responsData => {
+        this.dataFromServerOnUpload = responsData;
+        this.fetchLogRows();
+    });
+
+
   }
 }
