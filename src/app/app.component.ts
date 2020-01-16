@@ -45,7 +45,7 @@ export class AppComponent {
     }
   }
   checkCurrentPermission() {
-    this.showThis1= DataModel.account.token!=null;
+    this.showThis1 = DataModel.account.token != "null" && DataModel.account.token!=null;
   }
 
 }

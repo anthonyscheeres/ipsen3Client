@@ -3,8 +3,10 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\horizontale-navigation-bar"
+    "\\src\\app\\horizontale-navigation-bar",
+    "\\src\\app\\models",
+    "\\src\\app\\vertical-navigation-bar"
   ],
-  "SelectedNode": "\\src\\app\\horizontale-navigation-bar\\horizontale-navigation-bar.component.html",
+  "SelectedNode": "\\src\\app\\app.component.ts",
   "PreviewInSolutionExplorer": false
 }
