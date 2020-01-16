@@ -12,7 +12,7 @@ export class AppComponent {
 
   title = 'TestlabWeb';
   showThis1: boolean = false
-  showThis: boolean = false
+  showThis: boolean = true
   mySubscription: Subscription
   myStyles = {
     'visibility': 'hidden'
@@ -45,8 +45,7 @@ export class AppComponent {
     }
   }
   checkCurrentPermission() {
-    this.showThis1= DataModel.account.hasRead;
-    //"current show is " + this.showThis)
+    this.showThis1= DataModel.account.token!=null;
   }
 
 }
