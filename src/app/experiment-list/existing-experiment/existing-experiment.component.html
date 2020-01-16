@@ -61,8 +61,8 @@
 
 <div class="form-group big_row">
   <p>Voer hier een nieuwe logregel toe:</p>
-  <input [ngModel]="newLogTitle"  class="form-control" type="text" id="newLogTitle">
-  <input [ngModel]="newLogDescription"  class="form-control" type="text" id="newLogDescription">
+  <input [(ngModel)]="newLogTitle"  class="form-control" type="text" id="newLogTitle">
+  <input [(ngModel)]="newLogDescription"  class="form-control" type="text" id="newLogDescription">
 </div>
 
 <div class="table-responsive table-striped log_table">
@@ -84,7 +84,7 @@
 
 
 <div class="modal-footer">
-  <button type="button" class="btn btn-outline-dark" (click)="uploadLog(newLogTitle, newLogDescription)">Upload log row</button>
+  <button type="button" class="btn btn-outline-dark" (click)="uploadLog()">Upload log row</button>
   <button type="Submit" class="btn btn-outline-dark">Update experiment</button>
   <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Sluit</button>
 </div>

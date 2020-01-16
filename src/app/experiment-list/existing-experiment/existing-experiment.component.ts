@@ -80,14 +80,13 @@ export class ExistingExperimentComponent implements OnInit {
     return url;
   }
 
-  uploadLog(title: string, description: string){
+  uploadLog(){
     let logModel = new LogModel();
 
-    logModel.title = title;
-    logModel.description = description;
+    logModel.title = this.newLogTitle;
+    logModel.description = this.newLogDescription;
     logModel.experiment_id = this.experiment_id;
-
-
+    
     this.http.post(this.configureUploadUrl(), logModel,
       {
         headers: new HttpHeaders({
