@@ -30,28 +30,20 @@ export class CreateExperimentComponent implements OnInit {
   }
 
   async onSubmit(form: NgForm) {
-    var data = form.value;
+    let data = form.value;
     console.log(data);
 
-    this.http.post<String>(getCreateExperimentUrl(), data,
+    this.http.post(getCreateExperimentUrl(), data,
       {
         headers: new HttpHeaders({
           'Accept': 'application/json',
           'Content-Type': 'application/json'})
-      }).subscribe(
+/*      }).subscribe(
         responseData => {
           this.dataFromServer = responseData;
           console.log(responseData);
+ */
         }
       )
-
-
-/*    this.http.put<ExperimentModel>(getCreateExperimentUrl(), experimentModel)
-      .subscribe(
-        responseData => {
-          this.dataFromServer = responseData;
-          console.log(responseData);
-        }
-      ) */
   }
 }

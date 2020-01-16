@@ -18,7 +18,6 @@ import {PopupService} from "../popup.service";
 
 export class ExperimentListComponent implements OnInit {
   dataFromServer: any;
-    modalService: any;
 
   constructor(private http: HttpClient, private popupService: PopupService, private modalService: NgbModal) { }
 
