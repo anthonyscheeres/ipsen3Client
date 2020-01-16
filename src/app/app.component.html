@@ -1,1 +1,19 @@
-<router-outlet></router-outlet>
+
+<app-navigation-bar></app-navigation-bar>
+
+<div class="main">
+
+
+  <router-outlet></router-outlet>
+
+
+</div>
+
+
+<div *ngIf="showThis">
+
+  <div class="leftnav" *ngIf="showThis1" [ngStyle]="myStyles">
+
+    <app-vertical-navigation-bar></app-vertical-navigation-bar>
+  </div>
+</div>

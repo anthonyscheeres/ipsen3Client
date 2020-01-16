@@ -1,0 +1,13 @@
+<!--<ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null">{{ successMessage }}</ngb-alert>-->
+<div *ngIf="type == 'succes'" class="alert alert-success fade-in">
+  {{ message }}
+</div>
+<div *ngIf="type == 'info'" class="alert alert-info fade-in">
+  {{ message }}
+</div>
+<div *ngIf="type == 'warning'" class="alert alert-warning fade-in">
+  {{ message }}
+</div>
+<div *ngIf="type == 'danger'" class="alert alert-danger fade-in">
+  {{ message }}
+</div>
