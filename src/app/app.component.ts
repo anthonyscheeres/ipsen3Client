@@ -12,7 +12,7 @@ export class AppComponent {
 
   title = 'TestlabWeb';
   showThis1: boolean = false
-  showThis: boolean = true
+  showThis: boolean = false
   mySubscription: Subscription
   myStyles = {
     'visibility': 'hidden'
