@@ -1,12 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ExperimentModel } from "../models/ExperimentModel";
+import {getExperimentUrl} from "./ExperimentUrl";
+import {ExperimentModel} from "../models/ExperimentModel";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {CreateExperimentComponent} from "../create-experiment/create-experiment.component";
+import {ExistingExperimentComponent} from './existing-experiment/existing-experiment.component';
+import { AccountModel } from '../models/AccountModel';
 import { deleteExperiment, getExperiments } from "../services/experiment";
 import {PopupService} from "../popup.service";
-import { ExistingExperimentComponent } from './existing-experiment/existing-experiment.component';
-import { CreateExperimentComponent } from '../create-experiment/create-experiment.component';
-import { getExperimentUrl } from './ExperimentUrl';
-
 
 @Component({
   selector: 'app-experiment-list',
@@ -17,9 +18,8 @@ import { getExperimentUrl } from './ExperimentUrl';
 
 export class ExperimentListComponent implements OnInit {
   dataFromServer: any;
-    modalService: any;
 
-  constructor(private http: HttpClient, private popupService: PopupService) { }
+  constructor(private http: HttpClient, private popupService: PopupService, private modalService: NgbModal) { }
 
   showExperiments() {
     this.http.get<ExperimentModel[]>(
@@ -56,7 +56,7 @@ export class ExperimentListComponent implements OnInit {
 
 
   openExistingExperiment(model: ExperimentModel){
-    const modal = this.modalService.open(ExistingExperimentComponent);
+    const modal = this.modalService.open(ExistingExperimentComponent, { windowClass : "myCustomModalClass"});
     modal.componentInstance.model = model;
 
   }

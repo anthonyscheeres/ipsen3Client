@@ -9,5 +9,4 @@ export class ExperimentModel {
   inovation_cost: number= 0;
   money_source: string= "";
   organisation: string= "";
-
 }

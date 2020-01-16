@@ -5,53 +5,86 @@
   </button>
 </div>
 
-<div class="form-group">
+<div class="form-group big_row">
   <label for="experiment_name">Experiment Naam</label>
   <input [ngModel]="business_owner"  class="form-control" type="text" id="experiment_name">
 </div>
 
-<div class="form-group">
+<div class="form-group big_row">
   <label for="experiment_description">Experiment Description</label>
   <input [ngModel]="experiment_description" class="form-control" type="text" id="experiment_description">
 </div>
 
-<div class="form-group">
-  <label for="experiment_id">Experiment id</label>
-  <input [ngModel]="experiment_id" class="form-control" type="text" id="experiment_id">
+<div class="row small_row">
+  <div class="form-group small_field">
+    <label for="experiment_id">Experiment id</label>
+    <input [ngModel]="experiment_id" class="form-control" type="text" id="experiment_id">
+  </div>
+
+  <div class="form-group small_field">
+    <label for="experiment_leader">Experiment Leader</label>
+    <input [ngModel]="experiment_leader" class="form-control" type="text" id="experiment_leader">
+  </div>
+
+  <div class="form-group small_field">
+    <label for="experiment_phase">Experiment Phase</label>
+    <input [ngModel]="experiment_name" class="form-control" type="text" id="experiment_phase">
+  </div>
+
+  <div class="form-group small_field">
+    <label for="experiment_status">Experiment Status</label>
+    <input [ngModel]="experiment_phase" class="form-control" type="text" id="experiment_status">
+  </div>
 </div>
 
-<div class="form-group">
-  <label for="experiment_leader">Experiment Leader</label>
-  <input [ngModel]="experiment_leader" class="form-control" type="text" id="experiment_leader">
+<div class="row small_row">
+  <div class="form-group small_field">
+    <label for="business_owner">Business owner</label>
+    <input [ngModel]="experiment_status" class="form-control" type="text" id="business_owner">
+  </div>
+
+  <div class="form-group small_field">
+    <label for="inovation_cost">Inovatie kosten</label>
+    <input [ngModel]="inovation_cost" class="form-control" type="text" id="inovation_cost">
+  </div>
+
+  <div class="form-group small_field">
+    <label for="money_source">Geldbron</label>
+    <input [ngModel]="money_source" class="form-control" type="text" id="money_source">
+  </div>
+  <div class="form-group small_field">
+    <label for="organisation">Organisatie</label>
+    <input [ngModel]="organisation" class="form-control" type="text" id="organisation">
+  </div>
 </div>
 
-<div class="form-group">
-  <label for="experiment_phase">Experiment Phase</label>
-  <input [ngModel]="experiment_name" class="form-control" type="text" id="experiment_phase">
+
+<div class="form-group big_row">
+  <p>Voer hier een nieuwe logregel toe:</p>
+  <input [(ngModel)]="newLogTitle"  class="form-control" type="text" id="newLogTitle">
+  <input [(ngModel)]="newLogDescription"  class="form-control" type="text" id="newLogDescription">
 </div>
 
-<div class="form-group">
-  <label for="experiment_status">Experiment Status</label>
-  <input [ngModel]="experiment_phase" class="form-control" type="text" id="experiment_status">
+<div class="table-responsive table-striped log_table">
+  <table class="table">
+    <thead>
+      <th>Log titel</th>
+      <th>Log omschrijving</th>
+      <th>Door gebruiker</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let value of dataFromServer" >
+      <td>{{ value.title }}</td>
+      <td>{{ value.description }}</td>
+      <td>{{ value.by_user_id }}</td>
+    </tr>
+    </tbody>
+  </table>
 </div>
 
-<div class="form-group">
-  <label for="business_owner">Business owner</label>
-  <input [ngModel]="experiment_status" class="form-control" type="text" id="business_owner">
-</div>
 
-<div class="form-group">
-  <label for="inovation_cost">Inovatie kosten</label>
-  <input [ngModel]="inovation_cost" class="form-control" type="text" id="inovation_cost">
-</div>
-<div class="form-group">
-  <label for="money_source">Geldbron</label>
-  <input [ngModel]="money_source" class="form-control" type="text" id="money_source">
-</div>
-<div class="form-group">
-  <label for="organisation">Organisatie</label>
-  <input [ngModel]="organisation" class="form-control" type="text" id="organisation">
-</div>
 <div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="uploadLog()">Upload log row</button>
+  <button type="Submit" class="btn btn-outline-dark">Update experiment</button>
   <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Sluit</button>
 </div>
