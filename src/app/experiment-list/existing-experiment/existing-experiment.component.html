@@ -78,15 +78,17 @@
 <div class="table-responsive log_table">
   <table class="table">
     <thead>
+      <th>Timestamp</th>
       <th>Log titel</th>
       <th>Log omschrijving</th>
       <th>Door gebruiker</th>
     </thead>
     <tbody>
     <tr *ngFor="let value of dataFromServer" >
-      <td>{{ value.title }}</td>
-      <td>{{ value.description }}</td>
-      <td>{{ value.by_user_id }}</td>
+      <td style="width: 10%">{{ value.timestamp }}</td>
+      <td style="width: 20%">{{ value.title }}</td>
+      <td style="width: 60%">{{ value.description }}</td>
+      <td style="width: 10%">{{ value.by_user_id }}</td>
     </tr>
     </tbody>
   </table>
