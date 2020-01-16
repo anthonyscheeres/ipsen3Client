@@ -8,6 +8,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {getExperimentUrl} from '../ExperimentUrl';
 import {LogModel} from '../../models/LogModel';
 import {log} from 'util';
+import DataModel from "../../models/DataModel";
 
 @Component({
   selector: 'app-existing-experiment-component',
@@ -66,7 +67,7 @@ export class ExistingExperimentComponent implements OnInit {
   configureDowloadUrl(){
     let host = ServerModel.host;
     let port = ServerModel.port;
-    let token = AccountModel.token;
+    let token = DataModel.account.token;
     let url = "http://" + host + ":" + port + "/log/" + token +" /download/" + this.experiment_id;
     return url
   }
@@ -74,7 +75,7 @@ export class ExistingExperimentComponent implements OnInit {
   configureUploadUrl(){
     let host = ServerModel.host;
     let port = ServerModel.port;
-    let token = AccountModel.token;
+    let token = DataModel.account.token;
 
     let url = "http://" + host + ":" + port + "/log/" + token +"/upload/";
     return url;
@@ -86,7 +87,7 @@ export class ExistingExperimentComponent implements OnInit {
     logModel.title = this.newLogTitle;
     logModel.description = this.newLogDescription;
     logModel.experiment_id = this.experiment_id;
-    
+
     this.http.post(this.configureUploadUrl(), logModel,
       {
         headers: new HttpHeaders({
