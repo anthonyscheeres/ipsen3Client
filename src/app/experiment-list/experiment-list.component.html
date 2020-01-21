@@ -1,15 +1,23 @@
-<button class="btn btn-primary" type="button" (click)="open()">Maak experiment</button>
 
 
-
-<div class="input-group">
-  <input type="text" class="form-control" #searchValue>
-  <span class="input-group-btn">
-    <button class="btn btn-default" (click)="filterExperiments(searchValue.value)" type="button">Zoeken</button>
-    <button class="btn btn-default" (click)="showExperiments()" type="button">Reset</button>
-  </span>
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary" type="button" (click)="open()">Maak experiment</button>
+  </div>
 </div>
-
+<div class="row">
+  <div class="col">
+    <div class="input-group">
+      <input type="text" class="form-control" #searchValue>
+    </div>
+  </div>
+  <div class="col">
+    <div class="btn-group">
+      <button class="btn btn-primary" (click)="filterExperiments(searchValue.value)" type="button">Zoeken</button>
+      <button class="btn btn-primary" (click)="showExperiments()" type="reset">Reset</button>
+    </div>
+  </div>
+</div>
 
 <!--<div class="row">-->
 <!--  <div class="col">-->
@@ -53,17 +61,17 @@
         <th>Option</th>
       </thead>
       <tbody>
-      <tr *ngFor="let value of dataFromServer" (click)="openExistingExperiment(value)">
+      <tr *ngFor="let experiment of experiments" (click)="openExistingExperiment(value)">
 <!--        <td>{{ value.experiment }}</td>-->
-        <td>{{ value.experiment_description }}</td>
-        <td>{{ value.experiment_id }}</td>
-        <td>{{ value.experiment_leader }}</td>
-        <td>{{ value.experiment_phase }}</td>
-        <td>{{ value.experiment_status }}</td>
-        <td>{{ value.business_owner }} </td>
-        <td>{{ value.inovation_cost }}</td>
-        <td>{{ value.money_source }}</td>
-        <td>{{ value.organisation }}</td>
+        <td>{{ experiment.experiment_description }}</td>
+        <td>{{ experiment.experiment_id }}</td>
+        <td>{{ experiment.experiment_leader }}</td>
+        <td>{{ experiment.experiment_phase }}</td>
+        <td>{{ experiment.experiment_status }}</td>
+        <td>{{ experiment.business_owner }} </td>
+        <td>{{ experiment.inovation_cost }}</td>
+        <td>{{ experiment.money_source }}</td>
+        <td>{{ experiment.organisation }}</td>
         <td>
           <input
             type="button"
@@ -71,7 +79,7 @@
             id="deleteExperiment"
             value="Verwijder"
             class="btn btn-danger"
-            (click)="deleteExperiment(value)"
+            (click)="deleteExperiment(experiment)"
           >
         </td>
       </tr>

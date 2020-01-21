@@ -17,6 +17,7 @@ import {PopupService} from "../popup.service";
 
 export class ExperimentListComponent implements OnInit {
   dataFromServer: ExperimentModel[] = [];
+  experiments: ExperimentModel[] = [];
 
   constructor(private http: HttpClient, private popupService: PopupService, private modalService: NgbModal) { }
 
@@ -29,7 +30,7 @@ export class ExperimentListComponent implements OnInit {
       getExperimentUrl())
       .subscribe(
         responseData => {
-          this.dataFromServer = responseData;
+          this.experiments = this.dataFromServer = responseData;
         }
       )
   }
@@ -53,8 +54,10 @@ export class ExperimentListComponent implements OnInit {
   }
 
   filterExperiments(searchValue: string) {
+    // multiple value
     if (searchValue === ""){
-      return
+      this.experiments = this.dataFromServer;
+      return;
     }
     let filteredData: ExperimentModel[] = [];
 
@@ -72,7 +75,7 @@ export class ExperimentListComponent implements OnInit {
         "Helaas waar up opzocht " + searchValue + " konden wij niet vinden."
       );
     } else {
-      this.dataFromServer = filteredData;
+      this.experiments = filteredData;
     }
   }
 
