@@ -1,21 +1,28 @@
 .header-color{
-    background-color: darkblue;
+    background-color: #024D78;
     color: white;
-}
-
-.my-col{
-    padding: 0.7em;
-    border: 3px solid darkblue;
 }
 
 .ng-status{
     color: white;
-    padding: 0.7em;
-    margin: 0.5em;
-    width: 7.8em;
     border-radius: 0.4em;
+    margin: 0.5em;
+    text-align: center;
 }
 
-a{
-    color: black;
+.box{
+    padding: 0.4em;
+    border-radius: 15px;
+    background-color: #A8D0E6;
+}
+
+.boxcontainer{
+    margin: 1em;
+    padding: 0.4em;;
+    background-color: #F8E9A1;
+    border-radius: 3px;
+}
+
+li{
+    list-style: none;
 }
