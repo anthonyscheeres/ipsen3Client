@@ -3,10 +3,10 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\experiment-list",
-    "\\src\\app\\login-form",
-    "\\src\\app\\users"
+    "\\src\\app\\horizontale-navigation-bar",
+    "\\src\\app\\models",
+    "\\src\\app\\vertical-navigation-bar"
   ],
-  "SelectedNode": "\\src\\app\\app.module.ts",
+  "SelectedNode": "\\src\\app\\app.component.ts",
   "PreviewInSolutionExplorer": false
 }

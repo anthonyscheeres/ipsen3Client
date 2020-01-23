@@ -5,49 +5,68 @@
   </button>
 </div>
 
-<div class="form-group">
-  <label for="experiment_name">Experiment Naam</label>
-  <input class="form-control" type="text" id="experiment_name">
-</div>
+<form (ngSubmit)="onSubmit(f)" #f='ngForm'>
+  <div class="form-group">
+    <label for="id">id</label>
+    <input [ngModel]="id" class="form-control" type="text" id="id" name="id">
+  </div>
 
-<div class="form-group">
-  <label for="experiment_description">Experiment Description</label>
-  <input class="form-control" type="text" id="experiment_description">
-</div>
+  <div class="form-group">
+    <label for="name">Experiment Naam</label>
+    <input [ngModel]="name" class="form-control" type="text" id="name" name="name">
+  </div>
 
-<div class="form-group">
-  <label for="experiment_leader">Experiment Leader</label>
-  <input class="form-control" type="text" id="experiment_leader">
-</div>
+  <div class="form-group">
+    <label for="description">Experiment Description</label>
+    <input [ngModel]="description" class="form-control" type="text" id="description" name="description">
+  </div>
 
-<div class="form-group">
-  <label for="experiment_phase">Experiment Phase</label>
-  <input class="form-control" type="text" id="experiment_phase">
-</div>
+  <div class="form-group">
+    <label for="experimentleaders">Experiment Leader</label>
+    <input [ngModel]="experimentleaders" class="form-control" type="text" id="experimentleaders" name="experimentleaders">
+  </div>
 
-<div class="form-group">
-  <label for="experiment_status">Experiment Status</label>
-  <input class="form-control" type="text" id="experiment_status">
-</div>
+  <div class="form-group">
+    <label for="fasens">Experiment Phase</label>
+    <select [ngModel]="fasens" class="form-control" id="fasens" name="fasens">
+      <option value="Idee">Idee</option>
+      <option value="Het lab in">LabIn</option>
+      <option value="Het lab uit">LabUit</option>
+      <option value="Gepauzeerd">Vrieskist
+      <option value="Succesvol afgerond">HallOfFame</option>
+      <option value="Niet succesvol afgerond">Kerkhof</option>
+    </select>
+  </div>
 
-<div class="form-group">
-  <label for="business_owner">Business owner</label>
-  <input class="form-control" type="text" id="business_owner">
-</div>
+  <div class="form-group">
+    <label for="statussen">Experiment Status</label>
+    <select [ngModel]="statussen" class="form-control" id="statussen" name="statussen">
+      <option value="Groen">Groen</option>
+      <option value="Geel">Geel</option>
+      <option value="Rood">Rood</option>
+    </select>
+  </div>
 
-<div class="form-group">
-  <label for="inovation_cost">Inovatie kosten</label>
-  <input class="form-control" type="text" id="inovation_cost">
-</div>
-<div class="form-group">
-  <label for="money_source">Geldbron</label>
-  <input class="form-control" type="text" id="money_source">
-</div>
-<div class="form-group">
-  <label for="organisation">Organisatie</label>
-  <input class="form-control" type="text" id="organisation">
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-outline-dark" (click)="createExperiment($event)">Creëer</button>
-  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Sluit</button>
-</div>
+  <div class="form-group">
+    <label for="businessOwners">Business owner</label>
+    <input [ngModel]="businessOwners" class="form-control" type="text" id="businessOwners" name="businessOwners">
+  </div>
+
+  <div class="form-group">
+    <label for="inovation_cost">Inovatie kosten</label>
+    <input  [ngModel]="inovation_cost" class="form-control" type="text" id="inovation_cost" name="inovation_cost">
+  </div>
+  <div class="form-group">
+    <label for="money_source">Geldbron</label>
+    <input [ngModel]="money_source" class="form-control" type="text" id="money_source" name="money_source">
+  </div>
+  <div class="form-group">
+   <label for="organisations">Organisatie</label>
+    <input [ngModel]="organisations" class="form-control" type="text" id="organisations" name="organisations">
+  </div>
+
+  <div class="modal-footer">
+    <button type="Submit" class="btn btn-outline-dark">Creëer</button>
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Sluit</button>
+  </div>
+</form>
