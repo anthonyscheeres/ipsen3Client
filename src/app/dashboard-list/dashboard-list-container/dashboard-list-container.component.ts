@@ -1,7 +1,7 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { ExperimentModel } from 'src/app/models/ExperimentModel';
-import { getExperimentUrl } from 'src/app/experiment-list/ExperimentUrl';
-import { HttpClient } from '@angular/common/http';
+import { getExperimentUrl, getPhaseExperimentUrl } from 'src/app/experiment-list/ExperimentUrl';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 
@@ -48,7 +48,7 @@ export class DashboardListContainerComponent implements OnInit {
       .get<ExperimentModel>(getExperimentUrl())
       .subscribe(posts => {
         this.serverExperiments = posts;
-        console.log(posts);
+     
       });
   }
 
@@ -63,6 +63,7 @@ export class DashboardListContainerComponent implements OnInit {
     if(phaseOfContainer != phaseOfBox){
       this.http
       .post<string>(getPhaseExperimentUrl(), data, {
+
         headers: new HttpHeaders({
         'Accept': 'text/plain',
         'Content-Type': 'text/plain'})
