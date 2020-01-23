@@ -45,13 +45,15 @@ export class UserPermissionService {
    * @author Valerie Timmerman
    * Initializes the class by getting the role of the person that is using the application.
    */
-  initialize() {
+  initialize(callBack?: Function) {
     var token = DataModel.account.token;
     var host = ServerModel.host;
     var port = ServerModel.port;
     var url = "http://" + host + ":" + port + "/user/"  + token + "/getRole";
     this.http.get(url, {responseType: "text"}).subscribe(r => {
       this.role = UserRole[r];
+      if(callBack)
+        callBack();
       }
     );
   }

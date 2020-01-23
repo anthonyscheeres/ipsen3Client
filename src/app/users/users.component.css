@@ -9,8 +9,13 @@
   width: 100%;
 }
 
-.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
-  display: block;
+.table-fixed tbody {
+  display: inline-grid;
+}
+
+.table-fixed thead, .table-fixed tr, .table-fixed td, .table-fixed th {
+  /*display: inline-block;*/
+  display: inline-block;
 }
 
 .table-fixed th {
@@ -34,4 +39,12 @@
 button {
   background-color: #024D78;
   color: white;
+}
+
+.table-responsive thead {
+  background-color: #024D78;
+  color: white;
+}
+.table-responsive {
+  margin: 2%;
 }

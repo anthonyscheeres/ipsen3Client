@@ -9,7 +9,7 @@
     <th class="col-4" scope="col">Verwijderen</th>
     </thead>
     <tbody>
-      <tr class="row-12" *ngFor="let user of users">
+      <tr *ngFor="let user of users">
         <td class="col-4">{{ user.username }}</td>
         <td class="col-4">
           <select name="role" class="form-control" [disabled]="!canEdit" (change)="onRoleChanged(user, $event)">

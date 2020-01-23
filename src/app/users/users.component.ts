@@ -100,8 +100,10 @@ export class UsersComponent implements OnInit {
 
   async ngOnInit() {
     this.showUsers();
-    await this.permissions.initialize();
-    this.canEdit = this.permissions.hasSuperPermissions();
+    var self = this;
+    this.permissions.initialize(function() {
+      self.canEdit = self.permissions.hasSuperPermissions();
+    });
   }
 
 }
