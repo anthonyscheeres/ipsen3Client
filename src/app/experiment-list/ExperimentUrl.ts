@@ -17,3 +17,11 @@ export function getCreateExperimentUrl() {
   var url = "http://" + host + ":" + port + "/experiment/" +token+" /createProject";
   return url
 }
+
+export function getPhaseExperimentUrl() {
+  var host = ServerModel.host;
+  var port = ServerModel.port;
+  var token = AccountModel.token;
+  var url = "http://" + host + ":" + port + "/experiment/" +token+"/showPhaseOfExperiments";
+  return url
+}

@@ -5,15 +5,24 @@
 
 .ng-status{
     color: white;
-    padding: 5px 10px;
     border-radius: 0.4em;
+    margin: 0.5em;
+    text-align: center;
 }
 
-.my-col{
-    border: 2px dotted red;
-
+.box{
+    padding: 0.4em;
+    border-radius: 15px;
+    background-color: #A8D0E6;
 }
 
-a{
-    color: black;
+.boxcontainer{
+    margin: 1em;
+    padding: 0.4em;;
+    background-color: #F8E9A1;
+    border-radius: 3px;
+}
+
+li{
+    list-style: none;
 }

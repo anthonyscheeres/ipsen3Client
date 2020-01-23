@@ -1,12 +1,18 @@
-<table class="table my-col">
-    <tr class="header-color">
-        <td scope="column">{{fase}}</td>
-    </tr>
+<ul class="header-color">
+    <li scope="column">{{fase}}</li>
+</ul>
 
-    <tr *ngFor= 'let experiment of serverExperiments'>
-        <td *ngIf= 'experiment.experiment_phase === faseCheck'>
-            <p>{{experiment.experiment_name}}</p>
-            <p class="ng-status" [ngStyle]="{'background-color': getColor(experiment.experiment_status)}">Status: {{experiment.experiment_status}}</p>
-        </td>
-    </tr>
-</table>
+<ul class="box" (drop)="dropAndShowMessage($event); updateTest(faseCheck)" (dragover)="draggingOverDropZone($event)">
+    <ng-container *ngFor= 'let experiment of serverExperiments'>
+        <ng-container *ngIf= 'experiment.experiment_phase === faseCheck'>
+            <li class="boxcontainer" id="{{experiment.experiment_id}}" (drag)="dragMessageWhileDragged($event); getExperimentPhase(experiment.experiment_phase); getIdPhase(experiment.experiment_id)" (dragstart)="establishDragStartingPoint($event)" draggable="true">
+                <div id="{{experiment.experiment_phase}}">
+                    <p>{{experiment.experiment_name}}</p>
+                    <p class="ng-status" [ngStyle]="{'background-color': setColor(experiment.experiment_status)}">Status: {{experiment.experiment_status}}</p>
+                </div>
+            </li>
+        </ng-container>
+    </ng-container>
+</ul>
+
+<div id="demo"></div>
