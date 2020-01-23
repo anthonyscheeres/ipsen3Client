@@ -41,6 +41,10 @@ export class UserPermissionService {
     }
   }
 
+  /**
+   * @author Valerie Timmerman
+   * Initializes the class by getting the role of the person that is using the application.
+   */
   initialize() {
     var token = DataModel.account.token;
     var host = ServerModel.host;

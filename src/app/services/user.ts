@@ -54,6 +54,10 @@ export function register(username, password, email) {
 
 }
 
+/**
+ * @author Valerie Timmerman
+ * Creates url for getting users from the server.
+ */
 export function getUsers() {
   var host = ServerModel.host;
   var port = ServerModel.port;
@@ -62,6 +66,10 @@ export function getUsers() {
   return url;
 }
 
+/**
+ * @author Valerie Timmerman
+ * Creates url for deleting a user by the server.
+ */
 export function deleteUser() {
   var host = ServerModel.host;
   var port = ServerModel.port;
@@ -70,16 +78,12 @@ export function deleteUser() {
   return url;
 }
 
-export function getRoleUser() {
-
-  var host = ServerModel.host;
-  var port = ServerModel.port;
-  var token = DataModel.account.token;
-  var url = "http://" + host + ":" + port + "/user/" + token + "/getUserRole";
-  return url;
-
-}
-
+/**
+ * @author Valerie Timmerman
+ * @param id
+ * @param role
+ * Creates the url for giving the user a new role.
+ */
 export function updateUserRole(id: number, role: UserRole) {
 
   var host = ServerModel.host;

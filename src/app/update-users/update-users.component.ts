@@ -2,6 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {UserUpdate} from "../services/user-update.service";
 
+/**
+ * @author Valerie Timmerman
+ * This class is used to control the popup for editing users roles.
+ */
 @Component({
   selector: 'app-update-users-component',
   templateUrl: './update-users.component.html',
