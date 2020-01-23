@@ -70,6 +70,16 @@ export function deleteUser() {
   return url;
 }
 
+export function getRoleUser() {
+
+  var host = ServerModel.host;
+  var port = ServerModel.port;
+  var token = DataModel.account.token;
+  var url = "http://" + host + ":" + port + "/user/" + token + "/getUserRole";
+  return url;
+
+}
+
 export function updateUserRole(id: number, role: UserRole) {
 
   var host = ServerModel.host;

@@ -9,6 +9,7 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {UserUpdate} from "../services/user-update.service";
 import {PopupService} from "../popup.service";
 import {error} from "util";
+import {UserPermissionService} from "../services/user-permission-service";
 
 @Component({
   selector: 'app-users',
@@ -17,13 +18,15 @@ import {error} from "util";
 })
 export class UsersComponent implements OnInit {
   users: UserModel[];
+  canEdit;
 
   constructor(
     private _router: Router,
     private http: HttpClient,
     private modalService: NgbModal,
     private updateService: UserUpdate,
-    private popupService: PopupService
+    private popupService: PopupService,
+    private permissions: UserPermissionService
   ) { }
 
   getRole(user: UserModel) {
@@ -74,6 +77,7 @@ export class UsersComponent implements OnInit {
 
   async ngOnInit() {
     this.showUsers();
+    this.canEdit = this.permissions.hasSuperPermissions();
   }
 
 }
