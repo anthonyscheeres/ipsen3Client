@@ -1,12 +1,13 @@
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { ConfirmPopupComponent } from "./popup/confirm-popup/confirm-popup.component";
-import {forwardRef, Inject, OnInit} from "@angular/core";
+import {forwardRef, Inject, Injectable, OnInit} from "@angular/core";
 import {AlertPopupComponent} from "./popup/alert-popup/alert-popup.component";
 
 /*
  * @Inject forwardRef()
  * Allows to refer to references which are not yet defined.
  */
+
 export class PopupService implements OnInit {
 
 

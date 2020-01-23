@@ -22,7 +22,8 @@ export class UpdateUsersComponent implements OnInit {
 
   discardChanges() {
     this.updateService.emptyChanges();
-    this.activeModal.close();
+    this.activeModal.close()
+
   }
 
   ngOnInit() {

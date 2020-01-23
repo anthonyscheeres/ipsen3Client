@@ -1,8 +1,8 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { ExperimentModel } from 'src/app/models/ExperimentModel';
-import { getExperimentUrl } from 'src/app/experiment-list/experimentUrl';
-import { getPhaseExperimentUrl } from 'src/app/experiment-list/experimentUrl';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { getExperimentUrl } from 'src/app/experiment-list/ExperimentUrl';
+import { HttpClient } from '@angular/common/http';
+
 
 
 @Component({
@@ -68,7 +68,6 @@ export class DashboardListContainerComponent implements OnInit {
         'Content-Type': 'text/plain'})
       }).subscribe(posts => {
         this.serverExperiments = posts;
-        console.log("testfefeefefe", posts);
       });
     }
   }

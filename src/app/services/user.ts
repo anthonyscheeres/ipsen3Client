@@ -15,8 +15,6 @@ export function loadUsers() {
   return url
 }
 
-
-
 export function login(username, password) {
   var host = ServerModel.host;
   var port = ServerModel.port;
@@ -30,13 +28,8 @@ export function login(username, password) {
     "email": null
   });
 
-
-
-
+  // @ts-ignore
   return fetchJsonPost(url, data.toString(), ProtocolR.POST);
-
-
-
 
 }
 
@@ -56,6 +49,7 @@ export function register(username, password, email) {
   });
 
 
+  // @ts-ignore
   return fetchJsonPost(urlToServer, data.toString(), ProtocolR.POST)
 
 }
@@ -68,18 +62,29 @@ export function getUsers() {
   return url;
 }
 
-export function deleteUser(id: number) {
+export function deleteUser() {
   var host = ServerModel.host;
   var port = ServerModel.port;
   var token = DataModel.account.token;
-  var url = "http://" + host + ":" + port + "/user/" + token + "/deleteUser";
+  var url = "http://" + host + ":" + port + "/user/" + token + "/removeUser";
   return url;
 }
 
-export function updateUserRole(id: number, role: UserRole) {
+export function getRoleUser() {
+
   var host = ServerModel.host;
   var port = ServerModel.port;
   var token = DataModel.account.token;
-  var url = "http://" + host + ":" + port + "/user/" + token + "/" +  id + "/" + role + "/updateUserRole";
+  var url = "http://" + host + ":" + port + "/user/" + token + "/getUserRole";
+  return url;
+
+}
+
+export function updateUserRole(id: number, role: UserRole) {
+
+  var host = ServerModel.host;
+  var port = ServerModel.port;
+  var token = DataModel.account.token;
+  var url = "http://" + host + ":" + port + "/user/" + token + "/" + id + "/" + role + "/updateUserRole";
   return url;
 }

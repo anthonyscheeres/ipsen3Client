@@ -7,6 +7,9 @@ import {UserRole} from '../models/UserRole';
 import {UpdateUsersComponent} from "../update-users/update-users.component";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {UserUpdate} from "../services/user-update.service";
+import {PopupService} from "../popup.service";
+import {error} from "util";
+import {UserPermissionService} from "../services/user-permission-service";
 
 @Component({
   selector: 'app-users',
@@ -15,12 +18,15 @@ import {UserUpdate} from "../services/user-update.service";
 })
 export class UsersComponent implements OnInit {
   users: UserModel[];
+  canEdit;
 
   constructor(
     private _router: Router,
     private http: HttpClient,
     private modalService: NgbModal,
-    private updateService: UserUpdate
+    private updateService: UserUpdate,
+    private popupService: PopupService,
+    private permissions: UserPermissionService
   ) { }
 
   getRole(user: UserModel) {
@@ -42,7 +48,7 @@ export class UsersComponent implements OnInit {
 
   onSaveChanges() {
     if(this.updateService.changes.length == 0) {
-      alert("There are no changes to commit!");
+      this.popupService.dangerPopup("There are no changes to commit!");
       //TODO: use global popup
     } else {
       this.updateService.makeMessage();
@@ -51,12 +57,14 @@ export class UsersComponent implements OnInit {
   }
 
   onDelete(user: UserModel) {
-    console.log("Delete user ", user.username)
+    this.popupService.showConfirmPopup("Weet u zeker dat u gebruiker " + user.username + " wilt verwijderen?").then(
+      () => {
+        this.updateService.deleteUser(user);
+        this.showUsers();
+      });
   }
 
-  async ngOnInit() {
-   
-
+  showUsers(){
     this.http.get<UserModel[]>(
       getUsers())
       .subscribe(
@@ -65,6 +73,11 @@ export class UsersComponent implements OnInit {
           this.users = responseData.slice();
         }
       );
+  }
+
+  async ngOnInit() {
+    this.showUsers();
+    this.canEdit = this.permissions.hasSuperPermissions();
   }
 
 }
