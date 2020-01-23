@@ -73,7 +73,7 @@ export class UserUpdate {
   async saveChanges() {
     if (this.permissions.hasSuperPermissions()) {
       for (let user of this.changes) {
-        this.http.put<string>(updateUserRole(user.user_id, user.user_role), "")
+        this.http.put<string>(await updateUserRole(user.user_id, user.user_role), null)
           .subscribe(response => {
             this.handleResponse(response);
             this.emptyChanges();

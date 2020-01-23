@@ -26,7 +26,7 @@ export class UserPermissionService {
   }
 
   hasEmployeePermissions() {
-    if(this.role == UserRole.EMPLOYEE) {
+    if(this.role == UserRole.EMPLOYEE || this.role == UserRole.SUPERUSER) {
       return true;
     } else {
       return false;
@@ -34,7 +34,7 @@ export class UserPermissionService {
   }
 
   hasUserPermissions() {
-    if(this.role == UserRole.USER) {
+    if(this.role == UserRole.USER || this.role == UserRole.EMPLOYEE || this.role == UserRole.SUPERUSER) {
       return true;
     } else {
       return false;
