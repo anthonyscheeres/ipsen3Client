@@ -47,9 +47,7 @@ export class LoginFormComponent implements OnInit {
       if (response != responseR.fail) {
         DataModel.account.token = response
         localStorage.setItem("token", response)
-        setHasWhatPermission();
-        this._router.navigate(['/shop']);
-        console.log("hasRead"+DataModel.account.hasRead);
+        this._router.navigate(['/dashboard']);
       }else this.this1 = "Oops je login informatie klopte niet. Heb je, je email al bevestigd?!"
 
     })

@@ -3,10 +3,11 @@
     "",
     "\\src",
     "\\src\\app",
+    "\\src\\app\\dashboard-list",
+    "\\src\\app\\dashboard-list\\dashboard-list-container",
     "\\src\\app\\horizontale-navigation-bar",
-    "\\src\\app\\models",
-    "\\src\\app\\vertical-navigation-bar"
+    "\\src\\app\\models"
   ],
-  "SelectedNode": "\\src\\app\\app.component.ts",
+  "SelectedNode": "\\src\\app\\app.module.ts",
   "PreviewInSolutionExplorer": false
 }
