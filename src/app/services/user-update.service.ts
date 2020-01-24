@@ -1,6 +1,6 @@
 import {UserModel} from "../models/UserModel";
 import {deleteUser, updateUserRole} from './user';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Injectable} from "@angular/core";
 import {PopupService} from "../popup.service";
 import {UserRole} from "../models/UserRole";
@@ -124,7 +124,8 @@ export class UserUpdate {
     }
   }
 
-  handleResponse(response: string) {
+  handleResponse(response: any) {
+    console.log("Response: " + response);
     if (response === 'fail') {
       this.popupService.dangerPopup("Er ging iets mis, probeer het later opnieuw.");
     } else {
