@@ -14,9 +14,9 @@
 
     <ul class="navbar-nav ml-auto">
 
-      <li><a class="nav-link" routerLink="/register"><span class="glyphicon glyphicon-user"></span> Registreer</a></li>
-      <li>     <a class="nav-link" routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      <li>     <a class="nav-link" (click)="logOut()"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+      <li *ngIf="!loggedIn"><a class="nav-link" routerLink="/register"><span class="glyphicon glyphicon-user"></span> Registreer</a></li>
+      <li *ngIf="!loggedIn"><a class="nav-link" routerLink="/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li *ngIf="loggedIn"><a class="nav-link" (click)="logOut()"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
     </ul>
   </div>
 

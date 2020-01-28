@@ -67,11 +67,11 @@ import { RolepipePipe } from './rolepipe.pipe';
                     component: RegisterComponent
                 },
                 {
-                    path: '',
+                    path: 'home',
                     component: HomeComponent
                 },
                 {
-                    path: "login",
+                    path: "",
                     component: LoginComponent
                 },
                 {

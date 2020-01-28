@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
 import { hasSuperPermission, logOut } from '../services/permission';
 import { Subscription, interval } from 'rxjs';
@@ -17,9 +17,9 @@ import { VerticalNavigationBarComponent } from '../vertical-navigation-bar/verti
 * @author Anthony Scheeres
 *
 */
-export class HorizontaleNavigationBarComponent implements OnInit {
+export class HorizontaleNavigationBarComponent implements OnInit, DoCheck {
   condition1 = false
-
+  loggedIn = false;
 
 
 
@@ -29,9 +29,9 @@ export class HorizontaleNavigationBarComponent implements OnInit {
 *
 */
   toggleCollapse() {
-   
+
     DataModel.hiddenHamburger.show = !DataModel.hiddenHamburger.show;
-   
+
   }
 
   myStyles = {
@@ -39,8 +39,6 @@ export class HorizontaleNavigationBarComponent implements OnInit {
   };
 
   mySubscription: Subscription
-
-
 
 /**
 *
@@ -53,7 +51,7 @@ export class HorizontaleNavigationBarComponent implements OnInit {
       'visibility': 'visible'
 
     }
-    
+
   }
 
 
@@ -77,11 +75,17 @@ export class HorizontaleNavigationBarComponent implements OnInit {
 
 
   ngOnInit() {
-
+    this.loggedIn = DataModel.account.token != null;
   }
+
+  ngDoCheck() {
+    this.loggedIn = DataModel.account.token != null;
+}
+
   logOut() {
     logOut()
     this._router.navigate(['/']);
+    this.loggedIn = false;
   }
 
 }

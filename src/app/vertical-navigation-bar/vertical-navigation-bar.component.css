@@ -1,7 +1,7 @@
 body, html{
   height: 100%;
+  width: 100%;
 }
-
 
 /* remove outer padding */
 .main .row {
@@ -15,6 +15,14 @@ nav.sidebar.navbar {
   border-radius: 0px;
 }
 
+nav li{
+  width: 10vw;
+}
+
+nav span {
+  float: right;
+}
+
 nav.sidebar, .main {
   -webkit-transition: margin 200ms ease-out;
   -moz-transition: margin 200ms ease-out;
@@ -24,7 +32,8 @@ nav.sidebar, .main {
 
 /* Add gap to nav and right windows.*/
 .main {
-  padding: 10px 10px 0 10px;
+  padding: 8px 8px 0 8px;
+
 }
 
 /* .....NavBar: Icon only with coloring/layout.....*/
