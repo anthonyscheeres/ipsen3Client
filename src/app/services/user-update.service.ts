@@ -5,6 +5,7 @@ import {Injectable} from "@angular/core";
 import {PopupService} from "../popup.service";
 import {UserRole} from "../models/UserRole";
 import {UserPermissionService} from "./user-permission-service";
+import {ResponseModel} from "../models/ResponseModel";
 
 @Injectable({providedIn: 'root'})
 export class UserUpdate {
@@ -73,9 +74,9 @@ export class UserUpdate {
   async saveChanges() {
     if (this.permissions.hasSuperPermissions()) {
       for (let user of this.changes) {
-        this.http.put<string>(await updateUserRole(user.user_id, user.user_role), null)
-          .subscribe(response => {
-            this.handleResponse(response);
+        this.http.put<ResponseModel>(await updateUserRole(user.user_id, user.user_role), null)
+          .subscribe(r => {
+            this.handleResponse(r.response);
             this.emptyChanges();
           });
       }
@@ -125,7 +126,6 @@ export class UserUpdate {
   }
 
   handleResponse(response: any) {
-    console.log("Response: " + response);
     if (response === 'fail') {
       this.popupService.dangerPopup("Er ging iets mis, probeer het later opnieuw.");
     } else {
