@@ -26,7 +26,7 @@ export class UserPermissionService {
   }
 
   hasEmployeePermissions() {
-    if(this.role == UserRole.EMPLOYEE) {
+    if(this.role == UserRole.EMPLOYEE || this.role == UserRole.SUPERUSER) {
       return true;
     } else {
       return false;
@@ -34,20 +34,26 @@ export class UserPermissionService {
   }
 
   hasUserPermissions() {
-    if(this.role == UserRole.USER) {
+    if(this.role == UserRole.USER || this.role == UserRole.EMPLOYEE || this.role == UserRole.SUPERUSER) {
       return true;
     } else {
       return false;
     }
   }
 
-  initialize() {
+  /**
+   * @author Valerie Timmerman
+   * Initializes the class by getting the role of the person that is using the application.
+   */
+  initialize(callBack?: Function) {
     var token = DataModel.account.token;
     var host = ServerModel.host;
     var port = ServerModel.port;
     var url = "http://" + host + ":" + port + "/user/"  + token + "/getRole";
     this.http.get(url, {responseType: "text"}).subscribe(r => {
       this.role = UserRole[r];
+      if(callBack)
+        callBack();
       }
     );
   }

@@ -11,6 +11,10 @@ import {PopupService} from "../popup.service";
 import {error} from "util";
 import {UserPermissionService} from "../services/user-permission-service";
 
+/**
+ * @author Valerie Timmerman
+ * This class is used to control the list with all the users in it.
+ */
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -29,6 +33,11 @@ export class UsersComponent implements OnInit {
     private permissions: UserPermissionService
   ) { }
 
+  /**
+   * @author Valerie Timmerman
+   * Gets the role of a user to send to the select box which field should be selected.
+   * @param user
+   */
   getRole(user: UserModel) {
     switch (user.user_role) {
       case UserRole.USER:
@@ -40,12 +49,22 @@ export class UsersComponent implements OnInit {
     }
   }
 
+  /**
+   * @author Valerie Timmerman
+   * @param user
+   * @param event
+   * Adds a user with its role changed to the list of changes in the service.
+   */
   onRoleChanged(user: UserModel, event) {
     let changedUser: UserModel = {...user};
     changedUser.user_role = event.target.value;
     this.updateService.addChange(changedUser);
   }
 
+  /**
+   * @author Valerie Timmerman
+   * Sends data to the update service and opens confirmation pop-up.
+   */
   onSaveChanges() {
     if(this.updateService.changes.length == 0) {
       this.popupService.dangerPopup("There are no changes to commit!");
@@ -56,6 +75,10 @@ export class UsersComponent implements OnInit {
     }
   }
 
+  /**
+   * @author Valerie Timmerman
+   * @param user
+   */
   onDelete(user: UserModel) {
     this.popupService.showConfirmPopup("Weet u zeker dat u gebruiker " + user.username + " wilt verwijderen?").then(
       () => {
@@ -77,7 +100,10 @@ export class UsersComponent implements OnInit {
 
   async ngOnInit() {
     this.showUsers();
-    this.canEdit = this.permissions.hasSuperPermissions();
+    var self = this;
+    this.permissions.initialize(function() {
+      self.canEdit = self.permissions.hasSuperPermissions();
+    });
   }
 
 }
