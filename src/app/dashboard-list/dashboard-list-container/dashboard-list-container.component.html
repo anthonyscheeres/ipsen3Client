@@ -6,7 +6,7 @@
 <ul class="box" (drop)="droppingDragElement($event)" (dragover)="draggingOverDropZone($event)" (dragleave)="boxContainerRemovesColor($event)">
     <ng-container *ngFor= 'let experiment of serverExperiments'>
         <ng-container *ngIf= 'experiment.experiment_phase === phaseCheck'>
-            <li class="boxcontainer" id="{{experiment.experiment_id}}" (dragstart)="dragAndSendExperimentToParent($event, experiment)" (dragend)="removesOpacityFromDragElement($event)" draggable="true">
+            <li class="boxcontainer" id="{{experiment.experiment_id}}" (dblclick)="openExistingExperiment(experiment)" (dragstart)="dragAndSendExperimentToParent($event, experiment)" (dragend)="removesOpacityFromDragElement($event)" draggable="true">
                 <div id="{{experiment.experiment_phase}}">
                     <p>{{experiment.experiment_name}}</p>
                     <p class="ng-status" [ngStyle]="{'background-color': setColor(experiment.experiment_status)}">Status: {{experiment.experiment_status}}</p>
