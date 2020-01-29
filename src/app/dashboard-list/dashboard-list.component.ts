@@ -1,5 +1,4 @@
 import { Component, OnInit} from '@angular/core';
-import DataModel from '../models/DataModel';
 import {Router} from '@angular/router';
 import {PopupService} from '../popup.service';
 
