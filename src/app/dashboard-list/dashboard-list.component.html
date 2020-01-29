@@ -7,10 +7,18 @@
         <title>Dashboard</title>
     </head>
 
-    <body>
-        <app-dashboard-list-container [fase]="'Idee fase'" [faseCheck]="'Idee'"></app-dashboard-list-container>
-        <app-dashboard-list-container [fase]="'Lab-in fase'" [faseCheck]="'Het lab in'"></app-dashboard-list-container>
-        <app-dashboard-list-container [fase]="'Lab-uit fase'" [faseCheck]="'Het lab uit'"></app-dashboard-list-container>
+    <body class="container"> 
+        <div class="row">
+            <div class="col-md-4">
+                <app-dashboard-list-container [fase]="'Idee fase'" [faseCheck]="'Idee'"></app-dashboard-list-container>
+            </div>
+            <div class="col-md-4">
+                <app-dashboard-list-container [fase]="'Lab-in fase'" [faseCheck]="'Het lab in'"></app-dashboard-list-container>
+            </div>
+            <div class="col-md-4">
+                <app-dashboard-list-container [fase]="'Lab-uit fase'" [faseCheck]="'Het lab uit'"></app-dashboard-list-container>
+            </div>
+        </div>
     </body>
     
 </html>

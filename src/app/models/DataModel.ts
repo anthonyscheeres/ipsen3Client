@@ -8,6 +8,6 @@ import { hiddenElement } from './hiddenElements';
 *
 */
 export default class DataModel {
-  static account: AccountModel = new AccountModel()
+  static account: AccountModel = new AccountModel();
   static hiddenHamburger = new hiddenElement();
 }
