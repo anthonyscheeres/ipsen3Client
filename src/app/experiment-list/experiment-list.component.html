@@ -1,4 +1,4 @@
-<button class="btn btn-lg btn-outline-primary" (click)="open()">Maak experiment</button>
+<button class="btn btn-lg btn-outline-primary" (click)="openCreateExperiment()">Maak experiment</button>
   <div class="table-responsive table-striped">
     <table class="table table-responsive table-striped">
       <thead>
@@ -25,16 +25,16 @@
         <td>{{ value.inovation_cost }}</td>
         <td>{{ value.money_source }}</td>
         <td>{{ value.organisation }}</td>
-        <td>
-          <input
-            type="button"
-            name="deleteExperiment"
-            id="deleteExperiment"
-            value="Verwijder"
-            class="btn btn-danger"
-            (click)="deleteExperiment(value)"
-          >
-        </td>
+        <td class="noClick">
+            <input class="yesClick"
+              type="button"
+              name="deleteExperiment"
+              id="deleteExperiment"
+              value="Verwijder"
+              class="btn btn-danger"
+              (click)="deleteExperiment(value)"
+            >
+         </td>
       </tr>
       </tbody>
     </table>

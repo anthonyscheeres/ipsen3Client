@@ -1,8 +1,9 @@
 import {Component, OnInit, Output} from '@angular/core';
 import {NgbActiveModal, NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {getCreateExperimentUrl} from "../experiment-list/ExperimentUrl";
+import {getCreateExperimentUrl} from "../ExperimentUrl";
 import {NgForm} from "@angular/forms";
+import {ExperimentListComponent} from "../experiment-list.component";
 
 
 @Component({
@@ -22,7 +23,6 @@ export class CreateExperimentComponent implements OnInit {
   businessOwners: string;
   inovation_cost: number;
   money_source: string;
-  private modalReference: any;
 
   constructor(private http: HttpClient, public activeModal: NgbActiveModal) {
   }
@@ -46,7 +46,6 @@ export class CreateExperimentComponent implements OnInit {
           console.log(responseData);
         }
       )
-    this.modalReference.close();
-
+    this.activeModal.close();
   }
 }

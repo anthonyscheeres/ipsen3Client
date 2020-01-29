@@ -11,3 +11,11 @@ button {
   margin-top: 2%;
   margin-left: 3%
 }
+
+.noClick {
+  pointer-events: none;
+}
+
+.yesClick {
+  pointer-events: auto;
+}

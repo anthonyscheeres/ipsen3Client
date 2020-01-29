@@ -3,9 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import {getExperimentUrl} from "./ExperimentUrl";
 import {ExperimentModel} from "../models/ExperimentModel";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {CreateExperimentComponent} from "../create-experiment/create-experiment.component";
+import {CreateExperimentComponent} from "./create-experiment/create-experiment.component";
 import {ExistingExperimentComponent} from './existing-experiment/existing-experiment.component';
-import { AccountModel } from '../models/AccountModel';
 import { deleteExperiment, getExperiments } from "../services/experiment";
 import {PopupService} from "../popup.service";
 
@@ -48,7 +47,7 @@ export class ExperimentListComponent implements OnInit {
             this.popupService.succesPopup(
               experiment.experiment_name + ' is succesvol verwijderd!'
             );
-          }
+          } else { this.popupService.dangerPopup(responseData); }
         });
       }
     )
@@ -61,7 +60,7 @@ export class ExperimentListComponent implements OnInit {
 
   }
 
-  open() {
-    this.modalService.open(CreateExperimentComponent);
+  openCreateExperiment() {
+    this.modalService.open(CreateExperimentComponent, { windowClass : "myCustomModalClass"});
   }
 };
