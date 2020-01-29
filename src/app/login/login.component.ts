@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ViewEncapsulation } from '@angular/compiler/src/core';
+import DataModel from '../models/DataModel';
 
 
 @Component({
@@ -21,12 +22,15 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit() {
+    if(DataModel.account.token != null) {
+      this._router.navigate(['/dashboard']);
+    }
   }
 
- 
 
 
-  
+
+
   }
 
 

@@ -141,7 +141,7 @@ export async function setHasDelete() {
     DataModel.account.hasDelete = false
   })
 
-  
+
 
 }
 
@@ -154,6 +154,11 @@ export async function setHasDelete() {
 export function logOut() {
   DataModel.account = new AccountModel();
   localStorage.clear();
+ nullToken()
+  nullHasWrite()
+  nullHasDelete()
+  nullHasRead()
+  nullHasSuperPermission()
 }
 
 export async function nullHasSuperPermission() {
@@ -167,9 +172,9 @@ export async function nullHasSuperPermission() {
 *
 */
 export async function nullToken() {
-  DataModel.account.token = null
+  DataModel.account.token = null;
 
-  localStorage.setItem("token", null)
+  localStorage.clear();
 }
 
 

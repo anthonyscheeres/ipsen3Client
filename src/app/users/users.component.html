@@ -19,14 +19,14 @@
           </select>
         </td>
         <td class="col-4">
-          <button class="btn btn-block" [disabled]="!canEdit" (click)="onDelete(user)">Verwijder</button>
+          <button class="btn btn-block btn-danger" [disabled]="!canEdit" (click)="onDelete(user)">Verwijder</button>
         </td>
       </tr>
       <!-- Fix hover over table items -->
     </tbody>
   </table>
 
-  <div class="btn-group btn-toolbar">
+  <div class="btn-group btn-toolbar save">
     <button class="btn" (click)="onSaveChanges()">Wijzigingen opslaan</button>
   </div>
 
