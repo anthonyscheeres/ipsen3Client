@@ -28,7 +28,6 @@ export class FilterService {
   search(text: string): any[] {
     return this._data.filter(data => {
       const term = text.toLowerCase();
-
       for (let value of Object.values(data)) {
         if (value.toString().toLowerCase().includes(term)) {
           return value;
