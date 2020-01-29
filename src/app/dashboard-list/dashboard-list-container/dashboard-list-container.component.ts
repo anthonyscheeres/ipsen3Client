@@ -96,6 +96,7 @@ export class DashboardListContainerComponent implements OnInit {
   postError(err: HttpErrorResponse){
     this.serverExperimentsOnUpload = err.error;
     this.showPopUpFailed();
+    setTimeout(()=> location.reload(), 2300);
   }
 
   showPopUpSucces(){
