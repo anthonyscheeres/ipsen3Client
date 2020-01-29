@@ -19,20 +19,20 @@ import {NgForm} from "@angular/forms";
 export class ExistingExperimentComponent implements OnInit {
   @Input() model: ExperimentModel;
 
-  business_owner: string;
+  dataFromServer: LogModel[];
+  dataFromServerOnUpload: any;
+  dataFromServerUpdate: any;
+
+  experiment_name: string;
   experiment_description: string;
+  business_owner: string;
   experiment_id: number;
   experiment_leader: string;
-  experiment_name: string;
   experiment_phase: string;
   experiment_status: string;
   inovation_cost: number;
   money_source: string;
   organisation: string;
-
-  dataFromServer: LogModel[];
-  dataFromServerOnUpload: any;
-  dataFromServerUpdate: any;
 
   newLogTitle: string = "Log titel";
   newLogDescription: string = "Log omschrijving";
@@ -41,16 +41,6 @@ export class ExistingExperimentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.business_owner = this.model.business_owner;
-    this.experiment_description = this.model.experiment_description;
-    this.experiment_id = this.model.experiment_id;
-    this.experiment_leader = this.model.experiment_leader;
-    this.experiment_name = this.model.experiment_name;
-    this.experiment_phase = this.model.experiment_phase;
-    this.experiment_status = this.model.experiment_status;
-    this.inovation_cost = this.model.inovation_cost;
-    this.money_source = this.model.money_source;
-    this.organisation = this.model.organisation;
 
     this.fetchLogRows();
   }
@@ -105,6 +95,8 @@ export class ExistingExperimentComponent implements OnInit {
   }
 
   updateProject() {
+    console.log(this.newLogTitle)
+
     let data =  JSON.stringify({
       "id": this.experiment_id,
       "name": this.experiment_name,
@@ -131,6 +123,6 @@ export class ExistingExperimentComponent implements OnInit {
         console.log(responseData);
       }
     )
-    this.activeModal.close();
+    this.fetchLogRows();
   }
 }
