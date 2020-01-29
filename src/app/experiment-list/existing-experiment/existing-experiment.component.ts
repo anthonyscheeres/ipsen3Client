@@ -104,11 +104,20 @@ export class ExistingExperimentComponent implements OnInit {
     });
   }
 
-  async updateProject() {
-    let data = "{" + "id:" + this.experiment_id +
-    this.experiment_id
+  updateProject() {
+    let data =  JSON.stringify({
+      "id": this.experiment_id,
+      "name": this.experiment_name,
+      "description": this.experiment_description,
+      "experimentleaders": this.experiment_leader,
+      "fasens": this.experiment_phase,
+      "statussen": this.experiment_status,
+      "businessOwners": this.business_owner,
+      "inovation_cost": this.inovation_cost,
+      "money_source": this.money_source,
+      "organisations": this.organisation
+    });
     console.log(data);
-    // console.log(getCreateExperimentUrl());
 
     this.http.post(getUpdateExperimentUrl(), data,
       {
