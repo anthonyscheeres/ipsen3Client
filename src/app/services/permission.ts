@@ -152,8 +152,8 @@ export async function setHasDelete() {
 *
 */
 export function logOut() {
-  DataModel.account = new AccountModel();
   localStorage.clear();
+  DataModel.account = new AccountModel();
 }
 
 export async function nullHasSuperPermission() {
