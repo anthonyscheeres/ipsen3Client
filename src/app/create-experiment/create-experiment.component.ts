@@ -1,5 +1,5 @@
-import {Component, OnInit, Output} from '@angular/core';
-import {NgbActiveModal, NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {Component, OnInit} from '@angular/core';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {getCreateExperimentUrl} from "../experiment-list/ExperimentUrl";
 import {NgForm} from "@angular/forms";
@@ -32,8 +32,6 @@ export class CreateExperimentComponent implements OnInit {
 
   async onSubmit(form: NgForm) {
     let data = form.value;
-    // console.log(data);
-    // console.log(getCreateExperimentUrl());
 
     this.http.post(getCreateExperimentUrl(), data,
       {
