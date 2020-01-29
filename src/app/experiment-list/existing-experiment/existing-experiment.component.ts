@@ -57,8 +57,6 @@ export class ExistingExperimentComponent implements OnInit {
 
     this.http.get<LogModel[]>(
       url).subscribe(responseData => {
-        console.log(responseData
-        );
           this.dataFromServer = responseData;
         }
       )
