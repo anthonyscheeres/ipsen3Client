@@ -23,6 +23,7 @@ import { HorizontaleNavigationBarComponent } from './horizontale-navigation-bar/
 import { VerticalNavigationBarComponent } from './vertical-navigation-bar/vertical-navigation-bar.component';
 import { DashboardListComponent } from './dashboard-list/dashboard-list.component';
 import { DashboardListContainerComponent } from './dashboard-list/dashboard-list-container/dashboard-list-container.component';
+import { FilterService } from "./filter.service";
 
 
 
@@ -89,6 +90,7 @@ import { DashboardListContainerComponent } from './dashboard-list/dashboard-list
     AlertPopupComponent
   ],
   providers: [
+    FilterService,
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy
