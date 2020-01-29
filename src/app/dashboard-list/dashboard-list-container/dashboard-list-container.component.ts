@@ -38,7 +38,7 @@ export class DashboardListContainerComponent implements OnInit {
   draggingOverDropZone(ev: any) {
     this.preventOpenAsLink(ev);
     if (this.checkIfElementContainsBox(ev)){
-      this.boxContainerAddsColor(ev);    
+      this.boxContainerAddsColor(ev);
     }
   }
 
@@ -51,7 +51,7 @@ export class DashboardListContainerComponent implements OnInit {
   }
 
   appendsDragElement(ev: any, data: any){
-    ev.target.appendChild(document.getElementById(data)); 
+    ev.target.appendChild(document.getElementById(data));
     this.updatePost();
     this.boxContainerRemovesColor(ev);
   }
@@ -70,13 +70,13 @@ export class DashboardListContainerComponent implements OnInit {
 
   postRequest(dashboardModel: DashboardModel){
     this.http
-      .post<DashboardModel>(getPhaseExperimentUrl(), dashboardModel, 
+      .post<DashboardModel>(getPhaseExperimentUrl(), dashboardModel,
       {
         headers: new HttpHeaders(
           { "Accept": "application/json",
             "Content-Type": "application/json"
           })
-      }).subscribe(posts => { this.postData(posts); }, 
+      }).subscribe(posts => { this.postData(posts); },
       (err: HttpErrorResponse) => {  this.postError(err); });
   }
 
@@ -94,7 +94,7 @@ export class DashboardListContainerComponent implements OnInit {
   }
 
   postError(err: HttpErrorResponse){
-    this.serverExperimentsOnUpload = err.error; 
+    this.serverExperimentsOnUpload = err.error;
     this.showPopUpFailed();
   }
 
@@ -158,7 +158,7 @@ export class DashboardListContainerComponent implements OnInit {
   }
 
   boxContainerAddsColor(ev:any){
-    ev.target.classList.add("add-boxcontainer"); 
+    ev.target.classList.add("add-boxcontainer");
   }
 
   preventOpenAsLink(ev: any){
