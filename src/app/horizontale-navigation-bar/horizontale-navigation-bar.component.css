@@ -4,3 +4,7 @@ nav {
   position: sticky;
   z-index: 1;
 }
+
+img {
+  height: 8vh;
+}
