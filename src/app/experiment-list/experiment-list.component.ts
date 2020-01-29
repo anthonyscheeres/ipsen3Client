@@ -5,12 +5,12 @@ import {ExperimentModel} from "../models/ExperimentModel";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {CreateExperimentComponent} from "../create-experiment/create-experiment.component";
 import {ExistingExperimentComponent} from './existing-experiment/existing-experiment.component';
-import { AccountModel } from '../models/AccountModel';
 import { deleteExperiment, getExperiments } from "../services/experiment";
 import {PopupService} from "../popup.service";
 import DataModel from '../models/DataModel';
 import {Router} from '@angular/router';
 import { FilterService } from '../filter.service';
+import {UserPermissionService} from '../services/user-permission-service';
 
 @Component({
   selector: 'app-experiment-list',
@@ -24,11 +24,11 @@ import { FilterService } from '../filter.service';
 
 export class ExperimentListComponent implements OnInit {
   dataFromServer: any;
-  modalService: any;
   canEdit = false;
 
   constructor(private http: HttpClient, private popupService: PopupService, private modalService: NgbModal,
-              private router: Router, private permissionService: UserPermissionService, private filterService: FilterService) { }
+              private router: Router, private permissionService: UserPermissionService, private filterService: FilterService) {
+  }
 
   showExperiments() {
     this.http.get<ExperimentModel[]>(
@@ -45,8 +45,11 @@ export class ExperimentListComponent implements OnInit {
       this.popupService.dangerPopup("U bent nog niet ingelogd.");
       this.router.navigate(['/']);
     } else {
+      var self = this;
+      this.permissionService.initialize(function() {
+        self.canEdit = self.permissionService.hasSuperPermissions();
+      });
       this.showExperiments();
-      this.canEdit = this.permissionService.hasSuperPermissions();
     }
   }
 
