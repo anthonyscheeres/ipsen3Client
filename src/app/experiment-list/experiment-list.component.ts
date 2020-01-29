@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ExperimentModel } from "../models/ExperimentModel";
-import { deleteExperiment } from "../services/experiment";
-import { PopupService } from "../popup.service";
-import { ExistingExperimentComponent } from './existing-experiment/existing-experiment.component';
-import { CreateExperimentComponent } from '../create-experiment/create-experiment.component';
-import { getExperimentUrl } from './ExperimentUrl';
+import {getExperimentUrl} from "./ExperimentUrl";
+import {ExperimentModel} from "../models/ExperimentModel";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {CreateExperimentComponent} from "./create-experiment/create-experiment.component";
+import {ExistingExperimentComponent} from './existing-experiment/existing-experiment.component';
+import { deleteExperiment, getExperiments } from "../services/experiment";
+import {PopupService} from "../popup.service";
+import DataModel from '../models/DataModel';
+import {Router} from '@angular/router';
 import { FilterService } from "../filter.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+
 
 @Component({
   selector: 'app-experiment-list',
@@ -49,7 +53,7 @@ export class ExperimentListComponent implements OnInit {
             this.popupService.succesPopup(
               experiment.experiment_name + ' is succesvol verwijderd!'
             );
-          }
+          } else { this.popupService.dangerPopup(responseData); }
         });
       }
     )
@@ -60,5 +64,8 @@ export class ExperimentListComponent implements OnInit {
     modal.componentInstance.model = model;
   }
 
-  open() {this.modalService.open(CreateExperimentComponent);}
-}
+  openCreateExperiment() {
+    this.modalService.open(CreateExperimentComponent, { windowClass : "myCustomModalClass"});
+  }
+
+};

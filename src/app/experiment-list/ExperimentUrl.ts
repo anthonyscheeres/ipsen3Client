@@ -18,6 +18,14 @@ export function getCreateExperimentUrl() {
   return url
 }
 
+export function getUpdateExperimentUrl(){
+  var host = ServerModel.host;
+  var port = ServerModel.port;
+  var token = DataModel.account.token;
+  var url = "http://" + host + ":" + port + "/experiment/" +token+" /updateProject";
+  return url
+}
+
 export function getPhaseExperimentUrl() {
   var host = ServerModel.host;
   var port = ServerModel.port;

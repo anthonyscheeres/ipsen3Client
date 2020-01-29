@@ -1,0 +1,14 @@
+.big_row {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.small_field {
+  width: 250px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.small_row {
+  padding-left: 15px;
+}

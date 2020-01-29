@@ -18,9 +18,9 @@ import { ConfirmPopupComponent } from './popup/confirm-popup/confirm-popup.compo
 import { AlertPopupComponent } from './popup/alert-popup/alert-popup.component';
 import { HorizontaleNavigationBarComponent } from './horizontale-navigation-bar/horizontale-navigation-bar.component';
 import { VerticalNavigationBarComponent } from './vertical-navigation-bar/vertical-navigation-bar.component';
-import { CreateExperimentComponent } from './create-experiment/create-experiment.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule , ReactiveFormsModule} from '@angular/forms';
+import { CreateExperimentComponent } from './experiment-list/create-experiment/create-experiment.component';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { FormsModule , ReactiveFormsModule} from "@angular/forms";
 import { ExistingExperimentComponent } from './experiment-list/existing-experiment/existing-experiment.component';
 import {UpdateUsersComponent} from './update-users/update-users.component';
 import { DashboardListComponent } from './dashboard-list/dashboard-list.component';
@@ -97,7 +97,8 @@ import {RolepipePipe} from './rolepipe.pipe';
     ConfirmPopupComponent,
     AlertPopupComponent,
     CreateExperimentComponent,
-    ExistingExperimentComponent
+    ExistingExperimentComponent,
+    UpdateUsersComponent
   ],
   providers: [
     PopupService,
