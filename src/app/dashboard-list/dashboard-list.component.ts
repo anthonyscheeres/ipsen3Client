@@ -1,4 +1,7 @@
 import { Component, OnInit} from '@angular/core';
+import DataModel from '../models/DataModel';
+import {Router} from '@angular/router';
+import {PopupService} from '../popup.service';
 
 @Component({
   selector: 'app-dashboard-list',
@@ -9,11 +12,12 @@ import { Component, OnInit} from '@angular/core';
 export class DashboardListComponent implements OnInit {
   experimentParent: any;
 
-  constructor() {
+  constructor(private router: Router, private popup: PopupService) {
   }
 
   ngOnInit() {
-  } 
+
+  }
 
   setExperimentParent(experimentChild: any){
     this.experimentParent = experimentChild;
