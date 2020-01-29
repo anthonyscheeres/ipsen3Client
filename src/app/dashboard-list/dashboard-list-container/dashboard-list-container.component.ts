@@ -1,10 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { ExperimentModel } from 'src/app/models/ExperimentModel';
-import { getExperimentUrl } from 'src/app/experiment-list/experimentUrl';
-import { getPhaseExperimentUrl } from 'src/app/experiment-list/experimentUrl';
+import { getExperimentUrl } from 'src/app/experiment-list/ExperimentUrl';
+import { getPhaseExperimentUrl } from 'src/app/experiment-list/ExperimentUrl';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import {DashboardModel} from 'src/app/models/DashboardModel';
 import { PopupService } from 'src/app/popup.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ExistingExperimentComponent } from 'src/app/experiment-list/existing-experiment/existing-experiment.component';
+
 import DataModel from '../../models/DataModel';
 import {Router} from '@angular/router';
 
@@ -24,7 +27,7 @@ export class DashboardListContainerComponent implements OnInit {
   @Input() phase: string;
   @Input() phaseCheck: string;
 
-  constructor(private http: HttpClient, private popupService: PopupService, private router: Router) {
+  constructor(private http: HttpClient, private popupService: PopupService, private modalService: NgbModal, private router: Router) {
 
   }
 
@@ -61,6 +64,12 @@ export class DashboardListContainerComponent implements OnInit {
     ev.target.appendChild(document.getElementById(data));
     this.updatePost();
     this.boxContainerRemovesColor(ev);
+  }
+
+  openExistingExperiment(model: ExperimentModel){
+    const modal = this.modalService.open(ExistingExperimentComponent, { windowClass : "myCustomModalClass"});
+    modal.componentInstance.model = model;
+
   }
 
   updatePost(){

@@ -48,7 +48,7 @@ export class LoginFormComponent implements OnInit {
         DataModel.account.token = response
         localStorage.setItem("token", response)
         this._router.navigate(['/dashboard']);
-      }else this.this1 = "Oops je login informatie klopte niet. Heb je, je email al bevestigd?!"
+      }else this.this1 = "Oops je login informatie klopte niet. Heb je, je email al bevestigd?! of vraag eventueel uw super gebruiker om rechten"
 
     })
       ;

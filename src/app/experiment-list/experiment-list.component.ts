@@ -10,28 +10,32 @@ import { deleteExperiment, getExperiments } from "../services/experiment";
 import {PopupService} from "../popup.service";
 import DataModel from '../models/DataModel';
 import {Router} from '@angular/router';
-import {UserPermissionService} from '../services/user-permission-service';
+import { FilterService } from '../filter.service';
 
 @Component({
   selector: 'app-experiment-list',
   templateUrl: './experiment-list.component.html',
   styleUrls: ['./experiment-list.component.css'],
-  providers: [PopupService]
+  providers: [
+    PopupService,
+    FilterService,
+  ]
 })
 
 export class ExperimentListComponent implements OnInit {
   dataFromServer: any;
+  modalService: any;
   canEdit = false;
 
   constructor(private http: HttpClient, private popupService: PopupService, private modalService: NgbModal,
-              private router: Router, private permissionService: UserPermissionService) { }
+              private router: Router, private permissionService: UserPermissionService, private filterService: FilterService) { }
 
   showExperiments() {
     this.http.get<ExperimentModel[]>(
       getExperimentUrl())
       .subscribe(
         responseData => {
-          this.dataFromServer = responseData;
+          this.filterService.isDataSet.next(responseData)
         }
       )
   }
@@ -65,14 +69,10 @@ export class ExperimentListComponent implements OnInit {
     )
   }
 
-
   openExistingExperiment(model: ExperimentModel){
-    const modal = this.modalService.open(ExistingExperimentComponent, { windowClass : "myCustomModalClass"});
+    const modal = this.modalService.open(ExistingExperimentComponent);
     modal.componentInstance.model = model;
-
   }
 
-  open() {
-    this.modalService.open(CreateExperimentComponent);
-  }
-};
+  open() {this.modalService.open(CreateExperimentComponent);}
+}

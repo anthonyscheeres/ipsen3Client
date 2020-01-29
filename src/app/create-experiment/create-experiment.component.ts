@@ -1,8 +1,8 @@
 import {Component, OnInit, Output} from '@angular/core';
 import {NgbActiveModal, NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {getCreateExperimentUrl} from "../experiment-list/ExperimentUrl";
-import {NgForm} from "@angular/forms";
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {getCreateExperimentUrl} from '../experiment-list/ExperimentUrl';
+import {NgForm} from '@angular/forms';
 
 
 @Component({
@@ -32,8 +32,6 @@ export class CreateExperimentComponent implements OnInit {
 
   async onSubmit(form: NgForm) {
     let data = form.value;
-    // console.log(data);
-    // console.log(getCreateExperimentUrl());
 
     this.http.post(getCreateExperimentUrl(), data,
       {
@@ -43,7 +41,6 @@ export class CreateExperimentComponent implements OnInit {
       }).subscribe(
         responseData => {
           this.dataFromServer = responseData;
-          console.log(responseData);
         }
       )
     this.modalReference.close();
