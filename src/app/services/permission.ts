@@ -141,7 +141,7 @@ export async function setHasDelete() {
     DataModel.account.hasDelete = false
   })
 
-  
+
 
 }
 
@@ -167,9 +167,9 @@ export async function nullHasSuperPermission() {
 *
 */
 export async function nullToken() {
-  DataModel.account.token = null
+  DataModel.account.token = null;
 
-  localStorage.setItem("token", null)
+  localStorage.clear();
 }
 
 
@@ -212,9 +212,9 @@ export async function nullHasRead() {
 *
 */
 export async function setHasWhatPermission() {
-  setHasWrite()
-  setHasDelete()
-  setHasRead()
+  setHasWrite();
+  setHasDelete();
+  setHasRead();
 }
 
 function checkInput(val){

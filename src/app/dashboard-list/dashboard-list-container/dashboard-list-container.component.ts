@@ -3,7 +3,7 @@ import { ExperimentModel } from 'src/app/models/ExperimentModel';
 import { getExperimentUrl } from 'src/app/experiment-list/experimentUrl';
 import { getPhaseExperimentUrl } from 'src/app/experiment-list/experimentUrl';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import {DashboardModel} from '../../models/DashboardModel';
+import {DashboardModel} from 'src/app/models/DashboardModel';
 import { PopupService } from 'src/app/popup.service';
 
 @Component({

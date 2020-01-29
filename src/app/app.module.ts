@@ -10,7 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { RegisterComponent } from './register/register.component';
 import { UsersComponent } from './users/users.component';
-import { JSONTableModule } from 'angular-json-table';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
@@ -67,11 +66,11 @@ import { RolepipePipe } from './rolepipe.pipe';
                     component: RegisterComponent
                 },
                 {
-                    path: '',
+                    path: 'home',
                     component: HomeComponent
                 },
                 {
-                    path: "login",
+                    path: "",
                     component: LoginComponent
                 },
                 {

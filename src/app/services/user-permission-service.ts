@@ -17,6 +17,10 @@ export class UserPermissionService {
   constructor(private http: HttpClient) {
   }
 
+  isLoggedIn() {
+    return DataModel.account.token != null;
+  }
+
   hasSuperPermissions() {
     if(this.role == UserRole.SUPERUSER) {
       return true;
