@@ -1,13 +1,34 @@
-.table-responsive thead {
+.table-fixed thead {
+  width: 100%;
+}
+
+.table-fixed tbody {
+  height: 50vh;
+  overflow: auto;
+  width: 100%;
+  display: inline-grid;
+}
+
+.table-fixed thead, .table-fixed tr, .table-fixed td, .table-fixed th {
+  display: inline-block;
+}
+
+.table-fixed tbody td, .table-fixed thead > tr > th {
+  float: left;
+  border-bottom-width: 0;
+}
+
+.table-fixed table {
+  border-collapse: collapse;
+}
+
+.table-fixed thead {
   background-color: #024D78;
   color: white;
 }
-.table-responsive {
-  margin: 2%;
-}
+
 button {
   background-color: #024D78;
   color: white;
-  margin-top: 2%;
-  margin-left: 3%
 }
+
