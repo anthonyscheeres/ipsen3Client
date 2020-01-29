@@ -112,7 +112,12 @@ export class UsersComponent implements OnInit {
       var self = this;
       this.permissions.initialize(function() {
         self.canEdit = self.permissions.hasSuperPermissions();
+        if(!self.canEdit) {
+          self.popupService.dangerPopup("U heeft geen rechten voor deze pagina.");
+          self._router.navigate(['/dashboard']);
+        }
       });
+
     }
 
   }

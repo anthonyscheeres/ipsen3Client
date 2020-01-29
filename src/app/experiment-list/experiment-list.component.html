@@ -29,6 +29,7 @@
             id="deleteExperiment"
             value="Verwijder"
             class="btn btn-danger btn-block"
+            [disabled]="!canEdit"
             (click)="deleteExperiment(value)"
           >
         </td>
@@ -36,6 +37,6 @@
       </tbody>
     </table>
     <div class="btn-group btn-toolbar">
-      <button class="btn" (click)="open()">Maak experiment</button>
+      <button class="btn" [disabled]="!canEdit" (click)="open()">Maak experiment</button>
     </div>
   </div>

@@ -10,6 +10,7 @@ import { deleteExperiment, getExperiments } from "../services/experiment";
 import {PopupService} from "../popup.service";
 import DataModel from '../models/DataModel';
 import {Router} from '@angular/router';
+import {UserPermissionService} from '../services/user-permission-service';
 
 @Component({
   selector: 'app-experiment-list',
@@ -20,9 +21,10 @@ import {Router} from '@angular/router';
 
 export class ExperimentListComponent implements OnInit {
   dataFromServer: any;
+  canEdit = false;
 
   constructor(private http: HttpClient, private popupService: PopupService, private modalService: NgbModal,
-              private router: Router) { }
+              private router: Router, private permissionService: UserPermissionService) { }
 
   showExperiments() {
     this.http.get<ExperimentModel[]>(
@@ -40,6 +42,7 @@ export class ExperimentListComponent implements OnInit {
       this.router.navigate(['/']);
     } else {
       this.showExperiments();
+      this.canEdit = this.permissionService.hasSuperPermissions();
     }
   }
 
