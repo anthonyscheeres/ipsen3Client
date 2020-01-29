@@ -1,14 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ExperimentModel } from "../models/ExperimentModel";
 import { deleteExperiment } from "../services/experiment";
-import {PopupService} from "../popup.service";
+import { PopupService } from "../popup.service";
 import { ExistingExperimentComponent } from './existing-experiment/existing-experiment.component';
 import { CreateExperimentComponent } from '../create-experiment/create-experiment.component';
 import { getExperimentUrl } from './ExperimentUrl';
-import {FilterService} from "../filter.service";
-import {DecimalPipe} from "@angular/common";
-import {BehaviorSubject} from "rxjs";
+import { FilterService } from "../filter.service";
+import { BehaviorSubject } from "rxjs";
 
 @Component({
   selector: 'app-experiment-list',
@@ -17,7 +16,6 @@ import {BehaviorSubject} from "rxjs";
   providers: [
     PopupService,
     FilterService,
-    DecimalPipe
   ]
 })
 
@@ -66,7 +64,6 @@ export class ExperimentListComponent implements OnInit {
       }
     )
   }
-
 
   openExistingExperiment(model: ExperimentModel){
     const modal = this.modalService.open(ExistingExperimentComponent);

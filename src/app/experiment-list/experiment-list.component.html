@@ -28,16 +28,16 @@
     </thead>
     <tbody>
     <tr *ngFor="let experiment of filterService.observable$ | async">
-      <td><ngb-highlight [result]="experiment.experiment_name " [term]="filterService.filter.value"></ngb-highlight></td>
-      <td><ngb-highlight [result]="experiment.experiment_description " [term]="filterService.filter.value"></ngb-highlight></td>
-      <td><ngb-highlight [result]="experiment.experiment_id " [term]="filterService.filter.value"></ngb-highlight></td>
-      <td><ngb-highlight [result]="experiment.experiment_leader " [term]="filterService.filter.value"></ngb-highlight></td>
-      <td><ngb-highlight [result]="experiment.experiment_phase " [term]="filterService.filter.value"></ngb-highlight></td>
-      <td><ngb-highlight [result]="experiment.experiment_status " [term]="filterService.filter.value"></ngb-highlight></td>
-      <td><ngb-highlight [result]="experiment.business_owner " [term]="filterService.filter.value"></ngb-highlight></td>
-      <td><ngb-highlight [result]="experiment.money_source " [term]="filterService.filter.value"></ngb-highlight></td>
-      <td><ngb-highlight [result]="experiment.inovation_cost " [term]="filterService.filter.value"></ngb-highlight></td>
-      <td><ngb-highlight [result]="experiment.organisation " [term]="filterService.filter.value"></ngb-highlight></td>
+      <td><ngb-highlight [result]="experiment.experiment_name" [term]="filterService.filter.value"></ngb-highlight></td>
+      <td><ngb-highlight [result]="experiment.experiment_description" [term]="filterService.filter.value"></ngb-highlight></td>
+      <td><ngb-highlight [result]="experiment.experiment_id" [term]="filterService.filter.value"></ngb-highlight></td>
+      <td><ngb-highlight [result]="experiment.experiment_leader" [term]="filterService.filter.value"></ngb-highlight></td>
+      <td><ngb-highlight [result]="experiment.experiment_phase" [term]="filterService.filter.value"></ngb-highlight></td>
+      <td><ngb-highlight [result]="experiment.experiment_status" [term]="filterService.filter.value"></ngb-highlight></td>
+      <td><ngb-highlight [result]="experiment.business_owner" [term]="filterService.filter.value"></ngb-highlight></td>
+      <td><ngb-highlight [result]="experiment.money_source" [term]="filterService.filter.value"></ngb-highlight></td>
+      <td><ngb-highlight [result]="experiment.inovation_cost" [term]="filterService.filter.value"></ngb-highlight></td>
+      <td><ngb-highlight [result]="experiment.organisation" [term]="filterService.filter.value"></ngb-highlight></td>
       <td>
         <input
           type="button"

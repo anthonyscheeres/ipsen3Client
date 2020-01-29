@@ -10,7 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { RegisterComponent } from './register/register.component';
 import { UsersComponent } from './users/users.component';
-import { JSONTableModule } from 'angular-json-table';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
@@ -25,6 +24,7 @@ import { DashboardListComponent } from './dashboard-list/dashboard-list.componen
 import { DashboardListContainerComponent } from './dashboard-list/dashboard-list-container/dashboard-list-container.component';
 import {FilterService} from "./filter.service";
 import {PopupService} from "./popup.service";
+import {CreateExperimentComponent} from "./create-experiment/create-experiment.component";
 
 @NgModule({
   declarations: [
@@ -42,7 +42,8 @@ import {PopupService} from "./popup.service";
     ConfirmPopupComponent,
     AlertPopupComponent,
     DashboardListComponent,
-    DashboardListContainerComponent
+    DashboardListContainerComponent,
+    CreateExperimentComponent
   ],
     imports: [
         BrowserModule,
@@ -86,7 +87,8 @@ import {PopupService} from "./popup.service";
     ],
   entryComponents: [
     ConfirmPopupComponent,
-    AlertPopupComponent
+    AlertPopupComponent,
+    CreateExperimentComponent
   ],
   providers: [
     PopupService,
