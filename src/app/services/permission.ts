@@ -153,11 +153,7 @@ export async function setHasDelete() {
 */
 export function logOut() {
   DataModel.account = new AccountModel();
- nullToken()
-  nullHasWrite()
-  nullHasDelete()
-  nullHasRead()
-  nullHasSuperPermission()
+  localStorage.clear();
 }
 
 export async function nullHasSuperPermission() {
@@ -216,9 +212,9 @@ export async function nullHasRead() {
 *
 */
 export async function setHasWhatPermission() {
-  setHasWrite()
-  setHasDelete()
-  setHasRead()
+  setHasWrite();
+  setHasDelete();
+  setHasRead();
 }
 
 function checkInput(val){
