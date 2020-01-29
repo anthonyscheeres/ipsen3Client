@@ -1,24 +1,17 @@
-<!DOCTYPE html>
-<html lang="nl">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Dashboard</title>
-    </head>
-
-    <body class="container"> 
+<html lang="en">
+    <body class="container">
         <div class="row">
             <div class="col-md-4">
-                <app-dashboard-list-container [fase]="'Idee fase'" [faseCheck]="'Idee'"></app-dashboard-list-container>
+                <app-dashboard-list-container [phase]="'Idee fase'" [phaseCheck]="'Idee'" (notifyExperiment)="setExperimentParent($event)" [experimentChild]="experimentParent"></app-dashboard-list-container>
             </div>
             <div class="col-md-4">
-                <app-dashboard-list-container [fase]="'Lab-in fase'" [faseCheck]="'Het lab in'"></app-dashboard-list-container>
+                <app-dashboard-list-container [phase]="'Lab-in fase'" [phaseCheck]="'Het lab in'" (notifyExperiment)="setExperimentParent($event)" [experimentChild]="experimentParent"></app-dashboard-list-container>
             </div>
             <div class="col-md-4">
-                <app-dashboard-list-container [fase]="'Lab-uit fase'" [faseCheck]="'Het lab uit'"></app-dashboard-list-container>
+                <app-dashboard-list-container [phase]="'Lab-uit fase'" [phaseCheck]="'Het lab uit'" (notifyExperiment)="setExperimentParent($event)" [experimentChild]="experimentParent"></app-dashboard-list-container>
             </div>
         </div>
     </body>
-    
 </html>
+
+

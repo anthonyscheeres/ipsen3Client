@@ -7,6 +7,8 @@ import {CreateExperimentComponent} from "./create-experiment/create-experiment.c
 import {ExistingExperimentComponent} from './existing-experiment/existing-experiment.component';
 import { deleteExperiment, getExperiments } from "../services/experiment";
 import {PopupService} from "../popup.service";
+import DataModel from '../models/DataModel';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-experiment-list',
@@ -18,7 +20,8 @@ import {PopupService} from "../popup.service";
 export class ExperimentListComponent implements OnInit {
   dataFromServer: any;
 
-  constructor(private http: HttpClient, private popupService: PopupService, private modalService: NgbModal) { }
+  constructor(private http: HttpClient, private popupService: PopupService, private modalService: NgbModal,
+              private router: Router) { }
 
   showExperiments() {
     this.http.get<ExperimentModel[]>(
@@ -30,8 +33,13 @@ export class ExperimentListComponent implements OnInit {
       )
   }
 
-  async ngOnInit() {
-    this.showExperiments();
+  ngOnInit() {
+    if(DataModel.account.token == null) {
+      this.popupService.dangerPopup("U bent nog niet ingelogd.");
+      this.router.navigate(['/']);
+    } else {
+      this.showExperiments();
+    }
   }
 
 

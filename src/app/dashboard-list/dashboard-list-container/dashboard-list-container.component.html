@@ -1,11 +1,12 @@
 <ul class="header-color">
-    <li scope="column">{{fase}}</li>
+    <li scope="column">{{phase}}</li>
 </ul>
 
-<ul class="box" (drop)="dropAndShowMessage($event); updateTest(faseCheck)" (dragover)="draggingOverDropZone($event)">
+
+<ul class="box" (drop)="droppingDragElement($event)" (dragover)="draggingOverDropZone($event)" (dragleave)="boxContainerRemovesColor($event)">
     <ng-container *ngFor= 'let experiment of serverExperiments'>
-        <ng-container *ngIf= 'experiment.experiment_phase === faseCheck'>
-            <li class="boxcontainer" id="{{experiment.experiment_id}}" (drag)="dragMessageWhileDragged($event); getExperimentPhase(experiment.experiment_phase); getIdPhase(experiment.experiment_id)" (dragstart)="establishDragStartingPoint($event)" draggable="true">
+        <ng-container *ngIf= 'experiment.experiment_phase === phaseCheck'>
+            <li class="boxcontainer" id="{{experiment.experiment_id}}" (dblclick)="openExistingExperiment(experiment)" (dragstart)="dragAndSendExperimentToParent($event, experiment)" (dragend)="removesOpacityFromDragElement($event)" draggable="true">
                 <div id="{{experiment.experiment_phase}}">
                     <p>{{experiment.experiment_name}}</p>
                     <p class="ng-status" [ngStyle]="{'background-color': setColor(experiment.experiment_status)}">Status: {{experiment.experiment_status}}</p>
@@ -14,5 +15,3 @@
         </ng-container>
     </ng-container>
 </ul>
-
-<div id="demo"></div>

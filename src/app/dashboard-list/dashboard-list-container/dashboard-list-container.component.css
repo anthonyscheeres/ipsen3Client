@@ -26,3 +26,12 @@
 li{
     list-style: none;
 }
+
+.add-boxcontainer{
+    padding-bottom: 6.5em;
+    background-color: #9abdce;
+}
+
+.transparant{
+    opacity: 0.5;
+}
