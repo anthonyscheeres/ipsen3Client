@@ -8,10 +8,9 @@ import {UpdateUsersComponent} from "../update-users/update-users.component";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {UserUpdate} from "../services/user-update.service";
 import {PopupService} from "../popup.service";
-import {error} from "util";
 import {UserPermissionService} from "../services/user-permission-service";
-import {LoginComponent} from '../login/login.component';
 import DataModel from '../models/DataModel';
+import {FilterService} from "../filter.service";
 
 /**
  * @author Valerie Timmerman
@@ -23,7 +22,6 @@ import DataModel from '../models/DataModel';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  users: UserModel[];
   canEdit;
 
   constructor(
@@ -32,7 +30,8 @@ export class UsersComponent implements OnInit {
     private modalService: NgbModal,
     private updateService: UserUpdate,
     private popupService: PopupService,
-    private permissions: UserPermissionService
+    private permissions: UserPermissionService,
+    private filterService: FilterService
   ) { }
 
   /**
@@ -98,8 +97,7 @@ export class UsersComponent implements OnInit {
       getUsers())
       .subscribe(
         responseData => {
-          this.updateService.users = responseData.slice();
-          this.users = responseData.slice();
+          this.filterService.isDataSet.next(responseData)
         }
       );
   }

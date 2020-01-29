@@ -1,8 +1,9 @@
 import {Component, OnInit, Output} from '@angular/core';
 import {NgbActiveModal, NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {getCreateExperimentUrl} from '../experiment-list/ExperimentUrl';
-import {NgForm} from '@angular/forms';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {getCreateExperimentUrl} from "../ExperimentUrl";
+import {NgForm} from "@angular/forms";
+import {ExperimentListComponent} from "../experiment-list.component";
 
 
 @Component({
@@ -43,7 +44,6 @@ export class CreateExperimentComponent implements OnInit {
           this.dataFromServer = responseData;
         }
       )
-    this.modalReference.close();
-
+    this.activeModal.close();
   }
 }

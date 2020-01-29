@@ -16,7 +16,7 @@
       <th scope="col" class="col-2">Verwijderen</th>
     </thead>
     <tbody>
-      <tr *ngFor="let experiment of filterService.observable$ | async">
+      <tr *ngFor="let experiment of filterService.observable$ | async" (click)="openExistingExperiment(experiment)">
         <td class="col-2"><ngb-highlight [result]="experiment.experiment_name" [term]="filterService.filter.value"></ngb-highlight></td>
         <td class="col-1"><ngb-highlight [result]="experiment.experiment_id" [term]="filterService.filter.value"></ngb-highlight></td>
         <td class="col-1"><ngb-highlight [result]="experiment.experiment_phase" [term]="filterService.filter.value"></ngb-highlight></td>
@@ -39,6 +39,6 @@
       </tbody>
     </table>
     <div class="btn-group btn-toolbar">
-      <button class="btn" [disabled]="!canEdit" (click)="open()">Maak experiment</button>
+      <button class="btn" [disabled]="!canEdit" (click)="openCreateExperiment()">Maak experiment</button>
     </div>
   </div>

@@ -5,10 +5,11 @@ import {ServerModel} from '../../models/ServerModel';
 import {AccountModel} from '../../models/AccountModel';
 import * as url from 'url';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {getExperimentUrl} from '../ExperimentUrl';
+import {getCreateExperimentUrl, getExperimentUrl, getUpdateExperimentUrl} from '../ExperimentUrl';
 import {LogModel} from '../../models/LogModel';
 import {log} from 'util';
 import DataModel from "../../models/DataModel";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-existing-experiment-component',
@@ -18,19 +19,20 @@ import DataModel from "../../models/DataModel";
 export class ExistingExperimentComponent implements OnInit {
   @Input() model: ExperimentModel;
 
-  business_owner: string;
+  dataFromServer: LogModel[];
+  dataFromServerOnUpload: any;
+  dataFromServerUpdate: any;
+
+  experiment_name: string;
   experiment_description: string;
+  business_owner: string;
   experiment_id: number;
   experiment_leader: string;
-  experiment_name: string;
   experiment_phase: string;
   experiment_status: string;
   inovation_cost: number;
   money_source: string;
   organisation: string;
-
-  dataFromServer: LogModel[];
-  dataFromServerOnUpload: any;
 
   newLogTitle: string = "Log titel";
   newLogDescription: string = "Log omschrijving";
@@ -90,13 +92,44 @@ export class ExistingExperimentComponent implements OnInit {
       {
         headers: new HttpHeaders({
           "Accept": "application/json",
-          "Content-Type": "application/json"})
+          "Content-Type": "application/json"
+        })
 
       }).subscribe(responsData => {
-        this.dataFromServerOnUpload = responsData;
-        this.fetchLogRows();
+      this.dataFromServerOnUpload = responsData;
+      this.fetchLogRows();
     });
+  }
 
+  updateProject() {
+    console.log(this.newLogTitle)
 
+    let data =  JSON.stringify({
+      "id": this.experiment_id,
+      "name": this.experiment_name,
+      "description": this.experiment_description,
+      "experimentleaders": this.experiment_leader,
+      "fasens": this.experiment_phase,
+      "statussen": this.experiment_status,
+      "businessOwners": this.business_owner,
+      "inovation_cost": this.inovation_cost,
+      "money_source": this.money_source,
+      "organisations": this.organisation
+    });
+    console.log(data);
+
+    this.http.post(getUpdateExperimentUrl(), data,
+      {
+        headers: new HttpHeaders({
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        })
+      }).subscribe(
+      responseData => {
+        this.dataFromServerUpdate = responseData;
+        console.log(responseData);
+      }
+    )
+    this.fetchLogRows();
   }
 }

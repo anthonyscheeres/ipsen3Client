@@ -7,54 +7,65 @@
 
 <div class="form-group big_row">
   <label for="experiment_name">Experiment Naam</label>
-  <input [ngModel]="business_owner"  class="form-control" type="text" id="experiment_name">
+  <input [(ngModel)]="experiment_name"  class="form-control" type="text" id="experiment_name" name="experiment_name">
 </div>
 
 <div class="form-group big_row">
-  <label for="experiment_description">Experiment Description</label>
-  <input [ngModel]="experiment_description" class="form-control" type="text" id="experiment_description">
+  <label for="experiment_description">Experiment Descriptie</label>
+  <input [(ngModel)]="experiment_description" class="form-control" type="text" id="experiment_description" name="experiment_description">
 </div>
 
 <div class="row small_row">
   <div class="form-group small_field">
     <label for="experiment_id">Experiment id</label>
-    <input [ngModel]="experiment_id" class="form-control" type="text" id="experiment_id">
+    <input [(ngModel)]="experiment_id" class="form-control" type="text" id="experiment_id" name="experiment_id">
   </div>
 
   <div class="form-group small_field">
-    <label for="experiment_leader">Experiment Leader</label>
-    <input [ngModel]="experiment_leader" class="form-control" type="text" id="experiment_leader">
+    <label for="experiment_leader">Experiment Leider</label>
+    <input [(ngModel)]="experiment_leader" class="form-control" type="text" id="experiment_leader" name="experiment_leader">
   </div>
 
   <div class="form-group small_field">
-    <label for="experiment_phase">Experiment Phase</label>
-    <input [ngModel]="experiment_name" class="form-control" type="text" id="experiment_phase">
+    <label for="experiment_phase">Experiment Fasen</label>
+    <select [(ngModel)]="experiment_phase" class="form-control" id="experiment_phase" name="experiment_phase">
+      <option value="Idee">Idee</option>
+      <option value="Het lab in">LabIn</option>
+      <option value="Het lab uit">LabUit</option>
+      <option value="Gepauzeerd">Vrieskist
+      <option value="Succesvol afgerond">HallOfFame</option>
+      <option value="Niet succesvol afgerond">Kerkhof</option>
+    </select>
   </div>
 
   <div class="form-group small_field">
     <label for="experiment_status">Experiment Status</label>
-    <input [ngModel]="experiment_phase" class="form-control" type="text" id="experiment_status">
+    <select [(ngModel)]="experiment_status" class="form-control" id="experiment_status" name="experiment_status">
+      <option value="Groen">Groen</option>
+      <option value="Geel">Geel</option>
+      <option value="Rood">Rood</option>
+    </select>
   </div>
 </div>
 
 <div class="row small_row">
   <div class="form-group small_field">
-    <label for="business_owner">Business owner</label>
-    <input [ngModel]="experiment_status" class="form-control" type="text" id="business_owner">
+    <label for="business_owner">Bedrijfseigenaar</label>
+    <input [(ngModel)]="business_owner" class="form-control" type="text" id="business_owner" name="business_owner">
   </div>
 
   <div class="form-group small_field">
     <label for="inovation_cost">Inovatie kosten</label>
-    <input [ngModel]="inovation_cost" class="form-control" type="text" id="inovation_cost">
+    <input [(ngModel)]="inovation_cost" class="form-control" type="text" id="inovation_cost" name="inovation_cost">
   </div>
 
   <div class="form-group small_field">
     <label for="money_source">Geldbron</label>
-    <input [ngModel]="money_source" class="form-control" type="text" id="money_source">
+    <input [(ngModel)]="money_source" class="form-control" type="text" id="money_source"  name="money_source">
   </div>
   <div class="form-group small_field">
     <label for="organisation">Organisatie</label>
-    <input [ngModel]="organisation" class="form-control" type="text" id="organisation">
+    <input [(ngModel)]="organisation" class="form-control" type="text" id="organisation" name="organisations">
   </div>
 </div>
 
@@ -85,6 +96,6 @@
 
 <div class="modal-footer">
   <button type="button" class="btn btn-outline-dark" (click)="uploadLog()">Upload log row</button>
-  <button type="Submit" class="btn btn-outline-dark">Update experiment</button>
+  <button type="Submit" class="btn btn-outline-dark" (click)="updateProject()">Update experiment</button>
   <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Sluit</button>
 </div>
