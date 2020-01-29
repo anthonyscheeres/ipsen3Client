@@ -41,7 +41,6 @@ export class CreateExperimentComponent implements OnInit {
       }).subscribe(
         responseData => {
           this.dataFromServer = responseData;
-          console.log(responseData);
         }
       )
     this.modalReference.close();
