@@ -7,11 +7,16 @@ import { Component, OnInit} from '@angular/core';
 })
 
 export class DashboardListComponent implements OnInit {
+  experimentParent: any;
 
   constructor() {
   }
 
   ngOnInit() {
   } 
+
+  setExperimentParent(experimentChild: any){
+    this.experimentParent = experimentChild;
+  }
 
 }
