@@ -105,5 +105,4 @@ export class UsersComponent implements OnInit {
       self.canEdit = self.permissions.hasSuperPermissions();
     });
   }
-
 }

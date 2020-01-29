@@ -20,7 +20,6 @@ import { FilterService } from "../filter.service";
 
 export class ExperimentListComponent implements OnInit {
   modalService: any;
-
   constructor(private http: HttpClient, private popupService: PopupService, private filterService: FilterService) { }
 
   showExperiments() {
@@ -28,7 +27,7 @@ export class ExperimentListComponent implements OnInit {
       getExperimentUrl())
       .subscribe(
         responseData => {
-          this.filterService.isDataAvailable.next(responseData)
+          this.filterService.isDataSet.next(responseData)
         }
       )
   }

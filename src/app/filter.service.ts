@@ -6,16 +6,16 @@ import {Injectable} from "@angular/core";
 @Injectable()
 export class FilterService {
   private _data: any;
-  private _isDataAvailable: BehaviorSubject<any> = new BehaviorSubject(this._data);
+  private _isDataSet: BehaviorSubject<any> = new BehaviorSubject(this._data);
 
   observable$: Observable<any[]>;
   filter = new FormControl('');
 
   constructor() {
-    this._isDataAvailable.subscribe(
+    this._isDataSet.subscribe(
       data => {
         if (typeof data !== "undefined") {
-          this._data = this._isDataAvailable.value;
+          this._data = this._isDataSet.value;
           this.observable$ = this.filter.valueChanges.pipe(
             startWith(''),
             map(text => this.search(text)),
@@ -38,11 +38,11 @@ export class FilterService {
   }
 
 
-  get isDataAvailable(): BehaviorSubject<any> {
-    return this._isDataAvailable;
+  get isDataSet(): BehaviorSubject<any> {
+    return this._isDataSet;
   }
 
-  set isDataAvailable(value: BehaviorSubject<any>) {
-    this._isDataAvailable = value;
+  set isDataSet(value: BehaviorSubject<any>) {
+    this._isDataSet = value;
   }
 }
