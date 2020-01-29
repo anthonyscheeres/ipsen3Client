@@ -7,6 +7,7 @@ import { ExistingExperimentComponent } from './existing-experiment/existing-expe
 import { CreateExperimentComponent } from '../create-experiment/create-experiment.component';
 import { getExperimentUrl } from './ExperimentUrl';
 import { FilterService } from "../filter.service";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-experiment-list',
@@ -19,8 +20,7 @@ import { FilterService } from "../filter.service";
 })
 
 export class ExperimentListComponent implements OnInit {
-  modalService: any;
-  constructor(private http: HttpClient, private popupService: PopupService, private filterService: FilterService) { }
+  constructor(private http: HttpClient, private popupService: PopupService, private modalService: NgbModal, private filterService: FilterService) { }
 
   showExperiments() {
     this.http.get<ExperimentModel[]>(
