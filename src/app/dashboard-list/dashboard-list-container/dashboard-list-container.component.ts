@@ -48,7 +48,7 @@ export class DashboardListContainerComponent implements OnInit {
       .get<ExperimentModel>(getExperimentUrl())
       .subscribe(posts => {
         this.serverExperiments = posts;
-     
+
       });
   }
 

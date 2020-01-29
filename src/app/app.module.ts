@@ -28,6 +28,7 @@ import { DashboardListComponent } from './dashboard-list/dashboard-list.componen
 import { DashboardListContainerComponent } from './dashboard-list/dashboard-list-container/dashboard-list-container.component';
 import {PopupService} from "./popup.service";
 import { RolepipePipe } from './rolepipe.pipe';
+import { FilterService } from "./filter.service";
 
 
 
@@ -44,9 +45,6 @@ import { RolepipePipe } from './rolepipe.pipe';
     LoginFormComponent,
     RegisterFormComponent,
     ExperimentListComponent,
-    CreateExperimentComponent,
-    ExistingExperimentComponent,
-    UpdateUsersComponent,
     ExperimentListComponent,
     ConfirmPopupComponent,
     AlertPopupComponent,
@@ -104,6 +102,7 @@ import { RolepipePipe } from './rolepipe.pipe';
   ],
   providers: [
     PopupService,
+    FilterService,
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy
