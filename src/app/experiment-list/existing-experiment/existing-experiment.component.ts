@@ -5,10 +5,11 @@ import {ServerModel} from '../../models/ServerModel';
 import {AccountModel} from '../../models/AccountModel';
 import * as url from 'url';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {getExperimentUrl} from '../ExperimentUrl';
+import {getCreateExperimentUrl, getExperimentUrl, getUpdateExperimentUrl} from '../ExperimentUrl';
 import {LogModel} from '../../models/LogModel';
 import {log} from 'util';
 import DataModel from "../../models/DataModel";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-existing-experiment-component',
@@ -31,11 +32,13 @@ export class ExistingExperimentComponent implements OnInit {
 
   dataFromServer: LogModel[];
   dataFromServerOnUpload: any;
+  dataFromServerUpdate: any;
 
   newLogTitle: string = "Log titel";
   newLogDescription: string = "Log omschrijving";
 
-  constructor(public activeModal: NgbActiveModal, private http: HttpClient) { }
+  constructor(public activeModal: NgbActiveModal, private http: HttpClient) {
+  }
 
   ngOnInit() {
     this.business_owner = this.model.business_owner;
@@ -52,36 +55,36 @@ export class ExistingExperimentComponent implements OnInit {
     this.fetchLogRows();
   }
 
-  fetchLogRows(){
+  fetchLogRows() {
     let url = this.configureDowloadUrl();
 
     this.http.get<LogModel[]>(
       url).subscribe(responseData => {
         console.log(responseData
         );
-          this.dataFromServer = responseData;
-        }
-      )
+        this.dataFromServer = responseData;
+      }
+    )
   }
 
-  configureDowloadUrl(){
+  configureDowloadUrl() {
     let host = ServerModel.host;
     let port = ServerModel.port;
     let token = DataModel.account.token;
-    let url = "http://" + host + ":" + port + "/log/" + token +" /download/" + this.experiment_id;
+    let url = "http://" + host + ":" + port + "/log/" + token + " /download/" + this.experiment_id;
     return url
   }
 
-  configureUploadUrl(){
+  configureUploadUrl() {
     let host = ServerModel.host;
     let port = ServerModel.port;
     let token = DataModel.account.token;
 
-    let url = "http://" + host + ":" + port + "/log/" + token +"/upload/";
+    let url = "http://" + host + ":" + port + "/log/" + token + "/upload/";
     return url;
   }
 
-  uploadLog(){
+  uploadLog() {
     let logModel = new LogModel();
 
     logModel.title = this.newLogTitle;
@@ -92,13 +95,33 @@ export class ExistingExperimentComponent implements OnInit {
       {
         headers: new HttpHeaders({
           "Accept": "application/json",
-          "Content-Type": "application/json"})
+          "Content-Type": "application/json"
+        })
 
       }).subscribe(responsData => {
-        this.dataFromServerOnUpload = responsData;
-        this.fetchLogRows();
+      this.dataFromServerOnUpload = responsData;
+      this.fetchLogRows();
     });
+  }
 
+  async updateProject() {
+    let data = "{" + "id:" + this.experiment_id + 
+    this.experiment_id
+    console.log(data);
+    // console.log(getCreateExperimentUrl());
 
+    this.http.post(getUpdateExperimentUrl(), data,
+      {
+        headers: new HttpHeaders({
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        })
+      }).subscribe(
+      responseData => {
+        this.dataFromServerUpdate = responseData;
+        console.log(responseData);
+      }
+    )
+    this.activeModal.close();
   }
 }

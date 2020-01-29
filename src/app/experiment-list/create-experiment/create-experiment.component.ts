@@ -32,7 +32,7 @@ export class CreateExperimentComponent implements OnInit {
 
   async onSubmit(form: NgForm) {
     let data = form.value;
-    // console.log(data);
+    console.log(data);
     // console.log(getCreateExperimentUrl());
 
     this.http.post(getCreateExperimentUrl(), data,
