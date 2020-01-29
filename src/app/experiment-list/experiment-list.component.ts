@@ -5,9 +5,9 @@ import {ExperimentModel} from "../models/ExperimentModel";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {CreateExperimentComponent} from "../create-experiment/create-experiment.component";
 import {ExistingExperimentComponent} from './existing-experiment/existing-experiment.component';
-import { AccountModel } from '../models/AccountModel';
-import { deleteExperiment, getExperiments } from "../services/experiment";
+import {deleteExperiment} from "../services/experiment";
 import {PopupService} from "../popup.service";
+import {TableService} from "../table.service";
 
 @Component({
   selector: 'app-experiment-list',
@@ -19,13 +19,15 @@ import {PopupService} from "../popup.service";
 export class ExperimentListComponent implements OnInit {
   dataFromServer: any;
 
-  constructor(private http: HttpClient, private popupService: PopupService, private modalService: NgbModal) { }
+  constructor(private http: HttpClient, private popupService: PopupService, private modalService: NgbModal,
+              private tableService: TableService) { }
 
   showExperiments() {
     this.http.get<ExperimentModel[]>(
       getExperimentUrl())
       .subscribe(
         responseData => {
+          this.tableService.
           this.dataFromServer = responseData;
         }
       )

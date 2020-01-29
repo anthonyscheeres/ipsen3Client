@@ -27,6 +27,7 @@ import { DashboardListComponent } from './dashboard-list/dashboard-list.componen
 import { DashboardListContainerComponent } from './dashboard-list/dashboard-list-container/dashboard-list-container.component';
 import {PopupService} from "./popup.service";
 import { RolepipePipe } from './rolepipe.pipe';
+import {NgbdSortableHeader} from "./sortable.directive";
 
 
 
@@ -52,7 +53,7 @@ import { RolepipePipe } from './rolepipe.pipe';
     DashboardListComponent,
     DashboardListContainerComponent,
     RolepipePipe,
-
+    NgbdSortableHeader,
   ],
     imports: [
         BrowserModule,
