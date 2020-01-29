@@ -23,6 +23,7 @@ export class CreateExperimentComponent implements OnInit {
   businessOwners: string;
   inovation_cost: number;
   money_source: string;
+  private modalReference: any;
 
   constructor(private http: HttpClient, public activeModal: NgbActiveModal) {
   }
@@ -32,8 +33,6 @@ export class CreateExperimentComponent implements OnInit {
 
   async onSubmit(form: NgForm) {
     let data = form.value;
-    console.log(data);
-    console.log(getCreateExperimentUrl());
 
     this.http.post(getCreateExperimentUrl(), data,
       {
@@ -43,7 +42,6 @@ export class CreateExperimentComponent implements OnInit {
       }).subscribe(
         responseData => {
           this.dataFromServer = responseData;
-          console.log(responseData);
         }
       )
     this.activeModal.close();

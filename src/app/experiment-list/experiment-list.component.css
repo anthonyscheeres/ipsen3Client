@@ -1,9 +1,10 @@
+
 .table-fixed thead {
   width: 100%;
 }
 
 .table-fixed tbody {
-  height: 50vh;
+  max-height: 50vh;
   overflow: auto;
   width: 100%;
   display: inline-grid;
@@ -18,8 +19,9 @@
   border-bottom-width: 0;
 }
 
-.table-fixed table {
+table.table-fixed  {
   border-collapse: collapse;
+  min-height: 55vh;
 }
 
 .table-fixed thead {
@@ -32,3 +34,6 @@ button {
   color: white;
 }
 
+.max-width {
+  width: 100%;
+}

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -22,13 +22,12 @@ import { CreateExperimentComponent } from './experiment-list/create-experiment/c
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule , ReactiveFormsModule} from "@angular/forms";
 import { ExistingExperimentComponent } from './experiment-list/existing-experiment/existing-experiment.component';
-import {UpdateUsersComponent} from "./update-users/update-users.component";
+import {UpdateUsersComponent} from './update-users/update-users.component';
 import { DashboardListComponent } from './dashboard-list/dashboard-list.component';
 import { DashboardListContainerComponent } from './dashboard-list/dashboard-list-container/dashboard-list-container.component';
-import {PopupService} from "./popup.service";
-import { RolepipePipe } from './rolepipe.pipe';
-
-
+import {FilterService} from './filter.service';
+import {PopupService} from './popup.service';
+import {RolepipePipe} from './rolepipe.pipe';
 
 @NgModule({
   declarations: [
@@ -70,20 +69,20 @@ import { RolepipePipe } from './rolepipe.pipe';
                     component: HomeComponent
                 },
                 {
-                    path: "",
+                    path: '',
                     component: LoginComponent
                 },
                 {
-                    path: "users",
+                    path: 'users',
                     component: UsersComponent
                 },
                 {
-                    path: "experiment",
+                    path: 'experiment',
                     component: ExperimentListComponent
                 },
 
                 {
-                    path: "dashboard",
+                    path: 'dashboard',
                     component: DashboardListComponent
                 },
 
@@ -103,6 +102,7 @@ import { RolepipePipe } from './rolepipe.pipe';
   ],
   providers: [
     PopupService,
+    FilterService,
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy
