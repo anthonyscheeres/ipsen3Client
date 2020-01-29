@@ -10,6 +10,7 @@ import {PopupService} from "../popup.service";
 import DataModel from '../models/DataModel';
 import {Router} from '@angular/router';
 import { FilterService } from "../filter.service";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 
 @Component({
@@ -23,8 +24,7 @@ import { FilterService } from "../filter.service";
 })
 
 export class ExperimentListComponent implements OnInit {
-  modalService: any;
-  constructor(private http: HttpClient, private popupService: PopupService, private filterService: FilterService) { }
+  constructor(private http: HttpClient, private popupService: PopupService, private modalService: NgbModal, private filterService: FilterService) { }
 
   showExperiments() {
     this.http.get<ExperimentModel[]>(
