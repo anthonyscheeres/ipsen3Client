@@ -5,6 +5,11 @@ import { getPhaseExperimentUrl } from 'src/app/experiment-list/ExperimentUrl';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import {DashboardModel} from 'src/app/models/DashboardModel';
 import { PopupService } from 'src/app/popup.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ExistingExperimentComponent } from 'src/app/experiment-list/existing-experiment/existing-experiment.component';
+
+import DataModel from '../../models/DataModel';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-list-container',
@@ -22,12 +27,17 @@ export class DashboardListContainerComponent implements OnInit {
   @Input() phase: string;
   @Input() phaseCheck: string;
 
-  constructor(private http: HttpClient, private popupService: PopupService) {
+  constructor(private http: HttpClient, private popupService: PopupService, private modalService: NgbModal, private router: Router) {
 
   }
 
   ngOnInit() {
-    this.fetchPost();
+    if(DataModel.account.token == null) {
+      this.popupService.dangerPopup("U bent nog niet ingelogd.");
+      this.router.navigate(['/']);
+    } else {
+      this.fetchPost();
+    }
   }
 
   dragAndSendExperimentToParent(ev: any, selectedExperiment: any){
@@ -54,6 +64,12 @@ export class DashboardListContainerComponent implements OnInit {
     ev.target.appendChild(document.getElementById(data));
     this.updatePost();
     this.boxContainerRemovesColor(ev);
+  }
+
+  openExistingExperiment(model: ExperimentModel){
+    const modal = this.modalService.open(ExistingExperimentComponent, { windowClass : "myCustomModalClass"});
+    modal.componentInstance.model = model;
+
   }
 
   updatePost(){

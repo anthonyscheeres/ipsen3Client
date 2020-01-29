@@ -10,6 +10,8 @@ import {UserUpdate} from "../services/user-update.service";
 import {PopupService} from "../popup.service";
 import {error} from "util";
 import {UserPermissionService} from "../services/user-permission-service";
+import {LoginComponent} from '../login/login.component';
+import DataModel from '../models/DataModel';
 
 /**
  * @author Valerie Timmerman
@@ -46,6 +48,9 @@ export class UsersComponent implements OnInit {
         return "EMPLOYEE";
       case UserRole.SUPERUSER:
         return "SUPERUSER";
+      case UserRole.UNCLASSIFIED:
+        console.log(user.user_role);
+        return "UNCLASSIFIED";
     }
   }
 
@@ -98,11 +103,17 @@ export class UsersComponent implements OnInit {
       );
   }
 
-  async ngOnInit() {
-    this.showUsers();
-    var self = this;
-    this.permissions.initialize(function() {
-      self.canEdit = self.permissions.hasSuperPermissions();
-    });
+  ngOnInit() {
+    if(DataModel.account.token == null) {
+      this.popupService.dangerPopup("U bent nog niet ingelogd.");
+      this._router.navigate(['/']);
+    } else {
+      this.showUsers();
+      var self = this;
+      this.permissions.initialize(function() {
+        self.canEdit = self.permissions.hasSuperPermissions();
+      });
+    }
+
   }
 }
