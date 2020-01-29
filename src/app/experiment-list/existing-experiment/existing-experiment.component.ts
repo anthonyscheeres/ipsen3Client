@@ -105,7 +105,7 @@ export class ExistingExperimentComponent implements OnInit {
   }
 
   async updateProject() {
-    let data = "{" + "id:" + this.experiment_id + 
+    let data = "{" + "id:" + this.experiment_id +
     this.experiment_id
     console.log(data);
     // console.log(getCreateExperimentUrl());

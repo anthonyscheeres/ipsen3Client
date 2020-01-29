@@ -53,13 +53,6 @@ export class ExperimentListComponent implements OnInit {
     )
   }
 
-
-  openExistingExperiment(model: ExperimentModel){
-    const modal = this.modalService.open(ExistingExperimentComponent, { windowClass : "myCustomModalClass"});
-    modal.componentInstance.model = model;
-
-  }
-
   openCreateExperiment() {
     this.modalService.open(CreateExperimentComponent, { windowClass : "myCustomModalClass"});
   }
