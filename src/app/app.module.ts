@@ -14,17 +14,20 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { ExperimentListComponent } from './experiment-list/experiment-list.component';
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmPopupComponent } from './popup/confirm-popup/confirm-popup.component';
 import { AlertPopupComponent } from './popup/alert-popup/alert-popup.component';
 import { HorizontaleNavigationBarComponent } from './horizontale-navigation-bar/horizontale-navigation-bar.component';
 import { VerticalNavigationBarComponent } from './vertical-navigation-bar/vertical-navigation-bar.component';
+import { CreateExperimentComponent } from './create-experiment/create-experiment.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
+import { ExistingExperimentComponent } from './experiment-list/existing-experiment/existing-experiment.component';
+import {UpdateUsersComponent} from './update-users/update-users.component';
 import { DashboardListComponent } from './dashboard-list/dashboard-list.component';
 import { DashboardListContainerComponent } from './dashboard-list/dashboard-list-container/dashboard-list-container.component';
-import {FilterService} from "./filter.service";
-import {PopupService} from "./popup.service";
-import {CreateExperimentComponent} from "./create-experiment/create-experiment.component";
+import {FilterService} from './filter.service';
+import {PopupService} from './popup.service';
+import {RolepipePipe} from './rolepipe.pipe';
 
 @NgModule({
   declarations: [
@@ -39,11 +42,16 @@ import {CreateExperimentComponent} from "./create-experiment/create-experiment.c
     LoginFormComponent,
     RegisterFormComponent,
     ExperimentListComponent,
+    CreateExperimentComponent,
+    ExistingExperimentComponent,
+    UpdateUsersComponent,
+    ExperimentListComponent,
     ConfirmPopupComponent,
     AlertPopupComponent,
     DashboardListComponent,
     DashboardListContainerComponent,
-    CreateExperimentComponent
+    RolepipePipe,
+
   ],
     imports: [
         BrowserModule,
@@ -61,20 +69,20 @@ import {CreateExperimentComponent} from "./create-experiment/create-experiment.c
                     component: HomeComponent
                 },
                 {
-                    path: "",
+                    path: '',
                     component: LoginComponent
                 },
                 {
-                    path: "users",
+                    path: 'users',
                     component: UsersComponent
                 },
                 {
-                    path: "experiment",
+                    path: 'experiment',
                     component: ExperimentListComponent
                 },
 
                 {
-                    path: "dashboard",
+                    path: 'dashboard',
                     component: DashboardListComponent
                 },
 

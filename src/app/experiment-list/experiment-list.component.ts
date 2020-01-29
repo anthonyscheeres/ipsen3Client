@@ -1,43 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ExperimentModel } from "../models/ExperimentModel";
-import { deleteExperiment } from "../services/experiment";
-import { PopupService } from "../popup.service";
-import { ExistingExperimentComponent } from './existing-experiment/existing-experiment.component';
-import { CreateExperimentComponent } from '../create-experiment/create-experiment.component';
-import { getExperimentUrl } from './ExperimentUrl';
-import { FilterService } from "../filter.service";
-import { BehaviorSubject } from "rxjs";
+import {getExperimentUrl} from "./ExperimentUrl";
+import {ExperimentModel} from "../models/ExperimentModel";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {CreateExperimentComponent} from "../create-experiment/create-experiment.component";
+import {ExistingExperimentComponent} from './existing-experiment/existing-experiment.component';
+import { AccountModel } from '../models/AccountModel';
+import { deleteExperiment, getExperiments } from "../services/experiment";
+import {PopupService} from "../popup.service";
 
 @Component({
   selector: 'app-experiment-list',
   templateUrl: './experiment-list.component.html',
   styleUrls: ['./experiment-list.component.css'],
-  providers: [
-    PopupService,
-    FilterService,
-  ]
+  providers: [PopupService]
 })
 
 export class ExperimentListComponent implements OnInit {
   dataFromServer: any;
-  dataFromServerAvailable: BehaviorSubject<any> = new BehaviorSubject(this.dataFromServer);
-  modalService: any;
 
-  constructor(private http: HttpClient, private popupService: PopupService, private filterService: FilterService) {
-    this.dataFromServerAvailable.subscribe(
-      data => {
-        this.filterService.isDataAvailable.next(data)
-      }
-    )
-  }
+  constructor(private http: HttpClient, private popupService: PopupService, private modalService: NgbModal) { }
 
   showExperiments() {
     this.http.get<ExperimentModel[]>(
       getExperimentUrl())
       .subscribe(
         responseData => {
-          this.dataFromServerAvailable.next(responseData);
+          this.dataFromServer = responseData;
         }
       )
   }
@@ -65,10 +54,14 @@ export class ExperimentListComponent implements OnInit {
     )
   }
 
+
   openExistingExperiment(model: ExperimentModel){
-    const modal = this.modalService.open(ExistingExperimentComponent);
+    const modal = this.modalService.open(ExistingExperimentComponent, { windowClass : "myCustomModalClass"});
     modal.componentInstance.model = model;
+
   }
 
-  open() {this.modalService.open(CreateExperimentComponent);}
-}
+  open() {
+    this.modalService.open(CreateExperimentComponent);
+  }
+};
