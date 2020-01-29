@@ -28,10 +28,6 @@
     </thead>
     <tbody>
     <tr *ngFor="let experiment of filterService.observable$ | async">
-<!--      <script>alert('test')</script>-->
-<!--      <script>console.log(filterService.filter)</script>-->
-<!--      <script>console.log(filterService.filter)</script>-->
-<!--      <script>console.log('experiment ' + experiment)</script>-->
       <td><ngb-highlight [result]="experiment.experiment_name " [term]="filterService.filter.value"></ngb-highlight></td>
       <td><ngb-highlight [result]="experiment.experiment_description " [term]="filterService.filter.value"></ngb-highlight></td>
       <td><ngb-highlight [result]="experiment.experiment_id " [term]="filterService.filter.value"></ngb-highlight></td>
