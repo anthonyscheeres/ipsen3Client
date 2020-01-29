@@ -37,33 +37,17 @@ export class FilterService {
   }
 
   search(text: string, pipe: PipeTransform): any[] {
-  if (this.data == 'undefined') {
-    return null;
-  }
-    console.log('ff')
-    console.log(this.data)
-    console.log(this.dataAvailable)
-    return this.data.filter(data => {
-      console.log(data)
-      console.log(text)
-      const term = text.toLowerCase();
-      // loop trougth keyvalues
+    // if (this.data == 'undefined') {
+    //   return null;
+    // }
 
-      // for (let value in data) {
-      //   console.log(value);
-      //   console.log(value)//10 20 30
-      // }
-      console.log(data.experiment_name.toLowerCase().includes(term))
+    return this.data.filter(data => {
+
+      const term = text.toLowerCase();
+
 
       return data.experiment_name.toLowerCase().includes(term)
-        || pipe.transform(data.experiment_description).includes(term)
-        // || pipe.transform(data.population.experiment_id).includes(term);
-        // || pipe.transform(data.population.experiment_id).includes(term);
-        // || pipe.transform(data.population.experiment_id).includes(term);
-        // || pipe.transform(data.population.experiment_id).includes(term);
-        // || pipe.transform(data.population.experiment_id).includes(term);
-        // || pipe.transform(data.population.experiment_id).includes(term);
-        // || pipe.transform(data.population.experiment_id).includes(term);
+
     });
   }
 

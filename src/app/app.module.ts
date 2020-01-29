@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -15,22 +15,16 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { ExperimentListComponent } from './experiment-list/experiment-list.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmPopupComponent } from './popup/confirm-popup/confirm-popup.component';
 import { AlertPopupComponent } from './popup/alert-popup/alert-popup.component';
 import { HorizontaleNavigationBarComponent } from './horizontale-navigation-bar/horizontale-navigation-bar.component';
 import { VerticalNavigationBarComponent } from './vertical-navigation-bar/vertical-navigation-bar.component';
-import { CreateExperimentComponent } from './create-experiment/create-experiment.component';
-import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import { FormsModule , ReactiveFormsModule} from "@angular/forms";
-import { ExistingExperimentComponent } from './experiment-list/existing-experiment/existing-experiment.component';
-import {UpdateUsersComponent} from "./update-users/update-users.component";
 import { DashboardListComponent } from './dashboard-list/dashboard-list.component';
 import { DashboardListContainerComponent } from './dashboard-list/dashboard-list-container/dashboard-list-container.component';
+import {FilterService} from "./filter.service";
 import {PopupService} from "./popup.service";
-import { RolepipePipe } from './rolepipe.pipe';
-import { FilterService } from "./filter.service";
-
-
 
 @NgModule({
   declarations: [
@@ -45,13 +39,10 @@ import { FilterService } from "./filter.service";
     LoginFormComponent,
     RegisterFormComponent,
     ExperimentListComponent,
-    ExperimentListComponent,
     ConfirmPopupComponent,
     AlertPopupComponent,
     DashboardListComponent,
-    DashboardListContainerComponent,
-    RolepipePipe,
-
+    DashboardListContainerComponent
   ],
     imports: [
         BrowserModule,
@@ -95,10 +86,7 @@ import { FilterService } from "./filter.service";
     ],
   entryComponents: [
     ConfirmPopupComponent,
-    AlertPopupComponent,
-    CreateExperimentComponent,
-    ExistingExperimentComponent,
-    UpdateUsersComponent
+    AlertPopupComponent
   ],
   providers: [
     PopupService,

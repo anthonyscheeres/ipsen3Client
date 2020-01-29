@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ExperimentModel } from "../models/ExperimentModel";
 import { deleteExperiment, getExperiments } from "../services/experiment";
@@ -29,8 +29,6 @@ export class ExperimentListComponent implements OnInit {
   constructor(private http: HttpClient, private popupService: PopupService, private filterService: FilterService) {
     this.sWsAvailable.subscribe(
       data => {
-        // console.log('data ' + data)
-        // this.filterService.data = data;
         this.filterService.dataAvailable.next(data)
       }
     )
@@ -42,17 +40,14 @@ export class ExperimentListComponent implements OnInit {
       getExperimentUrl())
       .subscribe(
         responseData => {
-          // this.dataFromServer = responseData;
+          this.dataFromServer = responseData;
           this.sWsAvailable.next(responseData);
-          console.log(responseData)
-          console.log('response');
         }
       )
   }
 
   async ngOnInit() {
     this.showExperiments();
-    console.log("add dataserver to ") // to slow
   }
 
 
