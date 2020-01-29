@@ -96,7 +96,8 @@ import {RolepipePipe} from './rolepipe.pipe';
   entryComponents: [
     ConfirmPopupComponent,
     AlertPopupComponent,
-    CreateExperimentComponent
+    CreateExperimentComponent,
+    ExistingExperimentComponent
   ],
   providers: [
     PopupService,
