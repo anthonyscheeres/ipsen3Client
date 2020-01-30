@@ -10,7 +10,6 @@ import {PopupService} from "../popup.service";
 import DataModel from '../models/DataModel';
 import {Router} from '@angular/router';
 import { FilterService } from "../filter.service";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 
 @Component({
