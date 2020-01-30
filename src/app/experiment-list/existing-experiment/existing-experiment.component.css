@@ -18,5 +18,19 @@
   padding-right: 10px;
 }
 
+.small_one {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+thead, tbody { display: block; }
+
+tbody {
+  height: 75px;       /* Just for the demo          */
+  overflow-y: auto;    /* Trigger vertical scroll    */
+  overflow-x: hidden;  /* Hide the horizontal scroll */
+}
+
+
 
 

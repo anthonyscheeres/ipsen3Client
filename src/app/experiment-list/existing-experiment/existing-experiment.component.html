@@ -1,9 +1,9 @@
-<div class="modal-header">
-  <h4 class="modal-title">Experiment</h4>
-  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
+<!--<div class="modal-header">-->
+<!--  <h4 class="modal-title">Experiment</h4>-->
+<!--  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">-->
+<!--    <span aria-hidden="true">&times;</span>-->
+<!--  </button>-->
+<!--</div>-->
 
 <div class="form-group big_row">
   <label for="experiment_name">Experiment Naam</label>
@@ -70,10 +70,12 @@
 </div>
 
 
-<div class="form-group big_row">
+<div class="form-group small_row">
   <p>Voer hier een nieuwe logregel toe:</p>
-  <input [(ngModel)]="newLogTitle"  class="form-control" type="text" id="newLogTitle">
-  <input [(ngModel)]="newLogDescription"  class="form-control" type="text" id="newLogDescription">
+  <div class="row small_one">
+    <input [(ngModel)]="newLogTitle"  class="form-control small_field" type="text" id="newLogTitle">
+    <input [(ngModel)]="newLogDescription"  class="form-control small_field small_one" type="text" id="newLogDescription">
+  </div>
 </div>
 
 <div class="table-responsive table-striped log_table">
