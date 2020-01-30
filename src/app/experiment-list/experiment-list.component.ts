@@ -10,6 +10,7 @@ import {PopupService} from "../popup.service";
 import DataModel from '../models/DataModel';
 import {Router} from '@angular/router';
 import { FilterService } from "../filter.service";
+import {UserPermissionService} from '../services/user-permission-service';
 
 
 @Component({
@@ -23,7 +24,12 @@ import { FilterService } from "../filter.service";
 })
 
 export class ExperimentListComponent implements OnInit {
-  constructor(private http: HttpClient, private popupService: PopupService, private modalService: NgbModal, private filterService: FilterService) { }
+  dataFromServer: any;
+  canEdit = false;
+
+  constructor(private http: HttpClient, private popupService: PopupService, private modalService: NgbModal,
+              private router: Router, private permissionService: UserPermissionService, private filterService: FilterService) {
+  }
 
   showExperiments() {
     this.http.get<ExperimentModel[]>(
@@ -35,8 +41,17 @@ export class ExperimentListComponent implements OnInit {
       )
   }
 
-  async ngOnInit() {
-    this.showExperiments();
+  ngOnInit() {
+    if(DataModel.account.token == null) {
+      this.popupService.dangerPopup("U bent nog niet ingelogd.");
+      this.router.navigate(['/']);
+    } else {
+      var self = this;
+      this.permissionService.initialize(function() {
+        self.canEdit = self.permissionService.hasSuperPermissions();
+      });
+      this.showExperiments();
+    }
   }
 
 
