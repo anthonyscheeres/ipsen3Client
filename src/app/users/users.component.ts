@@ -22,6 +22,7 @@ import {FilterService} from "../filter.service";
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
+  users: UserModel[];
   canEdit;
 
   constructor(
@@ -98,7 +99,8 @@ export class UsersComponent implements OnInit {
       .subscribe(
         responseData => {
           this.filterService.isDataSet.next(responseData)
-        }
+          this.updateService.users = responseData.slice();
+          this.users = responseData.slice();        }
       );
   }
 
