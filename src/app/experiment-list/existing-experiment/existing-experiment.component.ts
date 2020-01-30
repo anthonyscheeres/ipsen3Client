@@ -1,15 +1,11 @@
 import { Component, OnInit, Input} from '@angular/core';
-import {NgbActiveModal, NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {ExperimentModel} from '../../models/ExperimentModel';
 import {ServerModel} from '../../models/ServerModel';
-import {AccountModel} from '../../models/AccountModel';
-import * as url from 'url';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {getCreateExperimentUrl, getExperimentUrl, getUpdateExperimentUrl} from '../ExperimentUrl';
+import { getUpdateExperimentUrl} from '../ExperimentUrl';
 import {LogModel} from '../../models/LogModel';
-import {log} from 'util';
 import DataModel from "../../models/DataModel";
-import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-existing-experiment-component',
