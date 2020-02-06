@@ -32,7 +32,7 @@ export class UsersComponent implements OnInit {
     private updateService: UserUpdate,
     private popupService: PopupService,
     private permissions: UserPermissionService,
-    private filterService: FilterService
+    public filterService: FilterService
   ) { }
 
   /**

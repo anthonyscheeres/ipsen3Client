@@ -1,34 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {Component, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 import {getExperimentUrl} from "./ExperimentUrl";
 import {ExperimentModel} from "../models/ExperimentModel";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {CreateExperimentComponent} from "./create-experiment/create-experiment.component";
 import {ExistingExperimentComponent} from './existing-experiment/existing-experiment.component';
-import { deleteExperiment, getExperiments } from "../services/experiment";
+import {deleteExperiment} from "../services/experiment";
 import {PopupService} from "../popup.service";
 import DataModel from '../models/DataModel';
 import {Router} from '@angular/router';
-import { FilterService } from "../filter.service";
+import {FilterService } from "../filter.service";
 import {UserPermissionService} from '../services/user-permission-service';
-
 
 @Component({
   selector: 'app-experiment-list',
   templateUrl: './experiment-list.component.html',
   styleUrls: ['./experiment-list.component.css'],
-  providers: [
-    PopupService,
-    FilterService,
-  ]
 })
 
 export class ExperimentListComponent implements OnInit {
   dataFromServer: any;
   canEdit = false;
 
-  constructor(private http: HttpClient, private popupService: PopupService, private modalService: NgbModal,
-              private router: Router, private permissionService: UserPermissionService, private filterService: FilterService) {
+  constructor(
+    private http: HttpClient,
+    private popupService: PopupService,
+    private modalService: NgbModal,
+    private router: Router,
+    private permissionService: UserPermissionService,
+    public filterService: FilterService) {
   }
 
   showExperiments() {
@@ -53,7 +53,6 @@ export class ExperimentListComponent implements OnInit {
       this.showExperiments();
     }
   }
-
 
   deleteExperiment(experiment : ExperimentModel) {
     this.popupService.showConfirmPopup(experiment.experiment_name).then(
@@ -81,5 +80,4 @@ export class ExperimentListComponent implements OnInit {
   openCreateExperiment() {
     this.modalService.open(CreateExperimentComponent, { windowClass : "myCustomModalClass"});
   }
-
-};
+}
